@@ -9,4 +9,8 @@ public class TestClass {
     public static void thisHasNoJavaDoc() {
     	System.out.print("It's not even called xD");
     }
+    
+    public static void anotherUseLessMethod() {
+    	
+    }
 }
