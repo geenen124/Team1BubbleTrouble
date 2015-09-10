@@ -67,6 +67,7 @@ public class Player {
 		this.shield = false;
 		
 		this.mg = mg;
+		this.gs = (GameState) mg.getState(mg.getGameState());
 	}
 	
 	/**
