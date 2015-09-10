@@ -51,6 +51,24 @@ public class MainGame extends StateBasedGame {
 	private String highscoresFile = "resources/highscores.txt";
 	private HighScores highscores;
 	
+	//Hello
+	private int containerHeight;
+	private int containerWidth;
+	
+	/**
+	 * @return the height of the container
+	 */
+	public int getContainerHeight() {
+		return containerHeight;
+	}
+
+	/**
+	 * @return the height of the container
+	 */
+	public int getContainerWidth() {
+		return containerWidth;
+	}
+
 	//////////////////////// STATES //////////////
 	private final int startState = 0;
 	private final int gameState = 1;
@@ -140,6 +158,8 @@ public class MainGame extends StateBasedGame {
 	@Override
 	public void initStatesList(GameContainer container) throws SlickException {
 		this.container = container;
+		this.containerWidth = this.container.getWidth();
+		this.containerHeight = this.container.getHeight();
 		
 		this.gameStateState = new GameState(this);
 		
