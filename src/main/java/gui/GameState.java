@@ -940,7 +940,14 @@ public class GameState extends BasicGameState {
 	 */
 	private void drawFloatingScores(Graphics graphics) {
 		synchronized (floatingScoreList) {
-			for (FloatingScore score : floatingScoreList) {
+//			for (FloatingScore score : floatingScoreList) {
+//				RND.textSpecifiedColor(graphics, score.getX(), score.getY(), score.getScore(),
+//						new Color(mainGame.getColor().r, mainGame.getColor().g,
+//								mainGame.getColor().b, score.getOpacity()));
+//			}
+			Iterator<FloatingScore> sc = floatingScoreList.iterator();
+			while (sc.hasNext()) {
+				FloatingScore score = sc.next();
 				RND.textSpecifiedColor(graphics, score.getX(), score.getY(), score.getScore(),
 						new Color(mainGame.getColor().r, mainGame.getColor().g,
 								mainGame.getColor().b, score.getOpacity()));
@@ -1352,7 +1359,7 @@ public class GameState extends BasicGameState {
 	/**
 	 * @return floating scores
 	 */
-	public ArrayList<FloatingScore> getFloatingScores() {
+	public synchronized ArrayList<FloatingScore> getFloatingScores() {
 		return floatingScoreList;
 	}
 
