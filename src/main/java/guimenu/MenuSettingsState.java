@@ -148,6 +148,7 @@ public class MenuSettingsState extends BasicGameState {
 	public void enter(GameContainer container, StateBasedGame arg1) throws SlickException {
 		Logger.getInstance().log("Entering MenuSettingsState", 
 				Logger.PriorityLevels.LOW, "States");
+		buttons.reset();
 		RND.getInstance().setOpacity(0.0f);
 		mainGame.stopSwitchState();
 	}
@@ -283,7 +284,6 @@ public class MenuSettingsState extends BasicGameState {
 			processButtons(input);
 			processColorButtons(input);
 		}
-		
 		exit(container, sbg, delta);
 	}
 
@@ -393,25 +393,25 @@ public class MenuSettingsState extends BasicGameState {
 			mainGame.shuffleColor(true);
 			mainGame.setSwitchState(mainGame.getSettingsState());
 		} else if (redButton.isHighlight()) {
-			mainGame.setNextColor(COLOR_RED);
+			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_RED);
 			mainGame.setSwitchState(mainGame.getSettingsState());
 		} else if (blueButton.isHighlight()) {
-			mainGame.setNextColor(COLOR_BLUE);
+			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_BLUE);
 			mainGame.setSwitchState(mainGame.getSettingsState());
 		} else if (orangeButton.isHighlight()) {
-			mainGame.setNextColor(COLOR_ORANGE);
+			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_ORANGE);
 			mainGame.setSwitchState(mainGame.getSettingsState());
 		} else if (greenButton.isHighlight()) {
-			mainGame.setNextColor(COLOR_GREEN);
+			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_GREEN);
 			mainGame.setSwitchState(mainGame.getSettingsState());
 		} else if (whiteButton.isHighlight()) {
-			mainGame.setNextColor(COLOR_WHITE);
+			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_WHITE);
 			mainGame.setSwitchState(mainGame.getSettingsState());
 		} else if (pinkButton.isHighlight()) {
-			mainGame.setNextColor(COLOR_PINK);
+			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_PINK);
 			mainGame.setSwitchState(mainGame.getSettingsState());
 		} else if (yellowButton.isHighlight()) {
-			mainGame.setNextColor(COLOR_YELLOW);
+			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_YELLOW);
 			mainGame.setSwitchState(mainGame.getSettingsState());
 		} 
 	}

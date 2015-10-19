@@ -104,6 +104,7 @@ public class MenuMainState extends BasicGameState {
 	public void enter(GameContainer container, StateBasedGame arg1) throws SlickException {
 		Logger.getInstance().log("Entering MenuMainState", Logger.PriorityLevels.LOW, "States");
 		RND.getInstance().setOpacity(0.0f);
+		buttons.reset();
 		mainGame.stopSwitchState();
 	}
 	

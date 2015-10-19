@@ -48,6 +48,18 @@ public class ButtonList {
 	}
 	
 	/**
+	 * Reset all buttons in this list to an initial state. Should be used when
+	 * entering a state!
+	 */
+	public void reset() {
+		for (int i = 0; i < buttonList.size(); i++) {
+			buttonList.get(i).setHighlight(false);
+		}
+		index = 0;
+		mouseOverride = true;
+	}
+	
+	/**
 	 * @return the ArrayList of buttons.
 	 */
 	public ArrayList<Button> getButtonList() {
@@ -59,20 +71,25 @@ public class ButtonList {
 	 * @param input the input to process with.
 	 */
 	public void update(Input input) {
-		// keyboard inputs
 		if (input.isKeyPressed(Input.KEY_DOWN)) {
-			index++; mouseOverride = false;
+			if (mouseOverride) {
+				mouseOverride = false; index = 0;
+			} else {
+				index++; 
+			}
 		} else if (input.isKeyPressed(Input.KEY_UP)) {
-			index--; mouseOverride = false;
+			if (mouseOverride) {
+				mouseOverride = false; index = 0;
+			} else {
+				index--; 
+			}
 		}
-		// mouse inputs
 		for (int i = 0; i < buttonList.size(); i++) {
 			if (buttonList.get(i).isMouseOver(input)) {
 				index = i;
 				mouseOverride = true;
 			}
 		}
-		// checks
 		if (index < 0) {
 			index = buttonList.size() - 1;
 		} else if (index > buttonList.size() - 1) {
