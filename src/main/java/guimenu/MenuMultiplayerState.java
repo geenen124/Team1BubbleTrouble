@@ -2,6 +2,7 @@ package guimenu;
 
 import guigame.GameState;
 import guiobjects.Button;
+import guiobjects.ButtonList;
 import guiobjects.Popup;
 import guiobjects.RND;
 import guiobjects.Separator;
@@ -28,6 +29,8 @@ import org.newdawn.slick.state.StateBasedGame;
  */
 public class MenuMultiplayerState extends BasicGameState {
 
+	private ButtonList buttons;
+	
 	private Button returnButton;
 	private Button hostButton;
 	private Button joinButton;

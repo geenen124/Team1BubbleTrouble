@@ -19,6 +19,8 @@ public class Button {
 	
 	private static final float HALF = 0.5f;
 	
+	private boolean highlight =  false;
+	
 	/**
 	 * Button constructor class.
 	 * @param x coordinate
@@ -52,7 +54,7 @@ public class Button {
 	 * @param color the color used to draw this button
 	 */
 	public void drawColor(Graphics graphics, Input input, Color color) {
-		if (isMouseOver(input)) {
+		if (highlight) {
 			RND.getInstance().drawButtonHighlight(graphics, this);
 		} else {
 			RND.getInstance().text(graphics, x, y, text);
@@ -68,7 +70,7 @@ public class Button {
 	 * @param enable whether mouse-over highlighting is enabled
 	 */
 	public void drawColor(Graphics graphics, Input input, Color color, boolean enable) {
-		if (isMouseOver(input) && enable) {
+		if ((isMouseOver(input) || highlight) && enable) {
 			RND.getInstance().drawButtonHighlight(graphics, this);
 		} else {
 			RND.getInstance().text(graphics, x, y, text);
@@ -202,5 +204,19 @@ public class Button {
 	@Override
 	public int hashCode() {
 		return 0;
+	}
+
+	/**
+	 * @return whether the button is highlighted.
+	 */
+	public boolean isHighlight() {
+		return highlight;
+	}
+
+	/**
+	 * @param highlight make the button highlight.
+	 */
+	public void setHighlight(boolean highlight) {
+		this.highlight = highlight;
 	}
 }
