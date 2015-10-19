@@ -388,7 +388,6 @@ public class MenuSettingsState extends BasicGameState {
 	 * @param input the keyboard/mouse input of the user
 	 */
 	private void processColorButtons(Input input) {
-		mainGame.shuffleColor(false);
 		if (shuffleButton.isHighlight()) {
 			mainGame.shuffleColor(true);
 			mainGame.setSwitchState(mainGame.getSettingsState());
