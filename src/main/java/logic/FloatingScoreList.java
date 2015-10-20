@@ -1,6 +1,7 @@
 package logic;
 
 import iterator.Aggregate;
+import iterator.FloatingScoreListIterator;
 import iterator.Iterator;
 
 import java.util.ArrayList;
@@ -24,8 +25,7 @@ public class FloatingScoreList implements Aggregate {
 
 	@Override
 	public Iterator createIterator() {
-		//return new GateListIterator(this.gates);
-		return null;
+		return new FloatingScoreListIterator(this.floatingScores);
 	}
 	
 	/**

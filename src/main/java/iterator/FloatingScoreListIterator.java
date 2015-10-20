@@ -2,23 +2,23 @@ package iterator;
 
 import java.util.ArrayList;
 
-import logic.Gate;
+import logic.FloatingScore;
 
 /**
- * Iterator for GateList.
+ * Iterator for FloatingScoreList.
  * @author Stefan
  *
  */
-public class GateListIterator implements Iterator {
+public class FloatingScoreListIterator implements Iterator {
 
-	private ArrayList<Gate> list;
+	private ArrayList<FloatingScore> list;
 	private int position;
 	
 	/**
-	 * Construct a new GateListIterator.
-	 * @param list the list with gates to iterate over.
+	 * 
+	 * @param list the arrayList of floatingScore objects to iterate over
 	 */
-	public GateListIterator(ArrayList<Gate> list) {
+	public FloatingScoreListIterator(ArrayList<FloatingScore> list) {
 		this.list = list;
 		reset();
 	}
