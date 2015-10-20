@@ -1,6 +1,7 @@
 package logic;
 import guigame.GameState;
 import guimenu.MainGame;
+import iterator.GateListIterator;
 
 import java.util.ArrayList;
 
@@ -151,7 +152,10 @@ public class BouncingCircle extends Circle implements Cloneable {
 				- gameState.getLevelsHelper().getRightWall().getWidth()) {
 			xSpeed = -initSpeed;
 		} else {
-			for (Gate gate : gameState.getGateHelper().getGateList()) {
+			GateListIterator iterator = (GateListIterator)
+					gameState.getGateHelper().getGateList().createIterator();
+			while (iterator.hasNext()) {
+				Gate gate = (Gate) iterator.next();
 				if (gate.getRectangle().intersects(this.getCircle())) {
 					if (gate.getUnlockCircles().contains(this)) {
 						xSpeed = -initSpeed;

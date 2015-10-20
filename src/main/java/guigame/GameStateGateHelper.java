@@ -90,8 +90,12 @@ public class GameStateGateHelper extends GameStateHelper {
 	/**
 	 * @return the list containing all gates.
 	 */
-	public ArrayList<Gate> getGateList() {
-		return gateList.getGates();
+//	public ArrayList<Gate> getGateList() {
+//		return gateList.getGates();
+//	}
+	
+	public GateList getGateList() {
+		return gateList;
 	}
 	
 	/**
