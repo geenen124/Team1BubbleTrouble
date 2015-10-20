@@ -1,5 +1,8 @@
 package guiobjects;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
 import logic.MyRectangle;
 
 import org.newdawn.slick.Color;
@@ -14,32 +17,37 @@ import org.newdawn.slick.gui.TextField;
  * Textfield class, representing a textfield in our GUI.
  * @author Mark
  */
-public class Textfield {
-
-	private float x;
-	private float y;
-	private TextField textfield;
+public class Textfield extends Element {
 	
+	private TextField textfield;
 	
 	private static final int TEXT_FIELD_WIDTH = 800;
 	private static final int TEXT_FIELD_HEIGHT = 60;
 	private static final int TF_BACKGROUND_DEVIATION = 27;
 	private static final int TC_X_DEVIATION = 15;
 	private static final int TC_Y_DEVIATION = 7;
-	private static final int TF_MAX_LENGTH = 40;
+	private static final int TF_MAX_LENGTH = 34;
 	
-	private String text;
-	
-	private Image fieldNorm;
-	private Image fieldAdd;
-	private Image fieldOnNorm;
-	private Image fieldOnAdd;
-	private Image cursorNorm;
-	private Image cursorAdd;
+	private static Image fieldNorm;
+	private static Image fieldAdd;
+	private static Image fieldOnNorm;
+	private static Image fieldOnAdd;
+	private static Image fieldMouseNorm;
+	private static Image fieldMouseAdd;
+	private static Image cursorNorm;
+	private static Image cursorAdd;
 	
 	private int stringlength;
 	private int cursor;
-	private boolean focus;
+	private boolean focusOverride;
+	private boolean waitMove = false;
+	
+	private Button button;
+	
+	private static final int INPUT_FACTOR = 150;
+	private static final int BUTTON_OFFSET = 220;
+	private static final int BUTTON_WIDTH = 95;
+	private static final int BUTTON_HEIGHT = 35;
 	
 	/**
 	 * Textfield constructor. Creates a drawable textfield element for our GUI.
@@ -50,54 +58,108 @@ public class Textfield {
 	 * @throws SlickException probably the images cant be found
 	 */
 	public Textfield(float x, float y, String text, GameContainer container) throws SlickException {
-		textfield = new TextField(container, null, (int) x, (int) y,
+		textfield = new TextField(container, null, 0, 0,
 				TEXT_FIELD_WIDTH, TEXT_FIELD_HEIGHT);
 		textfield.setBackgroundColor(null);
 		textfield.setBorderColor(null);
-		fieldNorm = new Image("resources/images_UI/textfield_Norm.png");
-		fieldAdd = new Image("resources/images_UI/textfield_Add.png");
-		fieldOnNorm = new Image("resources/images_UI/textfield2_Norm.png");
-		fieldOnAdd = new Image("resources/images_UI/textfield2_Add.png");
-		cursorNorm = new Image("resources/images_UI/textcursor_normal.png");
-		cursorAdd = new Image("resources/images_UI/textcursor_Add.png");
-		this.text = text;
-		this.stringlength = this.text.length();
-		this.x = x;
-		this.y = y;
+		
+		setText(text);
+		this.stringlength = getText().length();
 		
 		textfield.setText(text);
 		textfield.setCursorPos(text.length());
 		textfield.setMaxLength(TF_MAX_LENGTH);
 		textfield.setFocus(false);
+		
+		focusOverride = false;
+		
+		button = new Button(x + TEXT_FIELD_WIDTH - BUTTON_OFFSET, y, "< BAK");
+		
+		setX((int) x);
+		setY((int) y);
+		setWidth(TEXT_FIELD_WIDTH);
+		setHeight(TEXT_FIELD_HEIGHT);
+	}
+	
+	/**
+	 * Initialize Textfields by loading images etc.
+	 * @throws SlickException  meaning you're missing images!
+	 */
+	public static void init() throws SlickException {
+		fieldNorm = new Image("resources/images_UI/textfield_Norm.png");
+		fieldAdd = new Image("resources/images_UI/textfield_Add.png");
+		fieldOnNorm = new Image("resources/images_UI/textfield2_Norm.png");
+		fieldOnAdd = new Image("resources/images_UI/textfield2_Add.png");
+		fieldMouseNorm = new Image("resources/images_UI/textfield3_Norm.png");
+		fieldMouseAdd = new Image("resources/images_UI/textfield3_Add.png");
+		cursorNorm = new Image("resources/images_UI/textcursor_normal.png");
+		cursorAdd = new Image("resources/images_UI/textcursor_Add.png");
 	}
 	
 	/**
 	 * Provides updates to textfield, so it can properly run button inputs etc.
 	 * @param input the Input object to use
 	 */
+	@Override
 	public void update(Input input) {
-		// process mouse input
-		if (getRectangle().contains(input.getMouseX(), input.getMouseY())
-				&& input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
-			this.setFocus(true);
+		textfield.setFocus(focusOverride);
+		// handle button input
+		processDeleteButton(input);
+		// handle enter/mouse input
+		processEnterMouse(input);
+		// handle backspace input
+		processBackspace(input);
+		// handle text input
+		processTextInput(input);
+	}
+	
+	/**
+	 * Update textfield accordingly when the BAK button is pressed.
+	 * @param input the Input object to use.
+	 */
+	private void processDeleteButton(Input input) {
+		button.setSelected(button.isMouseOver(input));
+		if (button.isMouseOver(input) 
+				&& (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)  
+				&& input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON))) {
+			focusOverride = true;
+			getList().setTextfieldActive(true);
 			textfield.setText("");
 			cursor = 0;
 		}
-		// process the bloody textfield input edgecase
-		if (textfield.hasFocus()) {
-			if (!focus) {
-				textfield.setText("");
-				cursor = 0;
-				focus = true;
-			}
-		} else {
-			focus = false;
+	}
+	
+	/**
+	 * Update textfield accordingly when enter (or a mouse button) is pressed.
+	 * @param input the Input object to use.
+	 */
+	public void processEnterMouse(Input input) {
+		if (isSelected()
+				&& ((input.isMousePressed(Input.MOUSE_LEFT_BUTTON) 
+						&& input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)) 
+					|| 
+					(input.isKeyPressed(Input.KEY_ENTER) 
+						&& input.isKeyDown(Input.KEY_ENTER))
+					)) {
+			focusOverride = !focusOverride;
+			getList().setTextfieldActive(!getList().isTextfieldActive());
+			cursor = getText().length();
+			textfield.setCursorPos(cursor);
 		}
-		// process keyboard input
-		if (textfield.hasFocus()) {
-			processTextInput(input);
-		} else {
-			focus = false;
+	}
+	
+	/**
+	 * Update textfield accordingly when backspace is pressed.
+	 * @param input the Input object to use.
+	 */
+	public void processBackspace(Input input) {
+		if (isSelected() && input.isKeyPressed(Input.KEY_BACK)
+				&& input.isKeyDown(Input.KEY_BACK)
+				&& !focusOverride) {
+			focusOverride = true;
+			getList().setTextfieldActive(true);
+			textfield.setText("");
+			cursor = 0;
 		}
 	}
 	
@@ -106,26 +168,41 @@ public class Textfield {
 	 * @param input the Input object to use.
 	 */
 	private void processTextInput(Input input) {
-		// process typing in field
-		if (stringlength < text.length()) {
-			cursor += (text.length() - stringlength);
-			stringlength = text.length();
-		} else if (stringlength > text.length()) {
-			cursor -= (stringlength - text.length());
-			stringlength = text.length();
+		if (textfield.hasFocus()) {
+			// process typing in field, move cursor accordingly
+			if (stringlength < getText().length()) {
+				cursor += (getText().length() - stringlength);
+				stringlength = getText().length();
+			} else if (stringlength > getText().length()) {
+				cursor -= (stringlength - getText().length());
+				stringlength = getText().length();
+			}
+			// safety containment check for empty field
+			if (getText().length() == 0) {
+				stringlength = 0;
+				cursor = 0;
+			}
+			// process arrow keys, move cursor accordingly
+			if (input.isKeyDown(Input.KEY_RIGHT) && cursor < getText().length() && !waitMove) {
+				cursor++;
+				scheduleWait();
+			} else if (input.isKeyDown(Input.KEY_LEFT) && cursor > 0 && !waitMove) {
+				cursor--;
+				scheduleWait();
+			} 
+			// update data
+			textfield.setCursorPos(cursor);
+			setText(textfield.getText());
 		}
-		// safety check for empty field
-		if (text.length() == 0) {
-			stringlength = 0;
-			cursor = 0;
-		}
-		// process arrow keys
-		if (input.isKeyPressed(Input.KEY_RIGHT) && cursor < text.length()) {
-			cursor++;
-		} else if (input.isKeyPressed(Input.KEY_LEFT) && cursor > 0) {
-			cursor--;
-		}
-		textfield.setCursorPos(cursor);
+	}
+	
+	/**
+	 * Disallow arrow keys in the textfield for a while.
+	 */
+	private void scheduleWait() {
+		waitMove = true;
+		Executors.newScheduledThreadPool(1).schedule(() -> waitMove = false,
+				INPUT_FACTOR, TimeUnit.MILLISECONDS);
 	}
 	
 	/**
@@ -133,38 +210,16 @@ public class Textfield {
 	 * @return the Rectangle object of this button.
 	 */
 	public MyRectangle getRectangle() {
-		return new MyRectangle(x, y, TEXT_FIELD_WIDTH, TEXT_FIELD_HEIGHT);
+		return new MyRectangle(getX(), getY(), TEXT_FIELD_WIDTH, TEXT_FIELD_HEIGHT);
 	}
 	
 	/**
-	 * Set focus on this textfield on or off.
-	 * @param focus to set
+	 * Reset this Textfield to an initial state.
 	 */
-	public void setFocus(boolean focus) {
-		this.textfield.setFocus(focus);
-		this.focus = focus;
-	}
-	
-	/**
-	 * @return whether or not the text field has focus.
-	 */
-	public boolean hasFocus() {
-		return textfield.hasFocus();
-	}
-	
-	/**
-	 * @return the text inside this textfield.
-	 */
-	public String getText() {
-		return text;
-	}
-	
-	/**
-	 * Set text inside the textfield to a string.
-	 * @param text string to set
-	 */
-	public void setText(String text) {
-		this.text = text;
+	@Override
+	public void reset() {
+		super.reset();
+		focusOverride = false;
 	}
 	
 	/**
@@ -172,25 +227,62 @@ public class Textfield {
 	 * @param graphics context to draw in.
 	 * @param color to draw with.
 	 */
-	public void drawColor(Graphics graphics, Color color) {
-		text = textfield.getText();
-		if (textfield.hasFocus()) {
-			RND.getInstance().drawColor(new RenderOptions(graphics, fieldOnNorm, fieldOnAdd, 
-					x - TF_BACKGROUND_DEVIATION, y - TF_BACKGROUND_DEVIATION, color));
-			if (cursor > 0 && cursor <= text.length()) {
-				String s = text.substring(0, cursor);
-				float length = RND.getInstance().getStringPixelWidth(s);
-				RND.getInstance().drawColor(new RenderOptions(graphics, cursorNorm, cursorAdd, 
-						x - TF_BACKGROUND_DEVIATION + length, y - TC_Y_DEVIATION, color));
-			} else if (cursor == 0) {
-				RND.getInstance().drawColor(new RenderOptions(graphics, cursorNorm, cursorAdd, 
-						x - TF_BACKGROUND_DEVIATION + TC_X_DEVIATION, y - TC_Y_DEVIATION, color));
-			}
+	@Override
+	public void render(Graphics graphics, Color color) {
+		// draw box
+		if (isSelected() && focusOverride) {
+			renderTextfieldActive(graphics, color);
+		} else if (isSelected() && !focusOverride) {
+			renderTextfieldSelected(graphics, color);
 		} else {
-			RND.getInstance().drawColor(new RenderOptions(graphics, fieldNorm, fieldAdd, 
-					x - TF_BACKGROUND_DEVIATION, y - TF_BACKGROUND_DEVIATION, color));
+			renderTextfieldNormal(graphics, color);
 		}
-		RND.getInstance().textSpecifiedColor(graphics, x, y, text, color);
+		button.render(graphics, color);
+		// draw text
+		RND.getInstance().textSpecifiedColor(graphics, getX(), getY(), getText(), color);
+	}
+	
+	/**
+	 * Render function used to draw the textfield's normal state.
+	 * @param graphics context to draw in.
+	 * @param color to draw with.
+	 */
+	private void renderTextfieldNormal(Graphics graphics, Color color) {
+		RND.getInstance().drawColor(new RenderOptions(graphics, fieldNorm, fieldAdd, 
+				getX() - TF_BACKGROUND_DEVIATION, 
+				getY() - TF_BACKGROUND_DEVIATION, color));
+	}
+	
+	/**
+	 * Render function used to draw the textfield's selection state.
+	 * @param graphics context to draw in.
+	 * @param color to draw with.
+	 */
+	private void renderTextfieldSelected(Graphics graphics, Color color) {
+		RND.getInstance().drawColor(new RenderOptions(graphics, fieldMouseNorm, fieldMouseAdd, 
+				getX() - TF_BACKGROUND_DEVIATION, 
+				getY() - TF_BACKGROUND_DEVIATION, color));
+	}
+	
+	/**
+	 * Render function used to draw the textfield's active state.
+	 * @param graphics context to draw in.
+	 * @param color to draw with.
+	 */
+	private void renderTextfieldActive(Graphics graphics, Color color) {
+		RND.getInstance().drawColor(new RenderOptions(graphics, fieldOnNorm, fieldOnAdd, 
+				getX() - TF_BACKGROUND_DEVIATION, getY() - TF_BACKGROUND_DEVIATION, color));
+		if (cursor > 0 && cursor <= getText().length()) {
+			String s = getText().substring(0, cursor);
+			float length = RND.getInstance().getStringPixelWidth(s);
+			RND.getInstance().drawColor(new RenderOptions(graphics, cursorNorm, cursorAdd, 
+					getX() - TF_BACKGROUND_DEVIATION + length, 
+					getY() - TC_Y_DEVIATION, color));
+		} else if (cursor == 0) {
+			RND.getInstance().drawColor(new RenderOptions(graphics, cursorNorm, cursorAdd, 
+					getX() - TF_BACKGROUND_DEVIATION + TC_X_DEVIATION, 
+					getY() - TC_Y_DEVIATION, color));
+		}
 	}
 	
 }

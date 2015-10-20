@@ -8,17 +8,24 @@ import org.newdawn.slick.Input;
 
 /**
  * Abstract class representing an interactive UI-element. This is used to better support coherence,
- * interaction and keyboard-input when working with buttons, textboxes, etc.
+ * interaction and keyboard-input when working with buttons, textboxes, etc. Subclass this element
+ * if you want to create something for ElementList.
  * @author Mark
  *
  */
 public abstract class Element {
 	
+	private ElementList list;
+	
+	private Element left;
+	private Element right;
+	private Element bottom;
+	private Element top;
+	
 	private boolean enabled = true; // determine whether an element is 'interactive'.
 	private boolean selected = false; // determine whether an element is the one selected.
 	private int x, y, width, height;
-	
-	private ElementList list;
+	private String text;
 	
 	private static final float HALF = 0.5f;
 	
@@ -53,6 +60,14 @@ public abstract class Element {
 	}
 	
 	/**
+	 * Reset this element to an initial state.
+	 */
+	public void reset() {
+		enabled = true;
+		selected = false;
+	}
+	
+	/**
 	 * @return whether the element is currently capable of being selected.
 	 */
 	public boolean isEnabled() {
@@ -64,20 +79,6 @@ public abstract class Element {
 	 */
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
-	}
-
-	/**
-	 * @return whether the element is currently in focus for input.
-	 */
-	public boolean hasFocus() {
-		return selected;
-	}
-
-	/**
-	 * @param focus make the element focussed on.
-	 */
-	public void setFocus(boolean focus) {
-		this.selected = focus;
 	}
 
 	/**
@@ -188,6 +189,112 @@ public abstract class Element {
 	 */
 	public void setList(ElementList list) {
 		this.list = list;
+	}
+	
+	/**
+	 * @return the ElementList belonging this object belongs to.
+	 */
+	public ElementList getList() {
+		return list;
+	}
+	
+	/**
+	 * Set the text this button displays.
+	 * @param text the text to set.
+	 */
+	public void setText(String text) {
+		this.text = text;
+	}
+	
+	/**
+	 * @return the text in this button.
+	 */
+	public String getText() {
+		return text;
+	}
+
+	/**
+	 * @return element to the left
+	 */
+	public Element getLeft() {
+		return left;
+	}
+
+	/**
+	 * @param left navigable element to the left.
+	 */
+	public void setLeft(Element left) {
+		this.left = left;
+	}
+
+	/**
+	 * @return element to the right
+	 */
+	public Element getRight() {
+		return right;
+	}
+
+	/**
+	 * @param right navigable element to the right.
+	 */
+	public void setRight(Element right) {
+		this.right = right;
+	}
+	
+	/**
+	 * @return element to the top
+	 */
+	public Element getTop() {
+		return top;
+	}
+
+	/**
+	 * @param top navigable element to the left.
+	 */
+	public void setTop(Element top) {
+		this.top = top;
+	}
+
+	/**
+	 * @return element below
+	 */
+	public Element getBottom() {
+		return bottom;
+	}
+
+	/**
+	 * @param bottom navigable element below.
+	 */
+	public void setBottom(Element bottom) {
+		this.bottom = bottom;
+	}
+	
+	/**
+	 * empty the bottom element.
+	 */
+	public void removeBottom() {
+		bottom = null;
+	}
+	
+	/**
+	 * empty the top element.
+	 */
+	public void removeTop() {
+		top = null;
+	}
+	
+	/**
+	 * empty the left element.
+	 */
+	public void removeLeft() {
+		left = null;
+	}
+	
+	/**
+	 * empty the right element.
+	 */
+	public void removeRight() {
+		right = null;
 	}
 	
 }

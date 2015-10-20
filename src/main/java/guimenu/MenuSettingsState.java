@@ -24,7 +24,7 @@ import org.newdawn.slick.state.StateBasedGame;
  */
 public class MenuSettingsState extends BasicGameState {
 
-	private ElementList buttons;
+	private ElementList elements;
 	private Button returnButton;
 	private Button shuffleButton;
 	private Button redButton;
@@ -148,7 +148,7 @@ public class MenuSettingsState extends BasicGameState {
 	public void enter(GameContainer container, StateBasedGame arg1) throws SlickException {
 		Logger.getInstance().log("Entering MenuSettingsState", 
 				Logger.PriorityLevels.LOW, "States");
-		buttons.reset();
+		elements.reset();
 		RND.getInstance().setOpacity(0.0f);
 		mainGame.stopSwitchState();
 	}
@@ -184,7 +184,7 @@ public class MenuSettingsState extends BasicGameState {
 	 * @throws SlickException if something goes wrong
 	 */
 	public void init(GameContainer container, StateBasedGame arg1) throws SlickException {
-		initButtons();
+		initElements();
 		initPlayerImages();
 		mannetje1Rectangle = new MyRectangle(MANNETJE_1_X, MANNETJE_1_Y, PLAYER_SPRITE_WIDTH,
 				PLAYER_SPRITE_HEIGHT);
@@ -231,35 +231,60 @@ public class MenuSettingsState extends BasicGameState {
 	 * Initialize the buttons.
 	 * @throws SlickException if something goes wrong / file not found
 	 */
-	private void initButtons() throws SlickException {
-		buttons = new ElementList();
-		returnButton = new Button(RETURN_BUTTON_X, RETURN_BUTTON_Y, RETURN_BUTTON_WIDTH,
-				RETURN_BUTTON_HEIGHT, "< Return");
-		shuffleButton = new Button(COLOR_BUTTON_1_X, COLOR_BUTTON_1_Y, 
-				COLOR_BUTTON_WIDTH, RETURN_BUTTON_HEIGHT, "> Shuffle");
-		redButton = new Button(COLOR_BUTTON_1_X, COLOR_BUTTON_2_Y, 
-				COLOR_BUTTON_WIDTH, RETURN_BUTTON_HEIGHT, "> Red");
-		orangeButton = new Button(COLOR_BUTTON_1_X, COLOR_BUTTON_3_Y, 
-				COLOR_BUTTON_WIDTH, RETURN_BUTTON_HEIGHT, "> Orange");
-		greenButton = new Button(COLOR_BUTTON_2_X, COLOR_BUTTON_1_Y, 
-				COLOR_BUTTON_WIDTH, RETURN_BUTTON_HEIGHT, "> Green");
-		blueButton = new Button(COLOR_BUTTON_2_X, COLOR_BUTTON_2_Y, 
-				COLOR_BUTTON_WIDTH, RETURN_BUTTON_HEIGHT, "> Blue");
-		whiteButton = new Button(COLOR_BUTTON_2_X, COLOR_BUTTON_3_Y, 
-				COLOR_BUTTON_WIDTH, RETURN_BUTTON_HEIGHT, "> White");
-		pinkButton = new Button(COLOR_BUTTON_3_X, COLOR_BUTTON_1_Y, 
-				COLOR_BUTTON_WIDTH, RETURN_BUTTON_HEIGHT, "> Purple");
-		yellowButton = new Button(COLOR_BUTTON_3_X, COLOR_BUTTON_2_Y, 
-				COLOR_BUTTON_WIDTH, RETURN_BUTTON_HEIGHT, "> Yellow");
-		buttons.add(returnButton);
-		buttons.add(shuffleButton);
-		buttons.add(redButton);
-		buttons.add(orangeButton);
-		buttons.add(greenButton);
-		buttons.add(blueButton);
-		buttons.add(whiteButton);
-		buttons.add(pinkButton);
-		buttons.add(yellowButton);
+	private void initElements() throws SlickException {
+		elements = new ElementList();
+		returnButton = new Button(RETURN_BUTTON_X, RETURN_BUTTON_Y, "< Return");
+		shuffleButton = new Button(COLOR_BUTTON_1_X, COLOR_BUTTON_1_Y, "> Shuffle");
+		redButton = new Button(COLOR_BUTTON_1_X, COLOR_BUTTON_2_Y, "> Red");
+		orangeButton = new Button(COLOR_BUTTON_1_X, COLOR_BUTTON_3_Y, "> Orange");
+		greenButton = new Button(COLOR_BUTTON_2_X, COLOR_BUTTON_1_Y, "> Green");
+		blueButton = new Button(COLOR_BUTTON_2_X, COLOR_BUTTON_2_Y, "> Blue");
+		whiteButton = new Button(COLOR_BUTTON_2_X, COLOR_BUTTON_3_Y, "> White");
+		pinkButton = new Button(COLOR_BUTTON_3_X, COLOR_BUTTON_1_Y, "> Purple");
+		yellowButton = new Button(COLOR_BUTTON_3_X, COLOR_BUTTON_2_Y, "> Yellow");
+		addElements();
+		coupleElements();
+	}
+	
+	/**
+	 * Add the elements to an elementlist.
+	 */
+	private void addElements() {
+		elements.add(returnButton);
+		elements.add(shuffleButton);
+		elements.add(redButton);
+		elements.add(orangeButton);
+		elements.add(greenButton);
+		elements.add(blueButton);
+		elements.add(whiteButton);
+		elements.add(pinkButton);
+		elements.add(yellowButton);
+	}
+	
+	/**
+	 * Couple the elements in this scene together for navigation.
+	 */
+	private void coupleElements() {
+		elements.coupleVertical(returnButton, shuffleButton);
+		elements.coupleVertical(shuffleButton, redButton); 
+		elements.coupleVertical(redButton, orangeButton); 
+		elements.coupleVertical(orangeButton, returnButton); 
+		
+		elements.coupleHorizontal(returnButton, shuffleButton);
+		elements.coupleHorizontal(shuffleButton, greenButton);
+		elements.coupleHorizontal(redButton, blueButton);
+		elements.loopHorizontal(orangeButton, whiteButton);
+		
+		elements.coupleVertical(greenButton, blueButton);
+		elements.coupleVertical(blueButton, whiteButton);
+		elements.coupleVertical(whiteButton, greenButton);
+		
+		elements.coupleHorizontal(greenButton, pinkButton);
+		elements.coupleHorizontal(blueButton, yellowButton);
+		
+		elements.loopVertical(pinkButton, yellowButton);
+		elements.coupleHorizontal(pinkButton, shuffleButton);
+		elements.coupleHorizontal(yellowButton, redButton);
 	}
 	
 	/**
@@ -278,7 +303,7 @@ public class MenuSettingsState extends BasicGameState {
 		}
 		
 		input = container.getInput();
-		buttons.update(input);
+		elements.update(input);
 		if ((input.isMousePressed(Input.MOUSE_LEFT_BUTTON) || input.isKeyDown(Input.KEY_ENTER)) 
 				&& !mainGame.getShouldSwitchState()) {
 			processButtons(input);
@@ -604,7 +629,7 @@ public class MenuSettingsState extends BasicGameState {
 				"# Change game color manually,");
 		RND.getInstance().text(graphics, COLOR_TEXT_X, COLOR_TEXT_2_Y,
 				"# or let it shuffle!.");
-		buttons.render(graphics, input, mainGame.getColor());
+		elements.render(graphics, input, mainGame.getColor());
 	}
 	
 

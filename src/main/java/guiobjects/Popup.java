@@ -27,6 +27,7 @@ public class Popup {
 	private boolean active = false;
 	private Button button;
 	private Separator separator;
+	private ElementList parentList;
 	
 	/**
 	 * Popup constructor method.
@@ -41,10 +42,8 @@ public class Popup {
 		this.screenHeight = screenHeight;
 		buttons = new ElementList();
 		button = new Button(screenWidth / 2f - RND.getInstance().getStringPixelWidth("> OK <") 
-				/ 2f, screenHeight / 2f + BUTTON_OFFSET_Y, 
-				BUTTON_WIDTH, BUTTON_HEIGHT, "> OK <");
+				/ 2f, screenHeight / 2f + BUTTON_OFFSET_Y, "> OK <");
 		buttons.add(button);
-		buttons.setSelectable(false);
 		separator = new Separator(screenWidth / 2 + SEPARATOR_OFFSET_X,
 				screenHeight / 2, false, "", screenWidth);
 	}
@@ -62,7 +61,7 @@ public class Popup {
 	 */
 	public void setActive(boolean active) {
 		this.active = active;
-		buttons.setSelectable(active);
+		buttons.reset();
 	}
 	
 	/**
@@ -74,15 +73,31 @@ public class Popup {
 	}
 	
 	/**
+	 * Set the list this popup is contained in.
+	 * @param list to set.
+	 */
+	public void setParentList(ElementList list) {
+		parentList = list;
+	}
+	
+	/**
 	 * Checks if button is pressed.
 	 * @param input Input context used.
 	 */
 	public void update(Input input) {
-		buttons.update(input);
-		if ((input.isMousePressed(Input.MOUSE_LEFT_BUTTON) || input.isKeyDown(Input.KEY_ENTER))
-				&& button.isSelected() && this.active) {
-			this.active = false;
-			buttons.setSelectable(false);
+		if (active) {
+			System.out.println(buttons.anyHighlighted());
+			buttons.update(input);
+			if ((input.isMousePressed(Input.MOUSE_LEFT_BUTTON) 
+					|| (input.isKeyDown(Input.KEY_ENTER) && input.isKeyPressed(Input.KEY_ENTER)))
+					&& button.isSelected()) {
+				this.active = false;
+				buttons.reset();
+				if (parentList != null) {
+					parentList.setSelectable(true);
+					parentList.reset();
+				}
+			}
 		}
 	}
 	
@@ -92,7 +107,7 @@ public class Popup {
 	 * @param input the input context used.
 	 * @param color to draw with
 	 */
-	public void update(Graphics graphics, Input input, Color color) {
+	public void render(Graphics graphics, Input input, Color color) {
 		if (active) {
 			Color overLay = new Color(0f, 0f, 0f, PAUSE_OVERLAY_COLOR_FACTOR);
 			graphics.setColor(overLay);

@@ -18,10 +18,13 @@ public class ElementList {
 	private int index = 0;
 	
 	// mouse data
+	private boolean mouseMoved = false;
 	private boolean mouseActive = true;
 	private boolean textfieldActive = false;
-	private boolean mouseMoved = false;
 	private int mouseX = 0, mouseY = 0;
+	
+	// popup data
+	private Popup popup; // an elementlist can throw "OK" popups!
 	
 	// misc data
 	private boolean selectable = true;
@@ -34,36 +37,109 @@ public class ElementList {
 	}
 	
 	/**
-	 * Add a button to the buttonList.
-	 * @param button the button to add.
+	 * Add an element to the elementlist.
+	 * @param element the element to add.
 	 */
-	public void add(Button button) {
-		button.setList(this);
-		list.add(button);
+	public void add(Element element) {
+		element.setList(this);
+		list.add(element);
 	}
 	
 	/**
-	 * Remove a button from the list at the specified index.
-	 * @param i index of button to remove.
+	 * Couple two elements horizontally for navigation.
+	 * @param a the left element.
+	 * @param b the right element.
+	 */
+	public void coupleHorizontal(Element a, Element b) {
+		a.setRight(b);
+		b.setLeft(a);
+	}
+	
+	/**
+	 * Couple two elements vertically for navigation.
+	 * @param a the top element.
+	 * @param b the bottom element.
+	 */
+	public void coupleVertical(Element a, Element b) {
+		a.setBottom(b);
+		b.setTop(a);
+	}
+	
+	/**
+	 * Couple two elements horizontally for navigation, in a loop.
+	 * @param a one element.
+	 * @param b another element.
+	 */
+	public void loopHorizontal(Element a, Element b) {
+		a.setLeft(b);
+		a.setRight(b);
+		b.setLeft(a);
+		b.setRight(a);
+	}
+	
+	/**
+	 * Couple two elements vertically for navigation, in a loop.
+	 * @param a one element.
+	 * @param b another element.
+	 */
+	public void loopVertical(Element a, Element b) {
+		a.setBottom(b);
+		a.setTop(b);
+		b.setBottom(a);
+		b.setTop(a);
+	}
+	
+	/**
+	 * Optionally, add a popup to this list for convenience.
+	 * @param popup to add.
+	 */
+	public void add(Popup popup) {
+		this.popup = popup;
+		this.popup.setParentList(this);
+	}
+	
+	/**
+	 * Remove an element from the list at the specified index.
+	 * @param i index of element to remove.
 	 */
 	public void remove(int i) {
 		if (i < 0 || i > list.size()) {
 			IndexOutOfBoundsException baby = new IndexOutOfBoundsException();
 			throw baby;
 		}
+		list.get(i).getLeft().removeRight();
+		list.get(i).getRight().removeLeft();
+		list.get(i).getTop().removeBottom();
+		list.get(i).getBottom().removeTop();
 		list.remove(i);
 	}
 	
 	/**
-	 * Remove a button from the list at the specified index.
-	 * @param b button to remove.
+	 * Remove a specified element from the list.
+	 * @param b element to remove.
 	 */
-	public void remove(Button b) {
+	public void remove(Element b) {
+//		if (!list.contains(b)) {
+//			IndexOutOfBoundsException baby = new IndexOutOfBoundsException();
+//			throw baby;
+//		}
+		if (b.getLeft() != null) {
+			b.getLeft().removeRight();
+		}
+		if (b.getRight() != null) {
+			b.getRight().removeLeft();
+		}
+		if (b.getTop() != null) {
+			b.getTop().removeBottom();
+		}
+		if (b.getBottom() != null) {
+			b.getBottom().removeTop();
+		}
 		list.remove(b);
 	}
 	
 	/**
-	 * @return The number of buttons in the list.
+	 * @return The number of elements in the list.
 	 */
 	public int getSize() {
 		return list.size();
@@ -89,11 +165,12 @@ public class ElementList {
 	 */
 	public void reset() {
 		for (int i = 0; i < list.size(); i++) {
-			list.get(i).setSelected(false);
+			list.get(i).reset();
 		}
 		index = 0;
 		mouseActive = true;
 		mouseMoved = false;
+		textfieldActive = false;
 	}
 	
 	/**
@@ -104,22 +181,13 @@ public class ElementList {
 	}
 	
 	/**
-	 * Update selectivity of buttons, if there is a popup.
-	 * @param popup to use.
-	 */
-	public void update(Popup popup) {
-		if (popup.getActive()) {
-			selectable = false;
-		} else {
-			selectable = true;
-		}
-	}
-	
-	/**
 	 * Update all buttons, handling their input and highlighting.
 	 * @param input the input to process with.
 	 */
 	public void update(Input input) {
+		for (int i = 0; i < list.size(); i++) {
+			list.get(i).update(input);
+		}
 		// check if the mouse has moved
 		updateMouseMovement(input);
 		// respond to keyboard inputs
@@ -134,6 +202,9 @@ public class ElementList {
 		}
 		// make sure all buttons have the appropriate highlighting.
 		updateHighlighting(input);
+		if (popup != null) {
+			popup.update(input);
+		}
 	}
 	
 	/**
@@ -149,18 +220,21 @@ public class ElementList {
 	}
 	
 	/**
-	 * Update button index for the mouse.
+	 * Update index, when mouse moves over a button,
+	 * and there is no textfield active.
 	 * @param input the input context to use.
 	 */
 	private void updateButtonsMouseOver(Input input) {
-		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).isMouseOver(input)) {
-				updateMouseMovement(input);
-				if (mouseMoved) {
-					index = i;
-					mouseActive = true;
+		if (!textfieldActive) {
+			for (int i = 0; i < list.size(); i++) {
+				if (list.get(i).isMouseOver(input)) {
+					updateMouseMovement(input);
+					if (mouseMoved) {
+						index = i;
+						mouseActive = true;
+					}
+					break;
 				}
-				break;
 			}
 		}
 	}
@@ -170,21 +244,79 @@ public class ElementList {
 	 * @param input the input context to use.
 	 */
 	private void updateButtonsKeyboard(Input input) {
-		if (input.isKeyPressed(Input.KEY_DOWN)) {
-			mouseActive = false; 
-			mouseMoved = false;
-			if (!list.get(index).isSelected()) {
-				index = 0;
-			} else {
-				index++;
+		if (!textfieldActive  && !(popup != null && popup.getActive())) {
+			if (input.isKeyPressed(Input.KEY_DOWN) // double check IS necessary.
+					&& input.isKeyDown(Input.KEY_DOWN)) { // don't refactor.
+				navigateBottom();
+			} else if (input.isKeyPressed(Input.KEY_UP)
+					&& input.isKeyDown(Input.KEY_UP)) {
+				navigateTop();
+			} else if (input.isKeyPressed(Input.KEY_RIGHT)
+					&& input.isKeyDown(Input.KEY_RIGHT)) {
+				navigateRight();
+			} else if (input.isKeyPressed(Input.KEY_LEFT)
+					&& input.isKeyDown(Input.KEY_LEFT)) {
+				navigateLeft();
 			}
-		} else if (input.isKeyPressed(Input.KEY_UP)) {
-			mouseActive = false;
-			mouseMoved = false;
-			if (!list.get(index).isSelected()) {
-				index = 0;
-			} else {
-				index--;
+		}
+	}
+	
+	/**
+	 * Navigate one element to the right.
+	 */
+	private void navigateRight() {
+		mouseActive = false; mouseMoved = false;
+		if (!list.get(index).isSelected()) {
+			index = 0;
+		} else {
+			int newIndex = findIndex(list.get(index).getRight());
+			if (newIndex != -1) {
+				index = newIndex;
+			}
+		}
+	}
+	
+	/**
+	 * Navigate one element to the left.
+	 */
+	private void navigateLeft() {
+		mouseActive = false; mouseMoved = false;
+		if (!list.get(index).isSelected()) {
+			index = 0;
+		} else {
+			int newIndex = findIndex(list.get(index).getLeft());
+			if (newIndex != -1) {
+				index = newIndex;
+			}
+		}
+	}
+	
+	/**
+	 * Navigate one element down.
+	 */
+	private void navigateTop() {
+		mouseActive = false; mouseMoved = false;
+		if (!list.get(index).isSelected()) {
+			index = 0;
+		} else {
+			int newIndex = findIndex(list.get(index).getTop());
+			if (newIndex != -1) {
+				index = newIndex;
+			}
+		}
+	}
+	
+	/**
+	 * Navigate one element up.
+	 */
+	private void navigateBottom() {
+		mouseActive = false; mouseMoved = false;
+		if (!list.get(index).isSelected()) {
+			index = 0;
+		} else {
+			int newIndex = findIndex(list.get(index).getBottom());
+			if (newIndex != -1) {
+				index = newIndex;
 			}
 		}
 	}
@@ -194,16 +326,31 @@ public class ElementList {
 	 * @param input context to use.
 	 */
 	private void updateHighlighting(Input input) {
-		for (int i = 0; i < list.size(); i++) {
-			if (i == index && selectable) {
-				list.get(i).setSelected(true);
-			} else {
-				list.get(i).setSelected(false);
-			}
-			if (mouseActive && !list.get(index).isMouseOver(input)) {
-				list.get(index).setSelected(false);
+		if (!textfieldActive) {
+			for (int i = 0; i < list.size(); i++) {
+				if (i == index && selectable) {
+					list.get(i).setSelected(true);
+				} else {
+					list.get(i).setSelected(false);
+				}
+				if (mouseActive && !list.get(index).isMouseOver(input)) {
+					list.get(index).setSelected(false);
+				}
 			}
 		}
+	}
+	
+	/**
+	 * @param e element to search for
+	 * @return the index of this element
+	 */
+	private int findIndex(Element e) {
+		for (int i = 0; i < list.size(); i++) {
+			if (list.get(i) == e) {
+				return i;
+			}
+		}
+		return -1;
 	}
 	
 	/**
@@ -215,6 +362,9 @@ public class ElementList {
 	public void render(Graphics graphics, Input input, Color color) {
 		for (int i = 0; i < list.size(); i++) {
 			list.get(i).render(graphics, color);
+		}
+		if (popup != null) {
+			popup.render(graphics, input, color);
 		}
 	}
 	
@@ -243,6 +393,47 @@ public class ElementList {
 	public void setSelectable(boolean selectable) {
 		this.selectable = selectable;
 	}
+
+	/**
+	 * @return the mouseActive
+	 */
+	public boolean isMouseActive() {
+		return mouseActive;
+	}
+
+	/**
+	 * @param mouseActive the mouseActive to set
+	 */
+	public void setMouseActive(boolean mouseActive) {
+		this.mouseActive = mouseActive;
+	}
+
+	/**
+	 * @return the textfieldActive
+	 */
+	public boolean isTextfieldActive() {
+		return textfieldActive;
+	}
+
+	/**
+	 * @param textfieldActive the textfieldActive to set
+	 */
+	public void setTextfieldActive(boolean textfieldActive) {
+		this.textfieldActive = textfieldActive;
+	}
 	
+	/**
+	 * Make the elementlist throw a popup with a warning.
+	 * @param warning to set.
+	 */
+	public void throwPopup(String warning) {
+		if (popup != null) {
+			popup.setActive(true);
+			popup.setText(warning);
+			textfieldActive = false;
+			mouseActive = false;
+			selectable = false;
+		}
+	}
 	
 }

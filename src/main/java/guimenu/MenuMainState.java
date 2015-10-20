@@ -22,7 +22,7 @@ public class MenuMainState extends BasicGameState {
 	 
 	private MainGame mainGame;
 
-	private ElementList buttons;
+	private ElementList elements;
 	private Button playButton;
 	private Button play2Button;
 	private Button lanButton;
@@ -75,22 +75,22 @@ public class MenuMainState extends BasicGameState {
 	public void init(GameContainer container, StateBasedGame arg1) throws SlickException {
 		separatorTop = new Separator(SEPARATOR_X, SEPARATOR_Y, false, separatorTopTitle,
 				container.getWidth());
-		buttons = new ElementList();
-		playButton = new Button(BUTTON_X, PLAYBUTTON_Y, BUTTON_WIDTH, BUTTON_HEIGHT, 
-				"> Play 1-player game");
-		play2Button = new Button(BUTTON_X, PLAYBUTTON2_Y, BUTTON_WIDTH, BUTTON_HEIGHT,
-				"> Play 2-player game");
-		lanButton = new Button(BUTTON_X, PLAYBUTTONLAN_Y, BUTTON_WIDTH, BUTTON_HEIGHT,
-				"> Play LAN game");
-		optionsButton = new Button(BUTTON_X, OPTIONSBUTTON_Y, BUTTON_WIDTH, BUTTON_HEIGHT,
-				"> Options");
-		quitButton = new Button(BUTTON_X, QUITBUTTON_Y, BUTTON_WIDTH, BUTTON_HEIGHT,
-				"> Quit");
-		buttons.add(playButton);
-		buttons.add(play2Button);
-		buttons.add(lanButton);
-		buttons.add(optionsButton);
-		buttons.add(quitButton);
+		elements = new ElementList();
+		playButton = new Button(BUTTON_X, PLAYBUTTON_Y, "> Play 1-player game");
+		play2Button = new Button(BUTTON_X, PLAYBUTTON2_Y, "> Play 2-player game");
+		lanButton = new Button(BUTTON_X, PLAYBUTTONLAN_Y, "> Play LAN game");
+		optionsButton = new Button(BUTTON_X, OPTIONSBUTTON_Y, "> Options");
+		quitButton = new Button(BUTTON_X, QUITBUTTON_Y, "> Quit");
+		elements.add(playButton);
+		elements.add(play2Button);
+		elements.add(lanButton);
+		elements.add(optionsButton);
+		elements.add(quitButton);
+		elements.coupleVertical(playButton, play2Button);
+		elements.coupleVertical(play2Button, lanButton);
+		elements.coupleVertical(lanButton, optionsButton);
+		elements.coupleVertical(optionsButton, quitButton);
+		elements.coupleVertical(quitButton, playButton);
 	}
 	
 	/**
@@ -103,7 +103,7 @@ public class MenuMainState extends BasicGameState {
 	public void enter(GameContainer container, StateBasedGame arg1) throws SlickException {
 		Logger.getInstance().log("Entering MenuMainState", Logger.PriorityLevels.LOW, "States");
 		RND.getInstance().setOpacity(0.0f);
-		buttons.reset();
+		elements.reset();
 		mainGame.stopSwitchState();
 	}
 	
@@ -150,9 +150,10 @@ public class MenuMainState extends BasicGameState {
 					+ ((float) delta) / mainGame.getOpacityFadeTimer());
 		}
 
-		buttons.update(input);
+		elements.update(input);
 
-		if ((input.isMousePressed(Input.MOUSE_LEFT_BUTTON) || input.isKeyDown(Input.KEY_ENTER))
+		if ((input.isMousePressed(Input.MOUSE_LEFT_BUTTON) 
+				|| (input.isKeyDown(Input.KEY_ENTER) && input.isKeyPressed(Input.KEY_ENTER)))
 				&& !mainGame.getShouldSwitchState()) {
 			processButtonsMouse(input);
 		}
@@ -250,7 +251,6 @@ public class MenuMainState extends BasicGameState {
 		RND.getInstance().text(graphics, HIGHSCORES_X, HIGHSCORES_Y, highScoresString);
 		RND.getInstance().text(graphics, HIGHSCORES_TITLE_X, HIGHSCORES_TITLE_Y, 
 				"The best scores of your predecessors!");
-		
 		// NO DRAWING AFTER THIS POINT UNLESS YOUR NAME STARTS WITH AN M. AND NOT M-E. BOO.
 		RND.getInstance().drawForeGround(graphics);
 		// NO DRAWING HERE. BAD PROGRAMMER. BAD.
@@ -263,7 +263,7 @@ public class MenuMainState extends BasicGameState {
 	 */
 	private void renderButtons(GameContainer container, Graphics graphics) {
 		Input input = container.getInput();
-		buttons.render(graphics, input, mainGame.getColor());
+		elements.render(graphics, input, mainGame.getColor());
 	}
 
 	@Override

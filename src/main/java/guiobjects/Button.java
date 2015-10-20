@@ -8,7 +8,7 @@ import org.newdawn.slick.SlickException;
 
 /**
  * Class that respresents a button - you can click on it and something might happen.
- * @author Menno
+ * @author Mark
  */
 public class Button extends Element {
 	
@@ -21,30 +21,27 @@ public class Button extends Element {
 	private static Image imageButtonTailA;
 	private static AngelCodeFont dosFontM;
 	
-	private String text;
-	
 	private static final int BUTTON_BEGIN_OFFSET = 4;
 	private static final int BUTTON_END_OFFSET = 22;
 	private static final int BUTTON_X_OFFSET = 14;
 	private static final int BUTTON_Y_OFFSET = 14;
 	private static final int BUTTON_HEIGHT = 53;
+	private static final int BUTTON_WIDTH_OFFSET = 0;
 	private static final float BUTTON_TEXT_OPACITY = 0.85f;
 	
 	/**
 	 * Button constructor class.
 	 * @param x coordinate
 	 * @param y coordinate
-	 * @param width of the button
-	 * @param height of the button
 	 * @param text the text to show in the button
 	 */
-	public Button(float x, float y, float width, float height, String text) {
+	public Button(float x, float y, String text) {
 		super();
 		setX((int) x);
 		setY((int) y);
-		setWidth((int) width);
-		setHeight((int) height);
-		this.text = text;
+		setWidth(RND.getInstance().getStringPixelWidth(text) + BUTTON_WIDTH_OFFSET);
+		setHeight(BUTTON_HEIGHT);
+		setText(text);
 	}
 	
 	/**
@@ -67,31 +64,6 @@ public class Button extends Element {
 		dosFontM = new AngelCodeFont("resources/images_Font/dosfont.fnt",
 				"resources/images_Font/dosfont_Mask.png");
 	}
-	
-	/**
-	 * returns boolean if the mouse is hovering over button right now.
-	 * @param input input used to find mouse.
-	 * @return boolean whether or not the mouse is hovering over the button.
-	 */
-	public boolean isMouseOver(Input input) {
-		return getRectangle().contains(input.getMouseX(), input.getMouseY());
-	}
-	
-
-	/**
-	 * Set the text this button displays.
-	 * @param text the text to set.
-	 */
-	public void setText(String text) {
-		this.text = text;
-	}
-	
-	/**
-	 * @return the text in this button.
-	 */
-	public String getText() {
-		return text;
-	}
 
 	@Override
 	public boolean equals(Object other) {
@@ -101,7 +73,7 @@ public class Button extends Element {
 					&& this.getY() == that.getY()
 					&& this.getWidth() == that.getWidth()
 					&& this.getHeight() == that.getHeight()
-					&& this.text.equals(that.getText())) {
+					&& getText().equals(that.getText())) {
 				return true;
 			}
 		}
@@ -130,25 +102,24 @@ public class Button extends Element {
 					getX() + BUTTON_BEGIN_OFFSET, 
 					getY() - BUTTON_Y_OFFSET, color);
 			RND.getInstance().drawColor(ro2, 
-					dosFontM.getWidth(text) - BUTTON_END_OFFSET, BUTTON_HEIGHT);
+					dosFontM.getWidth(getText()) - BUTTON_END_OFFSET, BUTTON_HEIGHT);
 			// draw tail
 			RenderOptions ro3 = new RenderOptions(graphics, imageButtonTailN, imageButtonTailA, 
-					getX() + BUTTON_BEGIN_OFFSET + dosFontM.getWidth(text) 
+					getX() + BUTTON_BEGIN_OFFSET + dosFontM.getWidth(getText()) 
 					- BUTTON_END_OFFSET, getY() - BUTTON_Y_OFFSET, color);
 			RND.getInstance().drawColor(ro3);
 			// draw text
-			dosFontM.drawString(getX(), getY(), text, 
+			dosFontM.drawString(getX(), getY(), getText(), 
 					new Color(0, 0, 0, BUTTON_TEXT_OPACITY));
-			RND.getInstance().textSpecifiedColor(graphics, getX(), getY(), text, 
+			RND.getInstance().textSpecifiedColor(graphics, getX(), getY(), getText(), 
 					new Color(color.r, color.g, color.b, 1f - BUTTON_TEXT_OPACITY));
 		} else {
-			RND.getInstance().text(graphics, getX(), getY(), text);
+			RND.getInstance().text(graphics, getX(), getY(), getText());
 		}
 	}
 
 	@Override
 	public void update(Input input) {
-		// TODO Auto-generated method stub
-		
+		// nothing here...
 	}
 }
