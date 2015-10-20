@@ -24,7 +24,6 @@ public final class SoundPlayer implements MusicListener {
 	private static volatile SoundPlayer instance;
 	private boolean playingMusic;
 	private MusicLists activeList;
-	private static boolean testing;
 	
 	private static final int FADE_LENGTH = 20000;
 	
@@ -44,7 +43,6 @@ public final class SoundPlayer implements MusicListener {
 		initPlayList();
 		initWonList();
 		initLostList();
-		testing = true;
 		
 		activeList = MusicLists.MENU_LIST;
 		playingMusic = false;
@@ -153,9 +151,9 @@ public final class SoundPlayer implements MusicListener {
 	 * @return the logger
 	 */
 	public static SoundPlayer getInstance() {
-		if (instance == null && !testing) {
+		if (instance == null) {
 			synchronized (Logger.class) {
-				if (instance == null && !testing) {
+				if (instance == null) {
 					instance = new SoundPlayer();
 				}
 			}
@@ -167,7 +165,7 @@ public final class SoundPlayer implements MusicListener {
 	 * Start playing music.
 	 */
 	public void play() {
-		if (!playingMusic && !testing) {
+		if (!playingMusic) {
 			activeMusic.play();
 			playingMusic = true;
 		}
@@ -198,13 +196,6 @@ public final class SoundPlayer implements MusicListener {
 
 	@Override
 	public void musicSwapped(Music arg0, Music arg1) {
-	}
-
-	/**
-	 * @param testing2 the testing to set
-	 */
-	public static void setTesting(boolean testing2) {
-		testing = testing2;
 	}
 	
 	
