@@ -1,8 +1,5 @@
 package logic;
 
-import guiobjects.RND;
-import guiobjects.RenderOptions;
-
 import java.util.ArrayList;
 
 import org.newdawn.slick.Color;
@@ -10,12 +7,18 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
+import guiobjects.RND;
+import guiobjects.RenderOptions;
+import iterator.Aggregate;
+import iterator.CircleListIterator;
+import iterator.Iterator;
+
 /**
  * Class containing a list of bouncingcircles.
  * @author Bart
  *
  */
-public class CircleList {
+public class CircleList implements Aggregate {
 	
 	private ArrayList<BouncingCircle> circles;
 	private int highestID;
@@ -180,7 +183,9 @@ public class CircleList {
 	 * @param color to draw circles with.
 	 */
 	public void drawCircles(Graphics graphics, Color color) {
-		for (BouncingCircle circle : circles) { 
+		Iterator iterator = this.createIterator();
+		while (iterator.hasNext()) {
+			BouncingCircle circle = (BouncingCircle) iterator.next();
 			int r = (int) circle.getRadius(), offset = CIRCLE_DRAW_OFFSET;
 			final float xPosition = circle.getMinX() - offset;
 			final float yPosition = circle.getMinY() - offset;
@@ -208,6 +213,12 @@ public class CircleList {
 					e.printStackTrace(); }
 			}
 		}
+	}
+
+	@Override
+	public Iterator createIterator() {
+		// TODO Auto-generated method stub
+		return new CircleListIterator(circles);
 	}
 
 }
