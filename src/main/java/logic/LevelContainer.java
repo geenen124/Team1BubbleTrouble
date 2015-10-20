@@ -1,8 +1,10 @@
 package logic;
-import guimenu.MainGame;
-
 import java.util.ArrayList;
 
+import guimenu.MainGame;
+import iterator.Aggregate;
+import iterator.Iterator;
+import iterator.LevelContainerIterator;
 import levels.Level;
 import levels.LevelFactory;
 import levels.LevelFactoryMultiPlayer;
@@ -14,7 +16,7 @@ import logic.Logger.PriorityLevels;
  * @author Menno
  *
  */
-public class LevelContainer {
+public class LevelContainer implements Aggregate {
 	
 	private ArrayList<Level> levels;
 	private MainGame mainGame;
@@ -120,6 +122,11 @@ public class LevelContainer {
 	 */
 	public static void setTesting(boolean testing) {
 		LevelContainer.testing = testing;
+	}
+
+	@Override
+	public Iterator createIterator() {
+		return new LevelContainerIterator(levels);
 	}
 
 }
