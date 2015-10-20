@@ -2,6 +2,7 @@ package guigame;
 
 import guimenu.MainGame;
 import guiobjects.Button;
+import guiobjects.ElementList;
 import guiobjects.RND;
 
 import java.util.concurrent.Executors;
@@ -21,6 +22,7 @@ import org.newdawn.slick.state.StateBasedGame;
  */
 public class GameStatePauseHelper extends GameStateHelper {
 	
+	private ElementList buttons;
 	private Button returnButton;
 	private Button menuButton;
 	private Button exitButton;
@@ -54,6 +56,7 @@ public class GameStatePauseHelper extends GameStateHelper {
 	 * Initialize the buttons.
 	 */
 	private void initButtons() {
+		buttons = new ElementList();
 		returnButton = new Button(BUTTON_X, RETURN_BUTTON_Y,
 				BUTTON_WIDTH, BUTTON_HEIGHT,
 				"> Return");
@@ -63,11 +66,14 @@ public class GameStatePauseHelper extends GameStateHelper {
 		exitButton = new Button(BUTTON_X, EXIT_BUTTON_Y,
 				BUTTON_WIDTH, BUTTON_HEIGHT,
 				"> Quit");
+		buttons.add(returnButton);
+		buttons.add(menuButton);
+		buttons.add(exitButton);
 	}
 	
 	@Override
 	public void enter() {
-		  throw new UnsupportedOperationException("not supported");
+		buttons.reset();
 	}
 
 	@Override
@@ -80,16 +86,19 @@ public class GameStatePauseHelper extends GameStateHelper {
 		Input input = container.getInput();
 		if (parentState.getSavedInput().isKeyDown(Input.KEY_ESCAPE) & !waitEsc) {
 			parentState.getLogicHelper().pauseStopped(false);
+			buttons.reset();
 		}
-		if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON) & !mainGame.getShouldSwitchState()) {
-			if (returnButton.isMouseOver(input) & !waitEsc) {
-				parentState.getLogicHelper().pauseStopped(false); }
-			if (menuButton.isMouseOver(input)) {
+		buttons.update(input);
+		if ((input.isMousePressed(Input.MOUSE_LEFT_BUTTON) || input.isKeyDown(Input.KEY_ENTER)) 
+				&& !mainGame.getShouldSwitchState()) {
+			if (returnButton.isSelected() && !waitEsc) {
+				parentState.getLogicHelper().pauseStopped(false); buttons.reset(); }
+			if (menuButton.isSelected()) {
 				mainGame.setScore(0);
 				mainGame.setLevelCounter(0);
 				mainGame.killMultiplayer();
 				mainGame.setSwitchState(mainGame.getMainState()); }
-			if (exitButton.isMouseOver(input)) {
+			if (exitButton.isSelected()) {
 				mainGame.killMultiplayer();
 				mainGame.setSwitchState(-1); }
 		}
@@ -120,9 +129,7 @@ public class GameStatePauseHelper extends GameStateHelper {
 		RND.getInstance().text(graphics, TEXT_X, TEXT_1_Y, "# Game is paused...");
 		RND.getInstance().text(graphics, TEXT_X, TEXT_2_Y, "========================");
 		Input input = container.getInput();
-		returnButton.drawColor(graphics, input, mainGame.getColor());
-		menuButton.drawColor(graphics, input, mainGame.getColor());
-		exitButton.drawColor(graphics, input, mainGame.getColor());
+		buttons.render(graphics, input, mainGame.getColor());
 	}
 
 }

@@ -1,6 +1,6 @@
 package guimenu;
 import guiobjects.Button;
-import guiobjects.ButtonList;
+import guiobjects.ElementList;
 import guiobjects.RND;
 import guiobjects.Separator;
 import logic.Logger;
@@ -22,8 +22,7 @@ public class MenuMainState extends BasicGameState {
 	 
 	private MainGame mainGame;
 
-	private ButtonList buttons;
-	
+	private ElementList buttons;
 	private Button playButton;
 	private Button play2Button;
 	private Button lanButton;
@@ -76,7 +75,7 @@ public class MenuMainState extends BasicGameState {
 	public void init(GameContainer container, StateBasedGame arg1) throws SlickException {
 		separatorTop = new Separator(SEPARATOR_X, SEPARATOR_Y, false, separatorTopTitle,
 				container.getWidth());
-		buttons = new ButtonList();
+		buttons = new ElementList();
 		playButton = new Button(BUTTON_X, PLAYBUTTON_Y, BUTTON_WIDTH, BUTTON_HEIGHT, 
 				"> Play 1-player game");
 		play2Button = new Button(BUTTON_X, PLAYBUTTON2_Y, BUTTON_WIDTH, BUTTON_HEIGHT,
@@ -87,11 +86,11 @@ public class MenuMainState extends BasicGameState {
 				"> Options");
 		quitButton = new Button(BUTTON_X, QUITBUTTON_Y, BUTTON_WIDTH, BUTTON_HEIGHT,
 				"> Quit");
-		buttons.addButton(playButton);
-		buttons.addButton(play2Button);
-		buttons.addButton(lanButton);
-		buttons.addButton(optionsButton);
-		buttons.addButton(quitButton);
+		buttons.add(playButton);
+		buttons.add(play2Button);
+		buttons.add(lanButton);
+		buttons.add(optionsButton);
+		buttons.add(quitButton);
 	}
 	
 	/**
@@ -152,7 +151,7 @@ public class MenuMainState extends BasicGameState {
 		}
 
 		buttons.update(input);
-		
+
 		if ((input.isMousePressed(Input.MOUSE_LEFT_BUTTON) || input.isKeyDown(Input.KEY_ENTER))
 				&& !mainGame.getShouldSwitchState()) {
 			processButtonsMouse(input);
@@ -166,15 +165,15 @@ public class MenuMainState extends BasicGameState {
 	 * @param input the keyboard/mouse input of the user.
 	 */
 	private void processButtonsMouse(Input input) {
-		if (playButton.isHighlight()) { // Go to gamestate in singleplayer
+		if (playButton.isSelected()) { // Go to gamestate in singleplayer
 			processPlayButton();
-		} else if (play2Button.isHighlight()) { // Go to gamestate in multiplayer
+		} else if (play2Button.isSelected()) { // Go to gamestate in multiplayer
 			processTwoPlayerPlayButton();
-		} else if (lanButton.isHighlight()) { // Go to gamestate in multiplayer
+		} else if (lanButton.isSelected()) { // Go to gamestate in multiplayer
 			processLanButton();
-		} else if (optionsButton.isHighlight()) { // Go to settingsState
+		} else if (optionsButton.isSelected()) { // Go to settingsState
 			processOptionsButton();
-		} else if (quitButton.isHighlight()) { // Quit game
+		} else if (quitButton.isSelected()) { // Quit game
 			processExitButton();
 		}
 	}
@@ -252,7 +251,7 @@ public class MenuMainState extends BasicGameState {
 		RND.getInstance().text(graphics, HIGHSCORES_TITLE_X, HIGHSCORES_TITLE_Y, 
 				"The best scores of your predecessors!");
 		
-		// NO DRAWING AFTER THIS POINT UNLESS YOUR NAME STARTS WITH AN M. AND AN A. BOO.
+		// NO DRAWING AFTER THIS POINT UNLESS YOUR NAME STARTS WITH AN M. AND NOT M-E. BOO.
 		RND.getInstance().drawForeGround(graphics);
 		// NO DRAWING HERE. BAD PROGRAMMER. BAD.
 	}

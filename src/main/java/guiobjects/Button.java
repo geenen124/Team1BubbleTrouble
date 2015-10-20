@@ -1,25 +1,34 @@
 package guiobjects;
-import logic.MyRectangle;
-
+import org.newdawn.slick.AngelCodeFont;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
+import org.newdawn.slick.SlickException;
 
 /**
  * Class that respresents a button - you can click on it and something might happen.
  * @author Menno
- *
  */
-public class Button {
-	private float x;
-	private float y;
-	private float width;
-	private float height;
+public class Button extends Element {
+	
+	// assets
+	private static Image imageButtonHeadN;
+	private static Image imageButtonHeadA;
+	private static Image imageButtonBodyN;
+	private static Image imageButtonBodyA;
+	private static Image imageButtonTailN;
+	private static Image imageButtonTailA;
+	private static AngelCodeFont dosFontM;
+	
 	private String text;
 	
-	private static final float HALF = 0.5f;
-	
-	private boolean highlight =  false;
+	private static final int BUTTON_BEGIN_OFFSET = 4;
+	private static final int BUTTON_END_OFFSET = 22;
+	private static final int BUTTON_X_OFFSET = 14;
+	private static final int BUTTON_Y_OFFSET = 14;
+	private static final int BUTTON_HEIGHT = 53;
+	private static final float BUTTON_TEXT_OPACITY = 0.85f;
 	
 	/**
 	 * Button constructor class.
@@ -31,11 +40,32 @@ public class Button {
 	 */
 	public Button(float x, float y, float width, float height, String text) {
 		super();
-		this.x = x;
-		this.y = y;
-		this.width = width;
-		this.height = height;
+		setX((int) x);
+		setY((int) y);
+		setWidth((int) width);
+		setHeight((int) height);
 		this.text = text;
+	}
+	
+	/**
+	 * Set the button's images.
+	 * @throws SlickException 
+	 */
+	public static void init() throws SlickException {
+		imageButtonHeadN = 
+				new Image("resources/images_UI/images_Buttons/Menu_Button_Head_Norm.png");
+		imageButtonHeadA = 
+				new Image("resources/images_UI/images_Buttons/Menu_Button_Head_Add.png");
+		imageButtonBodyN = 
+				new Image("resources/images_UI/images_Buttons/Menu_Button_Body_Norm.png");
+		imageButtonBodyA = 
+				new Image("resources/images_UI/images_Buttons/Menu_Button_Body_Add.png");
+		imageButtonTailN = 
+				new Image("resources/images_UI/images_Buttons/Menu_Button_Tail_Norm.png");
+		imageButtonTailA = 
+				new Image("resources/images_UI/images_Buttons/Menu_Button_Tail_Add.png");
+		dosFontM = new AngelCodeFont("resources/images_Font/dosfont.fnt",
+				"resources/images_Font/dosfont_Mask.png");
 	}
 	
 	/**
@@ -47,129 +77,6 @@ public class Button {
 		return getRectangle().contains(input.getMouseX(), input.getMouseY());
 	}
 	
-	/**
-	 * Draw function that draws a button, using graphics/input to determine its state and draw.
-	 * @param graphics context the drawing is done in.
-	 * @param input used to determine the button's state (such as mouse-over)
-	 * @param color the color used to draw this button
-	 */
-	public void drawColor(Graphics graphics, Input input, Color color) {
-		if (highlight) {
-			RND.getInstance().drawButtonHighlight(graphics, this);
-		} else {
-			RND.getInstance().text(graphics, x, y, text);
-		}
-	}
-	
-	/**
-	 * Draw function that draws a button, using graphics/input to determine its state and draw.
-	 * This method has a boolean to disable/enable mouse-over capabilities. 
-	 * @param graphics context the drawing is done in.
-	 * @param input used to determine the button's state (such as mouse-over)
-	 * @param color the color used to draw this button
-	 * @param enable whether mouse-over highlighting is enabled
-	 */
-	public void drawColor(Graphics graphics, Input input, Color color, boolean enable) {
-		if ((isMouseOver(input) || highlight) && enable) {
-			RND.getInstance().drawButtonHighlight(graphics, this);
-		} else {
-			RND.getInstance().text(graphics, x, y, text);
-		}
-	}
-	
-	/**
-	 * get bounding box rectangle of the button.
-	 * @return the Rectangle object of this button.
-	 */
-	public MyRectangle getRectangle() {
-		return new MyRectangle(x, y, width, height);
-	}
-	
-	/**
-	 * Get the center x value of the button.
-	 * @return the x value of the center of the button.
-	 */
-	public float getCenterX() {
-		return x + (HALF * width);
-	}
-	
-	/**
-	 * Get the center y value of the button.
-	 * @return the y value of the center of the button.
-	 */
-	public float getCenterY() {
-		return y + (HALF * height);
-	}
-	
-	/**
-	 * Get the maximum x value of the button.
-	 * @return the maximum x value of this button.
-	 */
-	public float getMaxX() {
-		return x + width;
-	}
-	
-	/**
-	 * Get the maximum y value of the button.
-	 * @return the maximum y value of this button.
-	 */
-	public float getMaxY() {
-		return y + height;
-	}
-	
-	
-	/**
-	 * @return the x
-	 */
-	public float getX() {
-		return x;
-	}
-	/**
-	 * @param x the x to set
-	 */
-	public void setX(float x) {
-		this.x = x;
-	}
-	/**
-	 * @return the y
-	 */
-	public float getY() {
-		return y;
-	}
-	/**
-	 * @param y the y to set
-	 */
-	public void setY(float y) {
-		this.y = y;
-	}
-	
-	/**
-	 * @return the width
-	 */
-	public float getWidth() {
-		return width;
-	}
-
-	/**
-	 * @param width the width to set
-	 */
-	public void setWidth(float width) {
-		this.width = width;
-	}
-
-	/**
-	 * @return the height
-	 */
-	public float getHeight() {
-		return height;
-	}
-
-	/**
-	 * @param height the height to set
-	 */
-	public void setHeight(float height) {
-		this.height = height;
-	}
 
 	/**
 	 * Set the text this button displays.
@@ -205,18 +112,43 @@ public class Button {
 	public int hashCode() {
 		return 0;
 	}
-
+	
 	/**
-	 * @return whether the button is highlighted.
+	 * Render this button.
+	 * @param graphics the context to draw in.
+	 * @param color the color to draw with.
 	 */
-	public boolean isHighlight() {
-		return highlight;
+	public void render(Graphics graphics, Color color) {
+		if (isSelected()) {
+			// draw head
+			RenderOptions ro1 = new RenderOptions(graphics, imageButtonHeadN, imageButtonHeadA, 
+					getX() - BUTTON_X_OFFSET, 
+					getY() - BUTTON_Y_OFFSET, color);
+			RND.getInstance().drawColor(ro1);
+			// draw body
+			RenderOptions ro2 = new RenderOptions(graphics, imageButtonBodyN, imageButtonBodyA, 
+					getX() + BUTTON_BEGIN_OFFSET, 
+					getY() - BUTTON_Y_OFFSET, color);
+			RND.getInstance().drawColor(ro2, 
+					dosFontM.getWidth(text) - BUTTON_END_OFFSET, BUTTON_HEIGHT);
+			// draw tail
+			RenderOptions ro3 = new RenderOptions(graphics, imageButtonTailN, imageButtonTailA, 
+					getX() + BUTTON_BEGIN_OFFSET + dosFontM.getWidth(text) 
+					- BUTTON_END_OFFSET, getY() - BUTTON_Y_OFFSET, color);
+			RND.getInstance().drawColor(ro3);
+			// draw text
+			dosFontM.drawString(getX(), getY(), text, 
+					new Color(0, 0, 0, BUTTON_TEXT_OPACITY));
+			RND.getInstance().textSpecifiedColor(graphics, getX(), getY(), text, 
+					new Color(color.r, color.g, color.b, 1f - BUTTON_TEXT_OPACITY));
+		} else {
+			RND.getInstance().text(graphics, getX(), getY(), text);
+		}
 	}
 
-	/**
-	 * @param highlight make the button highlight.
-	 */
-	public void setHighlight(boolean highlight) {
-		this.highlight = highlight;
+	@Override
+	public void update(Input input) {
+		// TODO Auto-generated method stub
+		
 	}
 }

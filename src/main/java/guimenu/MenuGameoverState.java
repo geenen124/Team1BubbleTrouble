@@ -1,5 +1,6 @@
 package guimenu;
 import guiobjects.Button;
+import guiobjects.ElementList;
 import guiobjects.RND;
 import guiobjects.Separator;
 import guiobjects.Textfield;
@@ -22,6 +23,8 @@ import org.newdawn.slick.state.StateBasedGame;
  */
 public class MenuGameoverState extends BasicGameState {
 
+
+	private ElementList buttons;
 	private Button playButton;
 	private Button menuButton;
 	private Button saveButton;
@@ -147,6 +150,11 @@ public class MenuGameoverState extends BasicGameState {
 		displayLives = mainGame.getLifeCount();
 		mainGame.setLifeCount(MainGame.getLives());
 		inputMessage = null;
+		buttons = new ElementList();
+		buttons.add(saveButton);
+		buttons.add(playButton);
+		buttons.add(menuButton);
+		buttons.add(quitButton);
 		highScoreEntered = false;
 	}
 	
@@ -192,7 +200,9 @@ public class MenuGameoverState extends BasicGameState {
 					+ ((float) delta) / mainGame.getOpacityFadeTimer());
 		}
 		Input input = container.getInput();
-		if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON) && !mainGame.getShouldSwitchState()) {
+		buttons.update(input);
+		if ((input.isMousePressed(Input.MOUSE_LEFT_BUTTON) || input.isKeyDown(Input.KEY_ENTER)) 
+				&& !mainGame.getShouldSwitchState()) {
 			processButtons(input);
 		}
 		nameField.update(input);
@@ -205,18 +215,18 @@ public class MenuGameoverState extends BasicGameState {
 	 * @param input the keyboard/mouse input of the user
 	 */
 	private void processButtons(Input input) {
-		if (playButton.isMouseOver(input)) {
+		if (playButton.isSelected()) {
 			processStartOver();
 			Logger.getInstance().log("play again button clicked", 
 					Logger.PriorityLevels.MEDIUM, USER_INPUT);
 		} 
-		else if (saveButton.isMouseOver(input)) {
+		else if (saveButton.isSelected()) {
 			saveScore();
 			Logger.getInstance().log("save button clicked", 
 					Logger.PriorityLevels.MEDIUM, USER_INPUT);
+			buttons.reset();
 		}
-		else if (menuButton.isMouseOver(input)) {
-			// Go to startState
+		else if (menuButton.isSelected()) {
 			mainGame.resetLifeCount();
 			mainGame.resetLevelCount();
 			mainGame.setScore(0);
@@ -225,7 +235,7 @@ public class MenuGameoverState extends BasicGameState {
 			Logger.getInstance().log("main menu button clicked", 
 					Logger.PriorityLevels.MEDIUM, USER_INPUT);
 		}
-		else if (quitButton.isMouseOver(input)) {
+		else if (quitButton.isSelected()) {
 			mainGame.setSwitchState(-1);
 			Logger.getInstance().log("exit button clicked", 
 					Logger.PriorityLevels.MEDIUM, USER_INPUT);
@@ -357,12 +367,13 @@ public class MenuGameoverState extends BasicGameState {
 	 */
 	private void renderButtons(GameContainer container, Graphics graphics) {
 		Input input = container.getInput();
-		playButton.drawColor(graphics, input, mainGame.getColor());
-		menuButton.drawColor(graphics, input, mainGame.getColor());
-		if (inputMessage == null) {
-			saveButton.drawColor(graphics, input, mainGame.getColor());
+		buttons.render(graphics, input, mainGame.getColor());
+//		playButton.drawColor(graphics, input, mainGame.getColor());
+//		menuButton.drawColor(graphics, input, mainGame.getColor());
+		if (inputMessage != null) {
+			buttons.remove(saveButton);
 		}
-		quitButton.drawColor(graphics, input, mainGame.getColor());
+//		quitButton.drawColor(graphics, input, mainGame.getColor());
 	}
 
 	/**

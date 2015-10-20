@@ -2,7 +2,7 @@ package guimenu;
 
 import guigame.GameState;
 import guiobjects.Button;
-import guiobjects.ButtonList;
+import guiobjects.ElementList;
 import guiobjects.Popup;
 import guiobjects.RND;
 import guiobjects.Separator;
@@ -29,7 +29,7 @@ import org.newdawn.slick.state.StateBasedGame;
  */
 public class MenuMultiplayerState extends BasicGameState {
 
-	private ButtonList buttons;
+	private ElementList buttons;
 	
 	private Button returnButton;
 	private Button hostButton;
@@ -54,7 +54,6 @@ public class MenuMultiplayerState extends BasicGameState {
 	private String separatorMiscTitle = " Miscellaneous ";
 
 	private String message;
-	
 	
 	private static final int LOGO_X = 160;
 	private static final int LOGO_Y = 110;
@@ -114,6 +113,7 @@ public class MenuMultiplayerState extends BasicGameState {
 		Logger.getInstance().log("Entering MenuMultiplayerState", 
 				Logger.PriorityLevels.LOW, "States");
 		RND.getInstance().setOpacity(0.0f);
+		buttons.reset();
 		mainGame.stopSwitchState();
 	}
 	
@@ -167,6 +167,7 @@ public class MenuMultiplayerState extends BasicGameState {
 	 * @throws SlickException if something goes wrong / file not found
 	 */
 	private void initButtons() throws SlickException {
+		buttons = new ElementList();
 		returnButton = new Button(RETURN_BUTTON_X, RETURN_BUTTON_Y, RETURN_BUTTON_WIDTH,
 				RETURN_BUTTON_HEIGHT, 
 				"< Return");
@@ -176,6 +177,9 @@ public class MenuMultiplayerState extends BasicGameState {
 		joinButton = new Button(JOIN_BUTTON_X, JOIN_BUTTON_Y, RETURN_BUTTON_WIDTH,
 				RETURN_BUTTON_HEIGHT, 
 				"> Join Game");
+		buttons.add(returnButton);
+		buttons.add(hostButton);
+		buttons.add(joinButton);
 	}
 	
 	/**
@@ -199,8 +203,12 @@ public class MenuMultiplayerState extends BasicGameState {
 		if (input.isKeyPressed(Input.KEY_ENTER) && ipField.hasFocus()) {
 			attemptJoin();
 		}
+		buttons.update(input);
+		buttons.update(popup);
 		
-		if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON) && !mainGame.getShouldSwitchState()) {
+		popup.update(input);
+		if ((input.isMousePressed(Input.MOUSE_LEFT_BUTTON) || input.isKeyDown(Input.KEY_ENTER))
+				&& !mainGame.getShouldSwitchState()) {
 			processButtons(input);
 		}
 		
@@ -213,18 +221,16 @@ public class MenuMultiplayerState extends BasicGameState {
 	 */
 	private void processButtons(Input input) {
 		if (!popup.getActive()) {
-			if (returnButton.isMouseOver(input)) {
+			if (returnButton.isSelected()) {
 				processReturnButton();
 			} 
-			if (hostButton.isMouseOver(input)) {
+			if (hostButton.isSelected()) {
 				attemptHost();
 			} 
-			if (joinButton.isMouseOver(input)) {
+			if (joinButton.isSelected()) {
 				attemptJoin();
 			} 
-		} else {
-			popup.processButton(input);
-		}
+		} 
 	}
 	
 	/**
@@ -303,7 +309,7 @@ public class MenuMultiplayerState extends BasicGameState {
 		drawSprites(graphics);
 		mainGame.drawWaterMark();
 		RND.getInstance().drawLogo(graphics, LOGO_X, LOGO_Y);
-		popup.drawColor(graphics, this.input, mainGame.getColor());
+		popup.update(graphics, this.input, mainGame.getColor());
 		RND.getInstance().drawForeGround(graphics);
 	}
 	
@@ -339,9 +345,7 @@ public class MenuMultiplayerState extends BasicGameState {
 	 * @param graphics the Graphics object to draw things on screen
 	 */
 	private void drawSprites(Graphics graphics) {
-		returnButton.drawColor(graphics, input, mainGame.getColor(), !popup.getActive());
-		hostButton.drawColor(graphics, input, mainGame.getColor(), !popup.getActive());
-		joinButton.drawColor(graphics, input, mainGame.getColor(), !popup.getActive());
+		buttons.render(graphics, input, mainGame.getColor());
 		separatorTop.drawColor(graphics, mainGame.getColor());
 		separatorHost.drawColor(graphics, mainGame.getColor());
 		separatorJoin.drawColor(graphics, mainGame.getColor());

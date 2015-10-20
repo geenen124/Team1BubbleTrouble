@@ -20,6 +20,7 @@ public class Textfield {
 	private float y;
 	private TextField textfield;
 	
+	
 	private static final int TEXT_FIELD_WIDTH = 800;
 	private static final int TEXT_FIELD_HEIGHT = 60;
 	private static final int TF_BACKGROUND_DEVIATION = 27;

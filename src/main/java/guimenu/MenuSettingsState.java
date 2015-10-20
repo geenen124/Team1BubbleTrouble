@@ -1,6 +1,6 @@
 package guimenu;
 import guiobjects.Button;
-import guiobjects.ButtonList;
+import guiobjects.ElementList;
 import guiobjects.RND;
 import guiobjects.RenderOptions;
 import guiobjects.Separator;
@@ -24,7 +24,7 @@ import org.newdawn.slick.state.StateBasedGame;
  */
 public class MenuSettingsState extends BasicGameState {
 
-	private ButtonList buttons;
+	private ElementList buttons;
 	private Button returnButton;
 	private Button shuffleButton;
 	private Button redButton;
@@ -232,7 +232,7 @@ public class MenuSettingsState extends BasicGameState {
 	 * @throws SlickException if something goes wrong / file not found
 	 */
 	private void initButtons() throws SlickException {
-		buttons = new ButtonList();
+		buttons = new ElementList();
 		returnButton = new Button(RETURN_BUTTON_X, RETURN_BUTTON_Y, RETURN_BUTTON_WIDTH,
 				RETURN_BUTTON_HEIGHT, "< Return");
 		shuffleButton = new Button(COLOR_BUTTON_1_X, COLOR_BUTTON_1_Y, 
@@ -251,15 +251,15 @@ public class MenuSettingsState extends BasicGameState {
 				COLOR_BUTTON_WIDTH, RETURN_BUTTON_HEIGHT, "> Purple");
 		yellowButton = new Button(COLOR_BUTTON_3_X, COLOR_BUTTON_2_Y, 
 				COLOR_BUTTON_WIDTH, RETURN_BUTTON_HEIGHT, "> Yellow");
-		buttons.addButton(returnButton);
-		buttons.addButton(shuffleButton);
-		buttons.addButton(redButton);
-		buttons.addButton(orangeButton);
-		buttons.addButton(greenButton);
-		buttons.addButton(blueButton);
-		buttons.addButton(whiteButton);
-		buttons.addButton(pinkButton);
-		buttons.addButton(yellowButton);
+		buttons.add(returnButton);
+		buttons.add(shuffleButton);
+		buttons.add(redButton);
+		buttons.add(orangeButton);
+		buttons.add(greenButton);
+		buttons.add(blueButton);
+		buttons.add(whiteButton);
+		buttons.add(pinkButton);
+		buttons.add(yellowButton);
 	}
 	
 	/**
@@ -304,7 +304,7 @@ public class MenuSettingsState extends BasicGameState {
 			processArie1Button();
 		} else if (arie2Rectangle.contains(input.getMouseX(), input.getMouseY())) {
 			processArie2Button();
-		} else if (returnButton.isHighlight()) {
+		} else if (returnButton.isSelected()) {
 			processReturnButton();
 		} 
 	}
@@ -388,28 +388,28 @@ public class MenuSettingsState extends BasicGameState {
 	 * @param input the keyboard/mouse input of the user
 	 */
 	private void processColorButtons(Input input) {
-		if (shuffleButton.isHighlight()) {
+		if (shuffleButton.isSelected()) {
 			mainGame.shuffleColor(true);
 			mainGame.setSwitchState(mainGame.getSettingsState());
-		} else if (redButton.isHighlight()) {
+		} else if (redButton.isSelected()) {
 			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_RED);
 			mainGame.setSwitchState(mainGame.getSettingsState());
-		} else if (blueButton.isHighlight()) {
+		} else if (blueButton.isSelected()) {
 			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_BLUE);
 			mainGame.setSwitchState(mainGame.getSettingsState());
-		} else if (orangeButton.isHighlight()) {
+		} else if (orangeButton.isSelected()) {
 			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_ORANGE);
 			mainGame.setSwitchState(mainGame.getSettingsState());
-		} else if (greenButton.isHighlight()) {
+		} else if (greenButton.isSelected()) {
 			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_GREEN);
 			mainGame.setSwitchState(mainGame.getSettingsState());
-		} else if (whiteButton.isHighlight()) {
+		} else if (whiteButton.isSelected()) {
 			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_WHITE);
 			mainGame.setSwitchState(mainGame.getSettingsState());
-		} else if (pinkButton.isHighlight()) {
+		} else if (pinkButton.isSelected()) {
 			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_PINK);
 			mainGame.setSwitchState(mainGame.getSettingsState());
-		} else if (yellowButton.isHighlight()) {
+		} else if (yellowButton.isSelected()) {
 			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_YELLOW);
 			mainGame.setSwitchState(mainGame.getSettingsState());
 		} 
@@ -474,7 +474,6 @@ public class MenuSettingsState extends BasicGameState {
 	private void drawSprites(Graphics graphics) {
 		drawPlayer1(graphics);
 		drawPlayer2(graphics);
-		returnButton.drawColor(graphics, input, mainGame.getColor());
 		drawSprites2(graphics);
 	}
 	
