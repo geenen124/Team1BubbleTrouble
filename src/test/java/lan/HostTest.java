@@ -18,6 +18,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 import logic.BouncingCircle;
+import logic.CircleList;
 import logic.Coin;
 import logic.FloatingScore;
 import logic.WeaponList;
@@ -753,7 +754,7 @@ public class HostTest {
 		h.playerStoppedMoving(1, 1, 1);
 		h.updateLaser(0, 1, 1, 1, 1, true);
 		h.laserDone(0);
-		h.updateCircles(new ArrayList<BouncingCircle>());
+		h.updateCircles(new CircleList(new ArrayList<BouncingCircle>()));
 		h.updatePowerupsAdd(new Powerup(1, 1, Powerup.PowerupType.SHIELD));
 		h.updatePowerupsDictate(new Powerup(1, 1, Powerup.PowerupType.SHIELD));
 		h.updateCoinsAdd(new Coin(1, 1, true));

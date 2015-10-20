@@ -422,23 +422,6 @@ public class BouncingCircle extends Circle implements Cloneable {
 	
 	/**
 	 * Method that returns a string representations of a circleList.
-	 * @param circleList	the circlelist to represent
-	 * @return				a string containing the representations
-	 */
-	public static String circleListToString(ArrayList<BouncingCircle> circleList) {
-		StringBuffer res = new StringBuffer().append("UPDATE CIRCLELIST START");
-		
-		for (BouncingCircle bCircle : circleList) {
-			res.append('\n');
-			res.append(bCircle.toString());
-		}
-		res.append("\nUPDATE CIRCLELIST END");
-		
-		return res.toString();
-	}
-	
-	/**
-	 * Method that returns a string representations of a circleList.
 	 * @param circleList	the circlelist to represent\
 	 * @param gateNumber	the gatenumber
 	 * @return				a string containing the representations

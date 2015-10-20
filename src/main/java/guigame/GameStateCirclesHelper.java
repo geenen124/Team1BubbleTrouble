@@ -80,7 +80,8 @@ public class GameStateCirclesHelper extends GameStateHelper {
 			lastCircleUpdate++;
 			if (lastCircleUpdate >= CIRCLES_UPDATE_RATE) {
 				lastCircleUpdate = 0;
-				mainGame.getHost().updateCircles(circleList.getCircles());
+				//CURRENTLY HERE
+				mainGame.getHost().updateCircles(circleList);
 				parentState.getGateHelper().update(container, sbg, deltaFloat);
 			}
 		}
@@ -236,20 +237,12 @@ public class GameStateCirclesHelper extends GameStateHelper {
 	public void setShotList(ArrayList<BouncingCircle> shotlist) {
 		this.shotList = shotlist;
 	}
+	//GameStateLogicHelper playGame isEmpty for arrayList instead of CircleList
 	
 	/**
 	 * @return the circlelist object that circles are stored in.
 	 */
 	public CircleList getCircleList() {
 		return circleList;
-	}
-	
-	/**
-	 * set the circlelist.
-	 * @param circlelist the circlelist to set
-	 */
-	public void setCircleList(CircleList circlelist) {
-		this.circleList = circlelist;
-	}
-	
+	}	
 }
