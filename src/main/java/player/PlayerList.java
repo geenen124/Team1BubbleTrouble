@@ -1,25 +1,27 @@
 package player;
-import guigame.GameState;
-import guimenu.MainGame;
-import guiobjects.RND;
-import guiobjects.RenderOptions;
-
 import java.util.ArrayList;
-
-import logic.BouncingCircle;
-import logic.Logger;
 
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
+import guigame.GameState;
+import guimenu.MainGame;
+import guiobjects.RND;
+import guiobjects.RenderOptions;
+import iterator.Aggregate;
+import iterator.Iterator;
+import iterator.PlayerListIterator;
+import logic.BouncingCircle;
+import logic.Logger;
+
 /**
  * A list of players.
  * @author Bart
  *
  */
-public class PlayerList {
+public class PlayerList implements Aggregate {
 	
 	private ArrayList<Player> playerList;
 	private MainGame mainGame;
@@ -320,6 +322,11 @@ public class PlayerList {
 	 */
 	public void setDied(boolean died) {
 		this.died = died;
+	}
+
+	@Override
+	public Iterator createIterator() {
+		return new PlayerListIterator(playerList);
 	}
 
 	
