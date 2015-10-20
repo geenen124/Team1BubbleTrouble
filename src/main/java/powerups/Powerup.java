@@ -6,8 +6,6 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
 import guigame.GameState;
-import iterator.Aggregate;
-import iterator.Iterator;
 import logic.MyRectangle;
 /**
  * Created by alexandergeenen on 09/09/15.

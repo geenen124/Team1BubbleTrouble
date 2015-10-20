@@ -206,12 +206,9 @@ public class CircleList implements Aggregate {
 			case(MINIMUM_RADIUS) : RND.getInstance().drawColor(new RenderOptions(graphics, 
 					ballsImagesN[BALL_IMAGE_FIVE], ballsImagesA[BALL_IMAGE_FIVE],
 					xPosition, yPosition, color)); break;
-			default:
-				try {
-					throw new SlickException("Radius was not one of the supported");
-				} catch (SlickException e) {
-					e.printStackTrace(); }
-			}
+			default: System.out.println("Radius not supported");
+				
+				}
 		}
 	}
 
