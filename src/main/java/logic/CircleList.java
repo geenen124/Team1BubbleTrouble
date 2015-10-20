@@ -51,6 +51,23 @@ public class CircleList implements Aggregate {
 	}
 	
 	/**
+	 * Method that returns a string representation of a circleList.
+	 */
+	@Override
+	public String toString() {
+		StringBuffer res = new StringBuffer().append("UPDATE CIRCLELIST START");
+		
+		Iterator iterator = createIterator();
+		while (iterator.hasNext()) {
+			BouncingCircle circle = (BouncingCircle) iterator.next();
+			res.append('\n');
+			res.append(circle.toString());
+		}
+		res.append("\nUPDATE CIRCLELIST END");
+		return res.toString();
+	}
+	
+	/**
 	 * Load all circle images before rendering.
 	 */
 	public static void loadImages() {
@@ -90,7 +107,9 @@ public class CircleList implements Aggregate {
 	 * @param multiplier - the multiplier to set
 	 */
 	public void setAllMultipliers(float multiplier) {
-		for (BouncingCircle circle : circles) {
+		Iterator iterator = this.createIterator();
+		while (iterator.hasNext()) {
+			BouncingCircle circle = (BouncingCircle) iterator.next();
 			circle.setMultiplier(multiplier);
 		}
 	}
@@ -137,6 +156,14 @@ public class CircleList implements Aggregate {
 	public int getNewID() {
 		highestID++;
 		return highestID;
+	}
+	
+	/**
+	 * 
+	 * @return whether there CircleList is currently not storing any circles.
+	 */
+	public boolean isEmpty() {
+		return this.circles.isEmpty();
 	}
 	
 	/**
