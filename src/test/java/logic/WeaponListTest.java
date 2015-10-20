@@ -50,7 +50,7 @@ public class WeaponListTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		mg = new MainGame("TestGame");
+		mg = new MainGame("TestGame", true);
 		gs = mock(GameState.class);
 		
 		mg = mock(MainGame.class);

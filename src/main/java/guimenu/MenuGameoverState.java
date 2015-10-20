@@ -15,6 +15,9 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import sound.SoundPlayer;
+import sound.SoundPlayer.MusicLists;
+
 /**
  * Class that represents the state of the game when the game is over.
  * @author Menno
@@ -148,6 +151,13 @@ public class MenuGameoverState extends BasicGameState {
 		mainGame.setLifeCount(MainGame.getLives());
 		inputMessage = null;
 		highScoreEntered = false;
+		
+		if (displayLives > 0) {
+			SoundPlayer.getInstance().setActiveList(MusicLists.WON_LIST);
+		} else {
+			SoundPlayer.getInstance().setActiveList(MusicLists.LOST_LIST);
+		}
+	
 	}
 	
 	/**

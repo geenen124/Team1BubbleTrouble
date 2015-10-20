@@ -51,7 +51,7 @@ public class PlayerListTest {
 	public void setUp() throws Exception {
 		i = mock(Image.class);
 		i2 = mock(Image.class);
-		mg = new MainGame("maingame");
+		mg = new MainGame("maingame", true);
 		s = mock(SpriteSheet.class);
 		gs = mock(GameState.class);
 		when(gs.getItemsHelper()).thenReturn(ih);

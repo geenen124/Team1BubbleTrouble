@@ -57,7 +57,7 @@ public class PlayerTest {
 		i2 = mock(Image.class);
 		i3 = mock(Image.class);
 		i4 = mock(Image.class);
-		mg = new MainGame("maingame");
+		mg = new MainGame("maingame", true);
 		s = mock(SpriteSheet.class);
 		gs = mock(GameState.class);
 		ch = mock(GameStateCirclesHelper.class);

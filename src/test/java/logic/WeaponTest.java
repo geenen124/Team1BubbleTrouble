@@ -23,7 +23,7 @@ public class WeaponTest {
 	@Before
 	public void setUp() throws Exception {
 		l = new Weapon(1, 2, 3, 4);
-		mg = new MainGame("TestGame");
+		mg = new MainGame("TestGame", true);
 		gs = mock(GameState.class);
 		when(gs.getLevelsHelper()).thenReturn(leh);
 		when(leh.getCeiling()).thenReturn(new MyRectangle(0, 0, 200, 200));
