@@ -33,8 +33,8 @@ public class PlayerGateHelper {
 	public void processGates() {
 		// Check the intersection of a player with a gate
 		freeToRoam = true;
-		synchronized (gameState.getGateHelper().getGateList()) {
-			for (Gate someGate :gameState.getGateHelper().getGateList()) {
+		synchronized (gameState.getGateHelper().getGateList().getGates()) {
+			for (Gate someGate :gameState.getGateHelper().getGateList().getGates()) {
 				if (player.getLogicHelper().getRectangle().intersects(someGate.getRectangle())) {
 					freeToRoam = false;
 					player.getMovementHelper().setIntersectingGate(someGate);

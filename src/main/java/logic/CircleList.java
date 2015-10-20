@@ -1,8 +1,5 @@
 package logic;
 
-import guiobjects.RND;
-import guiobjects.RenderOptions;
-
 import java.util.ArrayList;
 
 import org.newdawn.slick.Color;
@@ -10,12 +7,18 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
+import guiobjects.RND;
+import guiobjects.RenderOptions;
+import iterator.Aggregate;
+import iterator.CircleListIterator;
+import iterator.Iterator;
+
 /**
  * Class containing a list of bouncingcircles.
  * @author Bart
  *
  */
-public class CircleList {
+public class CircleList implements Aggregate {
 	
 	private ArrayList<BouncingCircle> circles;
 	private int highestID;
@@ -45,6 +48,23 @@ public class CircleList {
 		for (BouncingCircle circle : circles) {
 			higherID(circle);
 		}
+	}
+	
+	/**
+	 * Method that returns a string representation of a circleList.
+	 */
+	@Override
+	public String toString() {
+		StringBuffer res = new StringBuffer().append("UPDATE CIRCLELIST START");
+		
+		Iterator iterator = createIterator();
+		while (iterator.hasNext()) {
+			BouncingCircle circle = (BouncingCircle) iterator.next();
+			res.append('\n');
+			res.append(circle.toString());
+		}
+		res.append("\nUPDATE CIRCLELIST END");
+		return res.toString();
 	}
 	
 	/**
@@ -87,7 +107,9 @@ public class CircleList {
 	 * @param multiplier - the multiplier to set
 	 */
 	public void setAllMultipliers(float multiplier) {
-		for (BouncingCircle circle : circles) {
+		Iterator iterator = this.createIterator();
+		while (iterator.hasNext()) {
+			BouncingCircle circle = (BouncingCircle) iterator.next();
 			circle.setMultiplier(multiplier);
 		}
 	}
@@ -137,6 +159,14 @@ public class CircleList {
 	}
 	
 	/**
+	 * 
+	 * @return whether there CircleList is currently not storing any circles.
+	 */
+	public boolean isEmpty() {
+		return this.circles.isEmpty();
+	}
+	
+	/**
 	 * @return the circles
 	 */
 	public ArrayList<BouncingCircle> getCircles() {
@@ -180,7 +210,9 @@ public class CircleList {
 	 * @param color to draw circles with.
 	 */
 	public void drawCircles(Graphics graphics, Color color) {
-		for (BouncingCircle circle : circles) { 
+		Iterator iterator = this.createIterator();
+		while (iterator.hasNext()) {
+			BouncingCircle circle = (BouncingCircle) iterator.next();
 			int r = (int) circle.getRadius(), offset = CIRCLE_DRAW_OFFSET;
 			final float xPosition = circle.getMinX() - offset;
 			final float yPosition = circle.getMinY() - offset;
@@ -201,13 +233,16 @@ public class CircleList {
 			case(MINIMUM_RADIUS) : RND.getInstance().drawColor(new RenderOptions(graphics, 
 					ballsImagesN[BALL_IMAGE_FIVE], ballsImagesA[BALL_IMAGE_FIVE],
 					xPosition, yPosition, color)); break;
-			default:
-				try {
-					throw new SlickException("Radius was not one of the supported");
-				} catch (SlickException e) {
-					e.printStackTrace(); }
-			}
+			default: System.out.println("Radius not supported");
+				
+				}
 		}
+	}
+
+	@Override
+	public Iterator createIterator() {
+		// TODO Auto-generated method stub
+		return new CircleListIterator(circles);
 	}
 
 }
