@@ -1,8 +1,11 @@
 package guigame;
 
+import iterator.GateListIterator;
+
 import java.util.ArrayList;
 
 import logic.Gate;
+import logic.GateList;
 import guimenu.MainGame;
 
 import org.newdawn.slick.GameContainer;
@@ -17,7 +20,7 @@ import org.newdawn.slick.state.StateBasedGame;
  */
 public class GameStateGateHelper extends GameStateHelper {
 	
-	private ArrayList<Gate> gateList;
+	private GateList gateList;
 	
 	/**
 	 * Constructor for a GameStateGateHelper object.
@@ -31,8 +34,8 @@ public class GameStateGateHelper extends GameStateHelper {
 	
 	@Override
 	public void enter() {
-		gateList = parentState.getLevelsHelper().getLevelContainer().getLevel(
-				mainGame.getLevelCounter()).getGates();
+		gateList = new GateList(parentState.getLevelsHelper().getLevelContainer().getLevel(
+				mainGame.getLevelCounter()).getGates());
 	}
 
 	@Override
@@ -43,10 +46,12 @@ public class GameStateGateHelper extends GameStateHelper {
 
 	@Override
 	public void update(GameContainer container, StateBasedGame sbg,
-			float deltaFloat) {
-		for (int i = 0; i < gateList.size(); i++) {
+			float deltaFloat) {		
+		GateListIterator iterator = (GateListIterator) this.gateList.createIterator();
+		while (iterator.hasNext()) {
+			Gate gate = (Gate) iterator.next();
 			mainGame.getHost().updateRequiredForGateList(
-					gateList.get(i).getUnlockCircles(), i);
+					gate.getUnlockCircles(), (iterator.getPosition() - 1));
 		}
 	}
 	
@@ -56,8 +61,8 @@ public class GameStateGateHelper extends GameStateHelper {
 	 */
 	public void updateGateExistence(float deltaFloat) {
 		ArrayList<Gate> tempGateList = new ArrayList<Gate>();
-		synchronized (gateList) {
-			for (Gate gate : gateList) {
+		synchronized (gateList.getGates()) {
+			for (Gate gate : gateList.getGates()) {
 				if (gate.getUnlockCircles().isEmpty()) {
 					tempGateList.add(gate);
 					gate.setFading(true);
@@ -65,20 +70,18 @@ public class GameStateGateHelper extends GameStateHelper {
 			}
 		}
 		for (Gate gate : tempGateList) {
-			if (gateList.contains(gate) && gate.isDone()) {
-				gateList.remove(gate);
-			} else if (gateList.contains(gate) && gate.isFading()) {
+			if (gateList.getGates().contains(gate) && gate.isDone()) {
+				gateList.getGates().remove(gate);
+			} else if (gateList.getGates().contains(gate) && gate.isFading()) {
 				gate.update(deltaFloat);
 			}
 		}
 	}
 	
-	
-	
 	@Override
 	public void render(Graphics graphics, GameContainer container) {
-		synchronized (gateList) {
-			for (Gate gate : gateList) {
+		synchronized (gateList.getGates()) {
+			for (Gate gate : gateList.getGates()) {
 				gate.draw(graphics, mainGame, parentState, container);
 			}
 		}
@@ -88,7 +91,7 @@ public class GameStateGateHelper extends GameStateHelper {
 	 * @return the list containing all gates.
 	 */
 	public ArrayList<Gate> getGateList() {
-		return gateList;
+		return gateList.getGates();
 	}
 	
 	/**
@@ -96,7 +99,7 @@ public class GameStateGateHelper extends GameStateHelper {
 	 * @param gatelist the gatelist to set
 	 */
 	public void setGateList(ArrayList<Gate> gatelist) {
-		this.gateList = gatelist;
+		this.gateList.setGates(gatelist);
 	}
 	
 }

@@ -60,4 +60,22 @@ public class GateList implements Aggregate {
 	public Gate get(int place) {
 		return this.gates.get(place);
 	}
+
+	/**
+	 * 
+	 * @return the gates from the GateList
+	 */
+	public ArrayList<Gate> getGates() {
+		return gates;
+	}
+
+	/**
+	 * 
+	 * @param gates the gates to set
+	 */
+	public void setGates(ArrayList<Gate> gates) {
+		this.gates = gates;
+	}
+	
+	
 }
