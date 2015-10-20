@@ -11,7 +11,7 @@ import iterator.Iterator;
  * @author Menno
  *
  */
-public class CoinList implements Aggregate{
+public class CoinList implements Aggregate {
 	
 	private ArrayList<Coin> coins;
 	
