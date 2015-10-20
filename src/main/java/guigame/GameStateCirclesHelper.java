@@ -11,7 +11,6 @@ import org.newdawn.slick.state.StateBasedGame;
 import commands.CommandQueue;
 import commands.RemoveCircleCommand;
 import guimenu.MainGame;
-import iterator.GateListIterator;
 import iterator.Iterator;
 import logic.BouncingCircle;
 import logic.CircleList;

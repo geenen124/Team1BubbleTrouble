@@ -23,6 +23,9 @@ public class GateList implements Aggregate {
 		this.gates = gates;
 	}
 	
+	/**
+	 * Create a GateList with empty list.
+	 */
 	public GateList() {
 		gates = new ArrayList<Gate>();
 	}

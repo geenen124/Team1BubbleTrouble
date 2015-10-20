@@ -22,6 +22,13 @@ public class FloatingScoreList implements Aggregate {
 	public FloatingScoreList(ArrayList<FloatingScore> floatingScores) {
 		this.floatingScores = floatingScores;
 	}
+	
+	/**
+	 * Construct a new FloatingScoreList with empty scores.
+	 */
+	public FloatingScoreList() {
+		floatingScores = new ArrayList<FloatingScore>();
+	}
 
 	@Override
 	public Iterator createIterator() {
@@ -59,5 +66,21 @@ public class FloatingScoreList implements Aggregate {
 	 */
 	public FloatingScore get(int place) {
 		return this.floatingScores.get(place);
+	}
+	
+	/**
+	 * Check if this FloatingScoreList contains element.
+	 * @param element the element to check for
+	 * @return true if this list contains element, false otherwise
+	 */
+	public boolean contains(FloatingScore element) {
+		Iterator iterator = this.createIterator();
+		while (iterator.hasNext()) {
+			FloatingScore score = (FloatingScore) iterator.next();
+			if (score.equals(element)) {
+				return true;
+			}
+		}
+		return false;
 	}
 }

@@ -2,6 +2,11 @@ package iterator;
 
 import java.util.Queue;
 
+/**
+ * Iterator for a CommandQueue.
+ * @author Menno
+ *
+ */
 public class CommandQueueIterator implements Iterator {
 	
 	private Queue queue;

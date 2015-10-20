@@ -12,7 +12,7 @@ import logic.Logger.PriorityLevels;
  * @author Menno
  *
  */
-public class HighScores implements Aggregate{
+public class HighScores implements Aggregate {
 	
 	private ArrayList<Score> scoreList;
 	private static final int MAX_HIGHSCORES = 10;

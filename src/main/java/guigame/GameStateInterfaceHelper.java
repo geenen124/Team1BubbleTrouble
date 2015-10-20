@@ -1,20 +1,18 @@
 package guigame;
 
-import guimenu.MainGame;
-import guiobjects.RND;
-import guiobjects.RenderOptions;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-
-import logic.FloatingScore;
-
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
+
+import guimenu.MainGame;
+import guiobjects.RND;
+import guiobjects.RenderOptions;
+import iterator.Iterator;
+import logic.FloatingScore;
+import logic.FloatingScoreList;
 
 /**
  * GameState Helper class for managing the general UI. This is done to prevent
@@ -24,7 +22,7 @@ import org.newdawn.slick.state.StateBasedGame;
  */
 public class GameStateInterfaceHelper extends GameStateHelper {
 	
-	private ArrayList<FloatingScore> floatingScoreList;
+	private FloatingScoreList floatingScoreList;
 	
 	private Image health0Image;
 	private Image health1Image;
@@ -112,7 +110,7 @@ public class GameStateInterfaceHelper extends GameStateHelper {
 	
 	@Override
 	public void enter() {
-		floatingScoreList = new ArrayList<FloatingScore>();
+		floatingScoreList = new FloatingScoreList();
 	}
 
 	@Override
@@ -123,10 +121,10 @@ public class GameStateInterfaceHelper extends GameStateHelper {
 	@Override
 	public void update(GameContainer container, StateBasedGame sbg, float deltaFloat) {
 		// anything needed for UI on update without mattering where?
-		Iterator<FloatingScore> scoreListIterator = floatingScoreList.iterator();
+		Iterator scoreListIterator = floatingScoreList.createIterator();
 		synchronized (scoreListIterator) {
 			while (scoreListIterator.hasNext()) {
-				FloatingScore score = scoreListIterator.next();
+				FloatingScore score = (FloatingScore) scoreListIterator.next();
 				if (score.isDead()) {
 					scoreListIterator.remove();
 				} else {
@@ -223,7 +221,9 @@ public class GameStateInterfaceHelper extends GameStateHelper {
 	 */
 	private void renderFloatingScores(Graphics graphics) {
 		synchronized (floatingScoreList) {
-			for (FloatingScore score : floatingScoreList) {
+			Iterator iterator = floatingScoreList.createIterator();
+			while (iterator.hasNext()) {
+				FloatingScore score = (FloatingScore) iterator.next();
 				RND.getInstance().textSpecifiedColor(graphics, score.getX(), score.getY(), 
 						score.getScore(),
 						new Color(mainGame.getColor().r, mainGame.getColor().g,
@@ -342,14 +342,14 @@ public class GameStateInterfaceHelper extends GameStateHelper {
 	/**
 	 * @return the floatingScoreList
 	 */
-	public ArrayList<FloatingScore> getFloatingScores() {
+	public FloatingScoreList getFloatingScores() {
 		return floatingScoreList;
 	}
 
 	/**
 	 * @param floatingScoreList the floatingScoreList to set
 	 */
-	public void setFloatingScores(ArrayList<FloatingScore> floatingScoreList) {
+	public void setFloatingScores(FloatingScoreList floatingScoreList) {
 		this.floatingScoreList = floatingScoreList;
 	}
 	
