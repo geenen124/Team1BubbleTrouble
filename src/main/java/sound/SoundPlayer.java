@@ -24,7 +24,7 @@ public final class SoundPlayer implements MusicListener {
 	private static volatile SoundPlayer instance;
 	private boolean playingMusic;
 	private MusicLists activeList;
-	private boolean testing;
+	private static boolean testing;
 	
 	private static final int FADE_LENGTH = 20000;
 	
@@ -153,9 +153,9 @@ public final class SoundPlayer implements MusicListener {
 	 * @return the logger
 	 */
 	public static SoundPlayer getInstance() {
-		if (instance == null) {
+		if (instance == null && !testing) {
 			synchronized (Logger.class) {
-				if (instance == null) {
+				if (instance == null && !testing) {
 					instance = new SoundPlayer();
 				}
 			}
@@ -201,10 +201,10 @@ public final class SoundPlayer implements MusicListener {
 	}
 
 	/**
-	 * @param testing the testing to set
+	 * @param testing2 the testing to set
 	 */
-	public void setTesting(boolean testing) {
-		this.testing = testing;
+	public static void setTesting(boolean testing2) {
+		testing = testing2;
 	}
 	
 	
