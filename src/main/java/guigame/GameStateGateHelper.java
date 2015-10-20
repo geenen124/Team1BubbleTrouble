@@ -87,23 +87,15 @@ public class GameStateGateHelper extends GameStateHelper {
 		}
 	}
 	
-	/**
-	 * @return the list containing all gates.
-	 */
-//	public ArrayList<Gate> getGateList() {
-//		return gateList.getGates();
-//	}
+	//Synchronous methods still don't use the GateList class
+	//PlayerGateHelper processGates
+	//the two methods above
 	
+	/**
+	 * 
+	 * @return the GateList object to return
+	 */
 	public GateList getGateList() {
 		return gateList;
 	}
-	
-	/**
-	 * set the gatelist.
-	 * @param gatelist the gatelist to set
-	 */
-	public void setGateList(ArrayList<Gate> gatelist) {
-		this.gateList.setGates(gatelist);
-	}
-	
 }
