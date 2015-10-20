@@ -1,18 +1,7 @@
 package guigame;
 
-import guimenu.MainGame;
-import iterator.GateListIterator;
-
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Random;
-
-import logic.BouncingCircle;
-import logic.CircleList;
-import logic.FloatingScore;
-import logic.Gate;
-import logic.Logger;
-import logic.Logger.PriorityLevels;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
@@ -21,6 +10,15 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import commands.CommandQueue;
 import commands.RemoveCircleCommand;
+import guimenu.MainGame;
+import iterator.GateListIterator;
+import iterator.Iterator;
+import logic.BouncingCircle;
+import logic.CircleList;
+import logic.FloatingScore;
+import logic.Gate;
+import logic.Logger;
+import logic.Logger.PriorityLevels;
 
 /**
  * GameState Helper class for managing all circles. This is done to prevent GameState 
@@ -116,7 +114,7 @@ public class GameStateCirclesHelper extends GameStateHelper {
 	private void updateActiveCircles(GameContainer container,
 			float deltaFloat, ArrayList<BouncingCircle> ceilingList) {
 		synchronized (circleList.getCircles()) {
-			for (Iterator<BouncingCircle> iterator = 
+			for (java.util.Iterator<BouncingCircle> iterator = 
 					circleList.getCircles().iterator(); iterator.hasNext();) {
 				BouncingCircle circle = iterator.next();
 				circle.update(parentState, container.getHeight(), container.getWidth(), deltaFloat);
@@ -192,8 +190,7 @@ public class GameStateCirclesHelper extends GameStateHelper {
 	 */
 	private void processUnlockCirclesGates(BouncingCircle circle,
 										   ArrayList<BouncingCircle> splits) {
-		GateListIterator iterator = (GateListIterator)
-				parentState.getGateHelper().getGateList().createIterator();
+		Iterator iterator = parentState.getGateHelper().getGateList().createIterator();
 		while (iterator.hasNext()) {
 			Gate gate = (Gate) iterator.next();
 			if (gate.getUnlockCircles().contains(circle)) {

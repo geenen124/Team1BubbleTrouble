@@ -1,16 +1,16 @@
 package guigame;
 
-import iterator.GateListIterator;
-
 import java.util.ArrayList;
-
-import logic.Gate;
-import logic.GateList;
-import guimenu.MainGame;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.state.StateBasedGame;
+
+import guimenu.MainGame;
+import iterator.GateListIterator;
+import iterator.Iterator;
+import logic.Gate;
+import logic.GateList;
 
 /**
  * GameState Helper class for managing all gates. This is done to prevent GameState 
@@ -47,11 +47,11 @@ public class GameStateGateHelper extends GameStateHelper {
 	@Override
 	public void update(GameContainer container, StateBasedGame sbg,
 			float deltaFloat) {		
-		GateListIterator iterator = (GateListIterator) this.gateList.createIterator();
+		Iterator iterator = this.gateList.createIterator();
 		while (iterator.hasNext()) {
 			Gate gate = (Gate) iterator.next();
 			mainGame.getHost().updateRequiredForGateList(
-					gate.getUnlockCircles(), (iterator.getPosition() - 1));
+					gate.getUnlockCircles(), (((GateListIterator) iterator).getPosition() - 1));
 		}
 	}
 	
@@ -60,16 +60,20 @@ public class GameStateGateHelper extends GameStateHelper {
 	 * @param deltaFloat the time in seconds since the last frame.
 	 */
 	public void updateGateExistence(float deltaFloat) {
-		ArrayList<Gate> tempGateList = new ArrayList<Gate>();
-		synchronized (gateList.getGates()) {
-			for (Gate gate : gateList.getGates()) {
+		GateList tempGateList = new GateList();
+		synchronized (gateList) {
+			Iterator iterator = gateList.createIterator();
+			while (iterator.hasNext()) {
+				Gate gate = (Gate) iterator.next();
 				if (gate.getUnlockCircles().isEmpty()) {
 					tempGateList.add(gate);
 					gate.setFading(true);
 				}
 			}
 		}
-		for (Gate gate : tempGateList) {
+		Iterator iterator = tempGateList.createIterator();
+		while (iterator.hasNext()) {
+			Gate gate = (Gate) iterator.next();
 			if (gateList.getGates().contains(gate) && gate.isDone()) {
 				gateList.getGates().remove(gate);
 			} else if (gateList.getGates().contains(gate) && gate.isFading()) {
@@ -80,16 +84,19 @@ public class GameStateGateHelper extends GameStateHelper {
 	
 	@Override
 	public void render(Graphics graphics, GameContainer container) {
-		synchronized (gateList.getGates()) {
-			for (Gate gate : gateList.getGates()) {
+		synchronized (gateList) {
+			Iterator iterator = gateList.createIterator();
+			while (iterator.hasNext()) {
+				Gate gate = (Gate) iterator.next();
 				gate.draw(graphics, mainGame, parentState, container);
-			}
+			}		
 		}
 	}
 	
 	//Synchronous methods still don't use the GateList class
 	//PlayerGateHelper processGates
 	//the two methods above
+	//Menno: Now they do
 	
 	/**
 	 * 

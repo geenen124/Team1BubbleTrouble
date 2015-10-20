@@ -22,6 +22,10 @@ public class GateList implements Aggregate {
 	public GateList(ArrayList<Gate> gates) {
 		this.gates = gates;
 	}
+	
+	public GateList() {
+		gates = new ArrayList<Gate>();
+	}
 
 	@Override
 	public Iterator createIterator() {
