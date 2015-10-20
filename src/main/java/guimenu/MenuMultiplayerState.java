@@ -21,6 +21,9 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import sound.SoundPlayer;
+import sound.SoundPlayer.MusicLists;
+
 /**
  * This class represents the state of the multiplayer menu.
  * @author Mark
@@ -112,6 +115,8 @@ public class MenuMultiplayerState extends BasicGameState {
 				Logger.PriorityLevels.LOW, "States");
 		RND.getInstance().setOpacity(0.0f);
 		mainGame.stopSwitchState();
+
+		SoundPlayer.getInstance().setActiveList(MusicLists.MENU_LIST);
 	}
 	
 	/**

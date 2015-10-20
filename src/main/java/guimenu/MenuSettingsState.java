@@ -16,6 +16,9 @@ import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import sound.SoundPlayer;
+import sound.SoundPlayer.MusicLists;
+
 /**
  * This class represents the state of the settings menu.
  * @author Menno
@@ -149,6 +152,8 @@ public class MenuSettingsState extends BasicGameState {
 				Logger.PriorityLevels.LOW, "States");
 		RND.getInstance().setOpacity(0.0f);
 		mainGame.stopSwitchState();
+
+		SoundPlayer.getInstance().setActiveList(MusicLists.MENU_LIST);
 	}
 	
 	/**

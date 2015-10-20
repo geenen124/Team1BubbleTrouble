@@ -22,6 +22,7 @@ import org.newdawn.slick.state.StateBasedGame;
 
 import player.Player;
 import player.PlayerList;
+import sound.SoundPlayer;
 
 /**
  * The main game object - basically the overall control system.
@@ -31,6 +32,7 @@ import player.PlayerList;
 public class MainGame extends StateBasedGame {
 
 	///// CONFIGURATION /////
+	private SoundPlayer soundPlayer;
 	
 	private static final int DEFAULT_X_RES = 1600;
 	private static final int DEFAULT_Y_RES = 1000;
@@ -149,7 +151,9 @@ public class MainGame extends StateBasedGame {
 		this.isHost = false;
 		this.isClient = false;
 		
-
+		soundPlayer = SoundPlayer.getInstance();
+		soundPlayer.play();
+		
 		ShutDownHook shutDownHook = new ShutDownHook(this);
 		shutDownHook.attachShutDownHook();
 	}
