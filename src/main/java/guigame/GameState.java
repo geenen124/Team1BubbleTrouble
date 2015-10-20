@@ -25,7 +25,7 @@ import commands.CommandQueue;
  *
  */
 public class GameState extends BasicGameState {
-	
+	// wololololo
 	private CommandQueue commandQueue;
 	
 	private GameStatePlayerHelper playerHelper;
