@@ -15,12 +15,12 @@ public class GameStateTest {
 //		assertEquals(mg.getGameState(), gamestate.getID());
 //	}
 
-	@Test
-	public void testGameState() {
-		MainGame mg = new MainGame(null);
-		GameState gamestate = new GameState(mg);
-		assertEquals(gamestate.getmainGame(),mg);
-	}
+//	@Test
+//	public void testGameState() {
+//		MainGame mg = new MainGame(null);
+//		GameState gamestate = new GameState(mg);
+//		assertEquals(gamestate.getmainGame(),mg);
+//	}
 //	
 //	@Test
 //	public void testGetMainGame() {
