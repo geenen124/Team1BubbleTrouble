@@ -125,8 +125,8 @@ public class BouncingCircleTest {
 		gate.setRequired(circleList);
 		gateList.add(gate);
 		when(gs.getCirclesHelper()).thenReturn(ch);
-		when(gs.getGateHelper().getGateList()).thenReturn(gateList);
-		when(gh.getGateList()).thenReturn(gateList);
+		when(gs.getGateHelper().getGateList()).thenReturn(new GateList(gateList));
+		when(gh.getGateList()).thenReturn(new GateList(gateList));
 		c.update(gs, 100, 100, 1);
 		
 		assertEquals(-4.0, c.getxSpeed(), 0);
@@ -151,7 +151,7 @@ public class BouncingCircleTest {
 		gate.setRequired(circleList);
 		gateList.add(gate);
 		when(gs.getCirclesHelper()).thenReturn(ch);
-		when(gs.getGateHelper().getGateList()).thenReturn(gateList);
+		when(gs.getGateHelper().getGateList()).thenReturn(new GateList(gateList));
 		c.update(gs, 100, 100, 1);
 		
 		assertEquals(4.0, c.getxSpeed(), 0);

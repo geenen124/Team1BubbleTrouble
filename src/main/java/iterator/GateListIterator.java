@@ -46,6 +46,18 @@ public class GateListIterator implements Iterator {
 	@Override
 	public void remove() {
 		list.remove(position - 1);
+		
+		//The one you were positioned at (next) is now the previous one
 		position--;
 	}
+
+	/**
+	 * Get the position in the iterator.
+	 * @return the position in the iterator
+	 */
+	public int getPosition() {
+		return position;
+	}
+	
+	
 }

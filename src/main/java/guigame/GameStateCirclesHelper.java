@@ -1,6 +1,7 @@
 package guigame;
 
 import guimenu.MainGame;
+import iterator.GateListIterator;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -190,14 +191,17 @@ public class GameStateCirclesHelper extends GameStateHelper {
 	 */
 	private void processUnlockCirclesGates(BouncingCircle circle,
 										   ArrayList<BouncingCircle> splits) {
-		for (Gate gate : parentState.getGateHelper().getGateList()) {
-            if (gate.getUnlockCircles().contains(circle)) {
-                gate.getUnlockCircles().remove(circle);
-            }
-            if (circle.getRadius() >= MINIMUM_SPLIT_RADIUS) {
-                gate.addToRequirements(splits);
-            }
-        }
+		GateListIterator iterator = (GateListIterator)
+				parentState.getGateHelper().getGateList().createIterator();
+		while (iterator.hasNext()) {
+			Gate gate = (Gate) iterator.next();
+			if (gate.getUnlockCircles().contains(circle)) {
+				gate.getUnlockCircles().remove(circle);
+			}
+			if (circle.getRadius() >= MINIMUM_SPLIT_RADIUS) {
+				gate.addToRequirements(splits);
+			}
+		}
 	}
 	
 	/**
