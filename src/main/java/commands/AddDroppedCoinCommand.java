@@ -6,7 +6,6 @@ import logic.Coin;
 
 /**
  * Command which removes coin from given list.
- * @author Bart
  *
  */
 public class AddDroppedCoinCommand extends Command {
