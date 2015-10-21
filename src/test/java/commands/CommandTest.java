@@ -22,7 +22,7 @@ public class CommandTest {
 	
 	@Before
 	public void setup() {
-		coinList = new CoinList
+		coinList = new CoinList();
 		coinList.add(new Coin(0, 0, true));
 	}
 	
@@ -74,7 +74,7 @@ public class CommandTest {
 	
 	@Test
 	public void testRemoveDroppedPowerupCommand() {
-		ArrayList<Powerup> powerlist = new ArrayList<Powerup>();
+		PowerupList powerlist = new PowerupList();
 		Powerup p = new Powerup(0, 0, Powerup.PowerupType.SHIELD);
 		powerlist.add(p);
 		RemoveDroppedPowerupCommand a = new RemoveDroppedPowerupCommand(powerlist, p);
