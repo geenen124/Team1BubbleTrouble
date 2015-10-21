@@ -79,6 +79,15 @@ public class CoinList implements Aggregate {
 	public boolean contains(Coin element) {
 		return coins.contains(element);
 	}
+	
+	/**
+	 * 
+	 * @param toRemove the ArrayList of Coins to remove from CoinList
+	 * @return true if CoinList is changes as a result of the call
+	 */
+	public boolean removeAll(ArrayList<Coin> toRemove) {
+		return coins.removeAll(toRemove);
+	}
 
 	/**
 	 * 
