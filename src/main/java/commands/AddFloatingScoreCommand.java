@@ -1,8 +1,7 @@
 package commands;
 
-import java.util.ArrayList;
-
 import logic.FloatingScore;
+import logic.FloatingScoreList;
 
 /**
  * Command which removes floatingscore from given list.
@@ -11,14 +10,14 @@ import logic.FloatingScore;
  */
 public class AddFloatingScoreCommand extends Command {
 
-	private final ArrayList<FloatingScore> list;
+	private final FloatingScoreList list;
 	private final FloatingScore item;
 	
 	/**
 	 * @param list	- the list to remove from
 	 * @param item	- the item to remove
 	 */
-	public AddFloatingScoreCommand(ArrayList<FloatingScore> list, FloatingScore item) {
+	public AddFloatingScoreCommand(FloatingScoreList list, FloatingScore item) {
 		this.list = list;
 		this.item = item;
 	}

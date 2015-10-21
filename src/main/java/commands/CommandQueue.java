@@ -3,12 +3,16 @@ package commands;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
+import iterator.Aggregate;
+import iterator.CommandQueueIterator;
+import iterator.Iterator;
+
 /**
  * Queue of commands.
  * @author Bart
  *
  */
-public final class CommandQueue {
+public final class CommandQueue implements Aggregate {
 	
 
 	private static volatile CommandQueue instance;
@@ -48,9 +52,28 @@ public final class CommandQueue {
 	/**
 	 * Execute all commands in the queue.
 	 */
-	public synchronized void executeQueue() {
-		while (!queue.isEmpty()) {
-			queue.poll().execute();
+	public synchronized void executeQueue() { 
+		Iterator iterator = createIterator();
+		while (iterator.hasNext()) {
+			Command c = (Command) iterator.next();
+			c.execute();
+			iterator.remove();
+		}
+	}
+
+	@Override
+	public Iterator createIterator() {
+		return new CommandQueueIterator(queue);
+	}
+	
+	/**
+	 * Clear the command queue.
+	 */
+	public void clear() {
+		Iterator iterator = createIterator();
+		while (iterator.hasNext()) {
+			iterator.next();
+			iterator.remove();
 		}
 	}
 }

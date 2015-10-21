@@ -9,6 +9,7 @@ import guigame.GameStateLogicHelper;
 import guigame.GameStatePauseHelper;
 import guigame.GameStatePlayerHelper;
 import guimenu.MainGame;
+import iterator.Iterator;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 
 import logic.CircleList;
 import logic.Coin;
+import logic.CoinList;
 import logic.Weapon;
 import logic.WeaponList;
 
@@ -27,6 +29,7 @@ import org.newdawn.slick.Image;
 import player.Player;
 import player.PlayerList;
 import powerups.Powerup;
+import powerups.PowerupList;
 
 public class ClientTest {
 	Client c;
@@ -40,6 +43,10 @@ public class ClientTest {
 	GameStatePlayerHelper ph = mock(GameStatePlayerHelper.class);
 	GameStateLogicHelper lh = mock(GameStateLogicHelper.class);
 	GameStatePauseHelper pah = mock(GameStatePauseHelper.class);
+	
+	CoinList coinlist;
+	PowerupList powlist;
+	Iterator iterator;
 
 	@Before
 	public void setUp() throws Exception {
@@ -53,6 +60,14 @@ public class ClientTest {
 		when(gs.getPlayerHelper()).thenReturn(ph);
 		when(gs.getLogicHelper()).thenReturn(lh);
 		when(gs.getPauseHelper()).thenReturn(pah);
+		
+		powlist = mock(PowerupList.class);
+		iterator = mock(Iterator.class);
+		coinlist = mock(CoinList.class);
+		when(gs.getItemsHelper().getDroppedPowerups()).thenReturn(powlist);
+		when(gs.getItemsHelper().getDroppedPowerups().createIterator()).thenReturn(iterator);
+		when(gs.getItemsHelper().getDroppedCoins()).thenReturn(coinlist);
+		when(gs.getItemsHelper().getDroppedCoins().createIterator()).thenReturn(iterator);
 	}
 	
 	@Test
@@ -464,7 +479,7 @@ public class ClientTest {
 		when(pl.getPlayers()).thenReturn(plist);
 		Image i1 = mock(Image.class);
 		Image i2 = mock(Image.class);
-
+ 
 		Image i3 = mock(Image.class);
 
 		Image i4 = mock(Image.class);

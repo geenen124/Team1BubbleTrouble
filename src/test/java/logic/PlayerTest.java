@@ -2,19 +2,9 @@ package logic;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.mockito.Matchers.anyFloat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-import static org.mockito.Mockito.anyFloat;
-import guigame.GameState;
-import guigame.GameStateCirclesHelper;
-import guigame.GameStateGateHelper;
-import guigame.GameStateInterfaceHelper;
-import guigame.GameStateItemsHelper;
-import guigame.GameStateLevelsHelper;
-import guigame.GameStateLogicHelper;
-import guigame.GameStatePauseHelper;
-import guigame.GameStatePlayerHelper;
-import guimenu.MainGame;
 
 import java.util.ArrayList;
 
@@ -25,8 +15,19 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SpriteSheet;
 
+import guigame.GameState;
+import guigame.GameStateCirclesHelper;
+import guigame.GameStateGateHelper;
+import guigame.GameStateInterfaceHelper;
+import guigame.GameStateItemsHelper;
+import guigame.GameStateLevelsHelper;
+import guigame.GameStateLogicHelper;
+import guigame.GameStatePauseHelper;
+import guigame.GameStatePlayerHelper;
+import guimenu.MainGame;
 import player.Player;
 import powerups.Powerup;
+import powerups.PowerupList;
 import powerups.SpeedPowerup;
 
 public class PlayerTest {
@@ -335,11 +336,11 @@ public class PlayerTest {
 		ArrayList<Gate> gl = new ArrayList<Gate>();
 		gl.add(gate);
 		Powerup pow = new Powerup(100,100,Powerup.PowerupType.SHIELD);
-		ArrayList<Powerup> pl = new ArrayList<Powerup>();
+		PowerupList pl = new PowerupList();
 		pl.add(pow);
 		BouncingCircle circle = new BouncingCircle(1,2,3,4,5,6, 0);
 		FloatingScore fs = new FloatingScore(circle);
-		ArrayList<FloatingScore> fsl = new ArrayList<FloatingScore>();
+		FloatingScoreList fsl = new FloatingScoreList();
 		fsl.add(fs);
 		Weapon w = new Weapon(1,1,1,1);
 		WeaponList wl = new WeaponList(w, mg, gs, true);
@@ -348,7 +349,7 @@ public class PlayerTest {
 		when(mg.getState(1)).thenReturn(gs);
 		
 		when(ih.getDroppedPowerups()).thenReturn(pl);
-		when(ifh.getFloatingScores()).thenReturn(fsl);
+		when(ifh.getFloatingScores()).thenReturn(fsl); 
 		MyRectangle floor = new MyRectangle(1,1,1,1);
 		MyRectangle ceiling = new MyRectangle(1,1,1,1);
 		when(gs.getLevelsHelper().getFloor()).thenReturn(floor);

@@ -1,8 +1,9 @@
 package player;
 
-import logic.Gate;
 import guigame.GameState;
 import guimenu.MainGame;
+import iterator.Iterator;
+import logic.Gate;
 
 /**
  * Class which helps player processing gates. Should only be used by the Player class.
@@ -33,8 +34,10 @@ public class PlayerGateHelper {
 	public void processGates() {
 		// Check the intersection of a player with a gate
 		freeToRoam = true;
-		synchronized (gameState.getGateHelper().getGateList().getGates()) {
-			for (Gate someGate :gameState.getGateHelper().getGateList().getGates()) {
+		synchronized (gameState.getGateHelper().getGateList()) {
+			Iterator iterator = gameState.getGateHelper().getGateList().createIterator();
+			while (iterator.hasNext()) {
+				Gate someGate = (Gate) iterator.next();
 				if (player.getLogicHelper().getRectangle().intersects(someGate.getRectangle())) {
 					freeToRoam = false;
 					player.getMovementHelper().setIntersectingGate(someGate);

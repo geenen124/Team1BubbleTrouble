@@ -1,9 +1,9 @@
 package lan;
 
+import iterator.Iterator;
 import guigame.GameState;
 import logic.Coin;
 import logic.FloatingScore;
-
 import commands.AddDroppedCoinCommand;
 import commands.AddFloatingScoreCommand;
 import commands.CommandQueue;
@@ -62,16 +62,18 @@ public class ClientCoinsHelper {
      */
     private void dictateCoin(String[] stringList) {
         synchronized (gameState.getItemsHelper().getDroppedCoins()) {
-            for (Coin coin : gameState.getItemsHelper().getDroppedCoins()) {
-                if (coin.getxId() == Float.parseFloat(stringList[0])
-                        && coin.getyId() == Float.parseFloat(stringList[1])) {
-    				commandQueue.addCommand(new RemoveDroppedCoinCommand(
-    						gameState.getItemsHelper().getDroppedCoins(), coin));
-    				commandQueue.addCommand(new AddFloatingScoreCommand(
-    						gameState.getInterfaceHelper().getFloatingScores(), 
-    						new FloatingScore(coin)));
-                }
-            }
+        	Iterator iterator = gameState.getItemsHelper().getDroppedCoins().createIterator();
+        	while (iterator.hasNext()) {
+        		Coin coin = (Coin) iterator.next();
+        		if (coin.getxId() == Float.parseFloat(stringList[0])
+                      && coin.getyId() == Float.parseFloat(stringList[1])) {
+  				commandQueue.addCommand(new RemoveDroppedCoinCommand(
+  						gameState.getItemsHelper().getDroppedCoins(), coin));
+  				commandQueue.addCommand(new AddFloatingScoreCommand(
+  						gameState.getInterfaceHelper().getFloatingScores(), 
+  						new FloatingScore(coin)));
+              }
+        	}
         }
     }
 
@@ -81,16 +83,18 @@ public class ClientCoinsHelper {
      */
     private void grantCoin(String[] stringList) {
         synchronized (gameState.getItemsHelper().getDroppedCoins()) {
-            for (Coin coin : gameState.getItemsHelper().getDroppedCoins()) {
-                if (coin.getxId() == Float.parseFloat(stringList[0])
-                        && coin.getyId() == Float.parseFloat(stringList[1])) {
-    				commandQueue.addCommand(new RemoveDroppedCoinCommand(
-    						gameState.getItemsHelper().getDroppedCoins(), coin));
-    				commandQueue.addCommand(new AddFloatingScoreCommand(
-    						gameState.getInterfaceHelper().getFloatingScores(), 
-    						new FloatingScore(coin)));
-                }
-            }
+        	Iterator iterator = gameState.getItemsHelper().getDroppedCoins().createIterator();
+        	while (iterator.hasNext()) {
+        		Coin coin = (Coin) iterator.next();
+        		if (coin.getxId() == Float.parseFloat(stringList[0])
+        				&& coin.getyId() == Float.parseFloat(stringList[1])) {
+        			commandQueue.addCommand(new RemoveDroppedCoinCommand(
+        					gameState.getItemsHelper().getDroppedCoins(), coin));
+        			commandQueue.addCommand(new AddFloatingScoreCommand(
+        					gameState.getInterfaceHelper().getFloatingScores(), 
+        					new FloatingScore(coin)));
+        		}
+        	}
         }
     }
 }

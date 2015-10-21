@@ -2,22 +2,22 @@ package iterator;
 
 import java.util.ArrayList;
 
-import logic.BouncingCircle;
+import levels.Level;
 
 /**
  * Iterator for CircleList.
  * @author Menno, Stefan
  *
  */
-public class CircleListIterator implements Iterator {
-	private ArrayList<BouncingCircle> list;
+public class LevelContainerIterator implements Iterator {
+	private ArrayList<Level> list;
 	private int position;
 	
 	/**
-	 * Construct a new CircleListIterator.
+	 * Construct a new CoinListIterator.
 	 * @param list the list with circles to iterate over.
 	 */
-	public CircleListIterator(ArrayList<BouncingCircle> list) {
+	public LevelContainerIterator(ArrayList<Level> list) {
 		this.list = list;
 		reset();
 	}
@@ -27,7 +27,7 @@ public class CircleListIterator implements Iterator {
 	 */
 	private void reset() {
 		position = 0;
-	} 
+	}
 
 
 	@Override
