@@ -71,4 +71,20 @@ public class CoinList implements Aggregate {
 		return new CoinListIterator(coins);
 	}
 
+	/**
+	 * 
+	 * @return the Coin objects stored
+	 */
+	public ArrayList<Coin> getCoins() {
+		return coins;
+	}
+
+	/**
+	 * 
+	 * @param coins the Coins to store
+	 */
+	public void setCoins(ArrayList<Coin> coins) {
+		this.coins = coins;
+	}
+
 }
