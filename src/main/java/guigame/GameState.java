@@ -10,6 +10,8 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import sound.SoundPlayer;
+import sound.SoundPlayer.MusicLists;
 import commands.CommandQueue;
 
 /**
@@ -67,6 +69,7 @@ public class GameState extends BasicGameState {
 		logicHelper.enter();
 		gateHelper.enter();
 		pauseHelper.enter();
+		SoundPlayer.getInstance().setActiveList(MusicLists.PLAY_LIST);
 	}
 	
 	/**
@@ -147,6 +150,8 @@ public class GameState extends BasicGameState {
 		logicHelper.update(container, sbg, delta);
 		exit(container, sbg, delta);
 		
+		SoundPlayer.getInstance().playEffects();
+		SoundPlayer.getInstance().logShit();
 		commandQueue.executeQueue();
 	}
 	

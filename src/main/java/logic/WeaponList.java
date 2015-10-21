@@ -1,15 +1,17 @@
 package logic;
-import guigame.GameState;
-import guimenu.MainGame;
-import guiobjects.RND;
-import guiobjects.RenderOptions;
-
 import java.util.ArrayList;
 
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 
+import guigame.GameState;
+import guimenu.MainGame;
+import guiobjects.RND;
+import guiobjects.RenderOptions;
+import iterator.Aggregate;
+import iterator.Iterator;
+import iterator.WeaponListIterator;
 import player.Player;
 
 /**
@@ -17,7 +19,7 @@ import player.Player;
  * @author Bart
  *
  */
-public class WeaponList {
+public class WeaponList implements Aggregate {
 	
 	private ArrayList<Weapon> weaponList;
 	private MainGame mainGame;
@@ -216,6 +218,12 @@ public class WeaponList {
 	public void setLasertipimage(Image lasertipimageN, Image lasertipimageA) {
 		this.lasertipimageN = lasertipimageN;
 		this.lasertipimageA = lasertipimageA;
+	}
+
+	@Override
+	public Iterator createIterator() {
+		// TODO Auto-generated method stub
+		return new WeaponListIterator(weaponList);
 	}
 	
 	

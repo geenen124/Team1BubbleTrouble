@@ -57,7 +57,7 @@ public class PlayerTest {
 		i2 = mock(Image.class);
 		i3 = mock(Image.class);
 		i4 = mock(Image.class);
-		mg = new MainGame("maingame");
+		mg = new MainGame("maingame", true);
 		s = mock(SpriteSheet.class);
 		gs = mock(GameState.class);
 		ch = mock(GameStateCirclesHelper.class);
@@ -347,7 +347,6 @@ public class PlayerTest {
 		when(mg.getGameState()).thenReturn(1);
 		when(mg.getState(1)).thenReturn(gs);
 		
-		when(gh.getGateList()).thenReturn(gl);
 		when(ih.getDroppedPowerups()).thenReturn(pl);
 		when(ifh.getFloatingScores()).thenReturn(fsl);
 		MyRectangle floor = new MyRectangle(1,1,1,1);

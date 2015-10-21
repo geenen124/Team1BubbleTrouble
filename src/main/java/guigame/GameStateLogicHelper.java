@@ -129,7 +129,7 @@ public class GameStateLogicHelper extends GameStateHelper {
 		parentState.getCirclesHelper().update(container, sbg, deltaFloat);
 		parentState.getItemsHelper().update(container, sbg, deltaFloat);
 		parentState.getInterfaceHelper().update(container, sbg, deltaFloat);
-		if (parentState.getCirclesHelper().getCircleList().getCircles().isEmpty()) {
+		if (parentState.getCirclesHelper().getCircleList().isEmpty()) {
 			endLevel();
 		}
 	}
@@ -152,7 +152,7 @@ public class GameStateLogicHelper extends GameStateHelper {
 		}
 
 		if (timeRemaining <= 0) {
-            mainGame.getPlayerList().playerDeath(sbg);
+            mainGame.getPlayerList().playerDeath(sbg, false);
         }
 		prevTime = curTime;
 	}

@@ -266,4 +266,6 @@ public class Powerup implements Cloneable {
     public void setTimeRemaining(long time) {
     	timeRemaining = time;
     }
+
+	
 }

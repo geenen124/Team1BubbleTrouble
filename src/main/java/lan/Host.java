@@ -13,6 +13,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 
 import logic.BouncingCircle;
+import logic.CircleList;
 import logic.Coin;
 import logic.FloatingScore;
 import logic.Logger;
@@ -272,8 +273,8 @@ public class Host extends Connector {
 	 * Update the circles on the client.
 	 * @param circleList the list with new circles
      */
-    public void updateCircles(ArrayList<BouncingCircle> circleList) {
-    	sendMessage(BouncingCircle.circleListToString(circleList));
+    public void updateCircles(CircleList circleList) {
+    	sendMessage(circleList.toString());
     }
     
     /**
