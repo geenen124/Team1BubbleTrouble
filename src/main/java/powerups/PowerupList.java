@@ -79,6 +79,15 @@ public class PowerupList implements Aggregate {
 	public boolean contains(Powerup element) {
 		return powerups.contains(element);
 	}
+	
+	/**
+	 * 
+	 * @param element the element to remove
+	 * @return true if the element was found in the list before removal
+	 */
+	public boolean remove(Powerup element) {
+		return powerups.remove(element);
+	}
 
 	/**
 	 * 
