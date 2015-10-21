@@ -1,5 +1,6 @@
 package logic;
 import org.newdawn.slick.geom.Rectangle;
+import sound.SoundEffect;
 import sound.WeaponFireSoundEffect;
 
 /**
@@ -133,7 +134,7 @@ public class Weapon {
 	/**
 	 * @return Weapon sound effect
 	 */
-	public WeaponFireSoundEffect getWeaponSoundEffect() {
+	public SoundEffect getWeaponSoundEffect() {
 		return new WeaponFireSoundEffect(false);
 	}
 }
