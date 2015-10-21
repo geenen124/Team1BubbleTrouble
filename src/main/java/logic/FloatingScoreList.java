@@ -85,4 +85,20 @@ public class FloatingScoreList implements Aggregate {
 	public boolean remove(FloatingScore element) {
 		return floatingScores.remove(element);
 	}
+
+	/**
+	 * @return the floatingScores
+	 */
+	public ArrayList<FloatingScore> getFloatingScores() {
+		return floatingScores;
+	}
+
+	/**
+	 * @param floatingScores the floatingScores to set
+	 */
+	public void setFloatingScores(ArrayList<FloatingScore> floatingScores) {
+		this.floatingScores = floatingScores;
+	}
+	
+	
 }
