@@ -27,6 +27,8 @@ public abstract class Element {
 	private int x, y, width, height;
 	private String text;
 	
+	private boolean testing = false;
+	
 	private static final float HALF = 0.5f;
 	
 	/**
@@ -295,6 +297,21 @@ public abstract class Element {
 	 */
 	public void removeRight() {
 		right = null;
+	}
+	
+	/**
+	 * Turn on when testing because of RND.
+	 * @param x testing to set.
+	 */
+	public void setTesting(boolean x) {
+		testing = x;
+	}
+	
+	/**
+	 * @return whether we are testing.
+	 */
+	public boolean getTesting() {
+		return testing;
 	}
 	
 }

@@ -28,6 +28,7 @@ public class Button extends Element {
 	private static final int BUTTON_HEIGHT = 53;
 	private static final int BUTTON_WIDTH_OFFSET = 0;
 	private static final float BUTTON_TEXT_OPACITY = 0.85f;
+	private static final int TESTING_WIDTH = 50;
 	
 	/**
 	 * Button constructor class.
@@ -40,6 +41,22 @@ public class Button extends Element {
 		setX((int) x);
 		setY((int) y);
 		setWidth(RND.getInstance().getStringPixelWidth(text) + BUTTON_WIDTH_OFFSET);
+		setHeight(BUTTON_HEIGHT);
+		setText(text);
+	}
+	
+	/**
+	 * Constructor used in testing cases because of RND.
+	 * @param x coordinate
+	 * @param y coordinate
+	 * @param text the text to show in the button
+	 * @param testing when testing.
+	 */
+	public Button(float x, float y, String text, boolean testing) {
+		super();
+		setX((int) x);
+		setY((int) y);
+		setWidth(TESTING_WIDTH);
 		setHeight(BUTTON_HEIGHT);
 		setText(text);
 	}
@@ -123,4 +140,5 @@ public class Button extends Element {
 	public void update(Input input) {
 		// nothing here...
 	}
+	
 }

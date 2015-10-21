@@ -45,7 +45,7 @@ public class Textfield extends Element {
 	private Button button;
 	
 	private static final int INPUT_FACTOR = 150;
-	private static final int BUTTON_OFFSET = 220;
+	private static final int BUTTON_OFFSET = 250;
 	private static final int BUTTON_WIDTH = 95;
 	private static final int BUTTON_HEIGHT = 35;
 	
@@ -73,7 +73,7 @@ public class Textfield extends Element {
 		
 		focusOverride = false;
 		
-		button = new Button(x + TEXT_FIELD_WIDTH - BUTTON_OFFSET, y, "< BAK");
+		button = new Button(x + TEXT_FIELD_WIDTH - BUTTON_OFFSET, y, "< BACK");
 		
 		setX((int) x);
 		setY((int) y);

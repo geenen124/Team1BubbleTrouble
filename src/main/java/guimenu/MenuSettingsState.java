@@ -233,10 +233,8 @@ public class MenuSettingsState extends BasicGameState {
 		gameboy2Button.setLeft(returnButton);
 		elements.coupleVertical(gameboy1Button, gameboy2Button);
 		gameboy2Button.setBottom(returnButton);
-		
 		elements.loopVertical(phone1Button, phone2Button);
 		elements.loopVertical(arie1Button, arie2Button);
-		
 		elements.coupleHorizontal(gameboy1Button, phone1Button);
 		elements.coupleHorizontal(gameboy2Button, phone2Button);
 		elements.coupleHorizontal(phone1Button, arie1Button);
@@ -244,22 +242,17 @@ public class MenuSettingsState extends BasicGameState {
 		elements.coupleHorizontal(arie1Button, shuffleButton);
 		redButton.setLeft(arie1Button);
 		elements.coupleHorizontal(arie2Button, orangeButton);
-		
 		elements.coupleVertical(shuffleButton, redButton); 
 		elements.coupleVertical(redButton, orangeButton); 
 		elements.coupleVertical(orangeButton, shuffleButton); 
-		
 		elements.coupleHorizontal(shuffleButton, greenButton);
 		elements.coupleHorizontal(redButton, blueButton);
 		elements.coupleHorizontal(orangeButton, whiteButton);
-		
 		elements.coupleVertical(greenButton, blueButton);
 		elements.coupleVertical(blueButton, whiteButton);
 		elements.coupleVertical(whiteButton, greenButton);
-		
 		elements.coupleHorizontal(greenButton, pinkButton);
 		elements.coupleHorizontal(blueButton, yellowButton);
-		
 		elements.loopVertical(pinkButton, yellowButton);
 	}
 	
