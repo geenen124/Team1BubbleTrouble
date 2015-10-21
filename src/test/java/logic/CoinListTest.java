@@ -135,5 +135,20 @@ public class CoinListTest {
 		cl.setCoins(list);
 		assertEquals(list, cl.getCoins());
 	}
+	
+	@Test
+	public void testRemoveAll() {
+		cl = new CoinList();
+		ArrayList<Coin> list = new ArrayList<Coin>();
+		list.add(c1);
+		list.add(c2);
+		cl.add(c1);
+		cl.add(c2);
+		cl.add(c3);
+		ArrayList<Coin> removeList = new ArrayList<Coin>();
+		removeList.add(c3);
+		cl.removeAll(removeList);
+		assertEquals(list, cl.getCoins());
+	}
 
 }

@@ -52,7 +52,7 @@ public final class CommandQueue implements Aggregate {
 	/**
 	 * Execute all commands in the queue.
 	 */
-	public synchronized void executeQueue() {
+	public synchronized void executeQueue() { 
 		Iterator iterator = createIterator();
 		while (iterator.hasNext()) {
 			Command c = (Command) iterator.next();
@@ -64,5 +64,16 @@ public final class CommandQueue implements Aggregate {
 	@Override
 	public Iterator createIterator() {
 		return new CommandQueueIterator(queue);
+	}
+	
+	/**
+	 * Clear the command queue.
+	 */
+	public void clear() {
+		Iterator iterator = createIterator();
+		while (iterator.hasNext()) {
+			iterator.next();
+			iterator.remove();
+		}
 	}
 }

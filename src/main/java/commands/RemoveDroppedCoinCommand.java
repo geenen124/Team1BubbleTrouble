@@ -26,12 +26,12 @@ public class RemoveDroppedCoinCommand extends Command {
 
 
 	@Override
-	public void execute() {
+	public void execute() { 
 		synchronized (list) {
 			if (list.contains(item)) {
 				Iterator iterator = list.createIterator();
 				Coin c = null;
-				while (!c.equals(item)) {
+				while (!item.equals(c)) {
 					c = (Coin) iterator.next();
 				}
 				iterator.remove();

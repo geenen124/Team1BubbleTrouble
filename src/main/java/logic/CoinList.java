@@ -88,4 +88,20 @@ public class CoinList implements Aggregate {
 	public boolean removeAll(ArrayList<Coin> toRemove) {
 		return coins.removeAll(toRemove);
 	}
+
+	/**
+	 * @return the coins
+	 */
+	public ArrayList<Coin> getCoins() {
+		return coins;
+	}
+
+	/**
+	 * @param coins the coins to set
+	 */
+	public void setCoins(ArrayList<Coin> coins) {
+		this.coins = coins;
+	}
+	
+	
 }
