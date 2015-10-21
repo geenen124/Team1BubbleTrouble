@@ -24,10 +24,10 @@ public class LevelContainerIteratorTest {
 	@Before
 	public void setUp() throws Exception {
 		LevelFactory lf = new LevelFactorySinglePlayer();
-		list = new LevelContainer(new MainGame("Test"));
-		l1 = lf.orderLevel(1, new MainGame("Test"));
-		l2 = lf.orderLevel(2, new MainGame("Test"));
-		l3 = lf.orderLevel(3, new MainGame("Test"));
+		list = new LevelContainer(new MainGame("Test", true));
+		l1 = lf.orderLevel(1, new MainGame("Test", true));
+		l2 = lf.orderLevel(2, new MainGame("Test", true));
+		l3 = lf.orderLevel(3, new MainGame("Test", true));
 		list.add(l1);
 		list.add(l2);
 		list.add(l3);

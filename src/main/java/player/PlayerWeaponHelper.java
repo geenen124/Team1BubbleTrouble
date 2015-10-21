@@ -113,7 +113,7 @@ public class PlayerWeaponHelper {
 		}
 		// Wrong weapon type, time to crash hard.
 		throw new EnumConstantNotPresentException(Powerup.PowerupType.class, subType.toString());
-	}
+	} 
 
 	/**
 	 * Add a weapon for this player.

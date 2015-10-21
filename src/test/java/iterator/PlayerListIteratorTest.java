@@ -25,7 +25,7 @@ public class PlayerListIteratorTest {
 
 	@Before
 	public void setUp() throws Exception {
-		MainGame mg = new MainGame("Test");
+		MainGame mg = new MainGame("Test", true);
 		Image i1 = mock(Image.class);
 		Image i2 = mock(Image.class);
 		Image i3 = mock(Image.class);
@@ -35,7 +35,7 @@ public class PlayerListIteratorTest {
 		list = new PlayerList(p1, mg, new GameState(mg));
 		list.add(p2);
 		iterator = (PlayerListIterator) list.createIterator();
-	}
+	} 
 
 
 	@Test

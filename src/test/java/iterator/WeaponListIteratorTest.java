@@ -23,7 +23,7 @@ public class WeaponListIteratorTest {
 	@Before
 	public void setUp() throws Exception {
 		w1 = new Weapon(1, 2, 3, 4);
-		list = new WeaponList(w1, new MainGame("Test"), new GameState(new MainGame("Test")), true);
+		list = new WeaponList(w1, new MainGame("Test", true), new GameState(new MainGame("Test", true)), true);
 		iterator = (WeaponListIterator) list.createIterator();
 	}
 	
