@@ -75,4 +75,20 @@ public class PowerupList implements Aggregate {
 		return powerups.contains(element);
 	}
 
+	/**
+	 * 
+	 * @return the stored Powerup Objects
+	 */
+	public ArrayList<Powerup> getPowerups() {
+		return powerups;
+	}
+
+	/**
+	 * 
+	 * @param powerups the Powerup objects to store
+	 */
+	public void setPowerups(ArrayList<Powerup> powerups) {
+		this.powerups = powerups;
+	}
+
 }
