@@ -2,6 +2,8 @@ package powerups;
 import logic.Weapon;
 
 import org.newdawn.slick.geom.Rectangle;
+import sound.SoundEffect;
+import sound.SpikyFireSoundEffect;
 
 /**
  * Created by alexandergeenen on 09/09/15.
@@ -39,5 +41,10 @@ public class Spiky extends Weapon {
             this.setHeight(floor.getMinY() - ceiling.getHeight() + offsetFloor);
             this.setVisible(true);
         }
+    }
+
+    @Override
+    public SoundEffect getWeaponSoundEffect() {
+        return new SpikyFireSoundEffect(false);
     }
 }
