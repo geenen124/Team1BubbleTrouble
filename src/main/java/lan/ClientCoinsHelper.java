@@ -61,7 +61,7 @@ public class ClientCoinsHelper {
      * @param stringList description of the coin
      */
     private void dictateCoin(String[] stringList) {
-        synchronized (gameState.getItemsHelper().getDroppedCoins()) {
+//        synchronized (gameState.getItemsHelper().getDroppedCoins()) {
             for (Coin coin : gameState.getItemsHelper().getDroppedCoins()) {
                 if (coin.getxId() == Float.parseFloat(stringList[0])
                         && coin.getyId() == Float.parseFloat(stringList[1])) {
@@ -72,7 +72,7 @@ public class ClientCoinsHelper {
     						new FloatingScore(coin)));
                 }
             }
-        }
+//        }
     }
 
     /**
@@ -80,7 +80,7 @@ public class ClientCoinsHelper {
      * @param stringList the IDs of the coins
      */
     private void grantCoin(String[] stringList) {
-        synchronized (gameState.getItemsHelper().getDroppedCoins()) {
+//        synchronized (gameState.getItemsHelper().getDroppedCoins()) {
             for (Coin coin : gameState.getItemsHelper().getDroppedCoins()) {
                 if (coin.getxId() == Float.parseFloat(stringList[0])
                         && coin.getyId() == Float.parseFloat(stringList[1])) {
@@ -91,6 +91,6 @@ public class ClientCoinsHelper {
     						new FloatingScore(coin)));
                 }
             }
-        }
+//        }
     }
 }

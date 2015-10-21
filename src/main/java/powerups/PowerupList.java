@@ -71,6 +71,11 @@ public class PowerupList implements Aggregate {
 		return new PowerupListIterator(powerups);
 	}
 	
+	/**
+	 * 
+	 * @param element the element for which you want to know whether it is contained
+	 * @return true if the given element was contained
+	 */
 	public boolean contains(Powerup element) {
 		return powerups.contains(element);
 	}

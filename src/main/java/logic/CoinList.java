@@ -71,6 +71,11 @@ public class CoinList implements Aggregate {
 		return new CoinListIterator(coins);
 	}
 	
+	/**
+	 * 
+	 * @param element the element for which you want to know if it is contained
+	 * @return true if the element is contained in the CoinList
+	 */
 	public boolean contains(Coin element) {
 		return coins.contains(element);
 	}
