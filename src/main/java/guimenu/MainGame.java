@@ -1,6 +1,7 @@
 package guimenu;
 import guigame.GameState;
 import guiobjects.Button;
+import guiobjects.PlayerButton;
 import guiobjects.RND;
 import guiobjects.Textfield;
 
@@ -347,8 +348,8 @@ public class MainGame extends StateBasedGame {
 		Logger.getInstance().log("MenuSettingsstate added", Logger.PriorityLevels.LOW, STATES);
 		this.addState(menuMultiplayerState);
 		Logger.getInstance().log("MenuMultiplayerState added", Logger.PriorityLevels.LOW, STATES);
-		RND.getInstance().init(); initPlayers(); Button.init(); Textfield.init();
-		Calendar cal = Calendar.getInstance();
+		RND.getInstance().init(); initPlayers(); Button.init(); 
+		Textfield.init(); PlayerButton.init(); Calendar cal = Calendar.getInstance();
 		this.currentDate = cal.get(Calendar.DATE) + "/" + cal.get(Calendar.MONTH) 
 				+ "/" + cal.get(Calendar.YEAR);
 		this.enterState(0); // EDIT START STATE HERE

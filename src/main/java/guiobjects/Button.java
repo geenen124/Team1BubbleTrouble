@@ -90,6 +90,7 @@ public class Button extends Element {
 	 * @param graphics the context to draw in.
 	 * @param color the color to draw with.
 	 */
+	@Override
 	public void render(Graphics graphics, Color color) {
 		if (isSelected()) {
 			// draw head

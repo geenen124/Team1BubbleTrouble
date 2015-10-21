@@ -1,19 +1,16 @@
 package guimenu;
 import guiobjects.Button;
 import guiobjects.ElementList;
+import guiobjects.PlayerButton;
 import guiobjects.RND;
-import guiobjects.RenderOptions;
 import guiobjects.Separator;
 import logic.Logger;
-import logic.MyRectangle;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
-import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -34,6 +31,12 @@ public class MenuSettingsState extends BasicGameState {
 	private Button whiteButton;
 	private Button pinkButton;
 	private Button yellowButton;
+	private PlayerButton gameboy1Button;
+	private PlayerButton phone1Button;
+	private PlayerButton arie1Button;
+	private PlayerButton gameboy2Button;
+	private PlayerButton phone2Button;
+	private PlayerButton arie2Button;
 	 
 	// Game Colors
 	private static final Color COLOR_RED = new Color(0.9f, 0.15f, 0.1f);
@@ -43,23 +46,6 @@ public class MenuSettingsState extends BasicGameState {
 	private static final Color COLOR_BLUE = new Color(0.15f, 0.5f, 0.8f);
 	private static final Color COLOR_PINK = new Color(0.85f, 0.0f, 0.4f);
 	private static final Color COLOR_WHITE = new Color(0.5f, 0.5f, 0.5f);
-	
-	private SpriteSheet mannetjeN;
-	private SpriteSheet mannetjeA;
-	private SpriteSheet telefoonN;
-	private SpriteSheet telefoonA;
-	private SpriteSheet arieN;
-	private SpriteSheet arieA;
-	
-	private Image highLightN;
-	private Image highLightA;
-	
-	private MyRectangle mannetje1Rectangle;
-	private MyRectangle telefoon1Rectangle;
-	private MyRectangle arie1Rectangle;
-	private MyRectangle mannetje2Rectangle;
-	private MyRectangle telefoon2Rectangle;
-	private MyRectangle arie2Rectangle;
 
 	private Separator separatorTop;
 	private Separator separatorMiddle;
@@ -83,8 +69,6 @@ public class MenuSettingsState extends BasicGameState {
 	
 	private static final int RETURN_BUTTON_X = 164;
 	private static final int RETURN_BUTTON_Y = 188;
-	private static final int RETURN_BUTTON_WIDTH = 1000;
-	private static final int RETURN_BUTTON_HEIGHT = 50;
 	
 	private static final int TEXT_X = 164;
 	private static final int TEXT_1_Y = 238;
@@ -103,13 +87,9 @@ public class MenuSettingsState extends BasicGameState {
 	private static final int COLOR_BUTTON_1_X = 800;
 	private static final int COLOR_BUTTON_2_X = 1014;
 	private static final int COLOR_BUTTON_3_X = 1200;
-	private static final int COLOR_BUTTON_WIDTH = 200;
 	private static final int COLOR_BUTTON_1_Y = 653;
 	private static final int COLOR_BUTTON_2_Y = 703;
 	private static final int COLOR_BUTTON_3_Y = 753;
-	
-	private static final int PLAYER_SPRITE_WIDTH = 120;
-	private static final int PLAYER_SPRITE_HEIGHT = 120;
 	
 	private static final int MANNETJE_1_X = 370;
 	private static final int MANNETJE_1_Y = 540;
@@ -185,46 +165,12 @@ public class MenuSettingsState extends BasicGameState {
 	 */
 	public void init(GameContainer container, StateBasedGame arg1) throws SlickException {
 		initElements();
-		initPlayerImages();
-		mannetje1Rectangle = new MyRectangle(MANNETJE_1_X, MANNETJE_1_Y, PLAYER_SPRITE_WIDTH,
-				PLAYER_SPRITE_HEIGHT);
-		telefoon1Rectangle = new MyRectangle(TELEFOON_1_X, TELEFOON_1_Y, PLAYER_SPRITE_WIDTH, 
-				PLAYER_SPRITE_HEIGHT);
-		arie1Rectangle = new MyRectangle(ARIE_1_X, ARIE_1_Y, PLAYER_SPRITE_WIDTH, 
-				PLAYER_SPRITE_HEIGHT);
-		mannetje2Rectangle = new MyRectangle(MANNETJE_2_X, MANNETJE_2_Y, PLAYER_SPRITE_WIDTH,
-				PLAYER_SPRITE_HEIGHT);
-		telefoon2Rectangle = new MyRectangle(TELEFOON_2_X, TELEFOON_2_Y, PLAYER_SPRITE_WIDTH, 
-				PLAYER_SPRITE_HEIGHT);
-		arie2Rectangle = new MyRectangle(ARIE_2_X, ARIE_2_Y, PLAYER_SPRITE_WIDTH, 
-				PLAYER_SPRITE_HEIGHT);
 		separatorTop = new Separator(SEPARATOR_X, SEPARATOR_Y, true, separatorTopTitle,
 				container.getWidth());
 		separatorMiddle = new Separator(SEPARATOR_X, SEPARATOR_Y_2, false, separatorMiddleTitle,
 				container.getWidth());
 		separatorBottom = new Separator(SEPARATOR_X, SEPARATOR_Y_3, false, separatorBottomTitle,
 				container.getWidth());
-	}
-	
-	/**
-	 * Initialize player images.
-	 * @throws SlickException if something goes wrong / file not found
-	 */
-	private void initPlayerImages() throws SlickException {
-		highLightN = new Image("resources/images_UI/Menu_Highlight_Norm.png");
-		highLightA = new Image("resources/images_UI/Menu_Highlight_Add.png");
-		mannetjeN = new SpriteSheet("resources/images_Player/Playersprite_Norm.png",
-				PLAYER_SPRITE_WIDTH, PLAYER_SPRITE_HEIGHT);
-		mannetjeA = new SpriteSheet("resources/images_Player/Playersprite_Add.png",
-				PLAYER_SPRITE_WIDTH, PLAYER_SPRITE_HEIGHT);
-		telefoonN = new SpriteSheet("resources/images_Player/Player2sprite_Norm.png",
-				PLAYER_SPRITE_WIDTH, PLAYER_SPRITE_HEIGHT);
-		telefoonA = new SpriteSheet("resources/images_Player/Player2sprite_Add.png",
-				PLAYER_SPRITE_WIDTH, PLAYER_SPRITE_HEIGHT);
-		arieN = new SpriteSheet("resources/images_Player/arieSprite.png",
-				PLAYER_SPRITE_WIDTH, PLAYER_SPRITE_HEIGHT);
-		arieA = new SpriteSheet("resources/images_Player/arieSprite_Add.png",
-				PLAYER_SPRITE_WIDTH, PLAYER_SPRITE_HEIGHT);
 	}
 	
 	/**
@@ -242,6 +188,19 @@ public class MenuSettingsState extends BasicGameState {
 		whiteButton = new Button(COLOR_BUTTON_2_X, COLOR_BUTTON_3_Y, "> White");
 		pinkButton = new Button(COLOR_BUTTON_3_X, COLOR_BUTTON_1_Y, "> Purple");
 		yellowButton = new Button(COLOR_BUTTON_3_X, COLOR_BUTTON_2_Y, "> Yellow");
+		gameboy1Button = new PlayerButton(MANNETJE_1_X, MANNETJE_1_Y, 
+				PlayerButton.PlayerType.GAMEBOY, 1);
+		gameboy2Button = new PlayerButton(MANNETJE_2_X, MANNETJE_2_Y, 
+				PlayerButton.PlayerType.GAMEBOY, 2);
+		phone1Button = new PlayerButton(TELEFOON_1_X, TELEFOON_1_Y, 
+				PlayerButton.PlayerType.PHONE, 1);
+		phone2Button = new PlayerButton(TELEFOON_2_X, TELEFOON_2_Y, 
+				PlayerButton.PlayerType.PHONE, 2);
+		arie1Button = new PlayerButton(ARIE_1_X, ARIE_1_Y, 
+				PlayerButton.PlayerType.ARIE, 1);
+		arie2Button = new PlayerButton(ARIE_2_X, ARIE_2_Y, 
+				PlayerButton.PlayerType.ARIE, 2);
+		gameboy1Button.setActive(true); phone2Button.setActive(true);
 		addElements();
 		coupleElements();
 	}
@@ -259,21 +218,40 @@ public class MenuSettingsState extends BasicGameState {
 		elements.add(whiteButton);
 		elements.add(pinkButton);
 		elements.add(yellowButton);
+		elements.add(gameboy1Button); elements.add(gameboy2Button);
+		elements.add(phone1Button); elements.add(phone2Button);
+		elements.add(arie1Button); elements.add(arie2Button);
 	}
 	
 	/**
 	 * Couple the elements in this scene together for navigation.
 	 */
 	private void coupleElements() {
-		elements.coupleVertical(returnButton, shuffleButton);
+		returnButton.setBottom(gameboy1Button);
+		elements.coupleVertical(returnButton, gameboy1Button);
+		elements.coupleHorizontal(returnButton, gameboy1Button);
+		gameboy2Button.setLeft(returnButton);
+		elements.coupleVertical(gameboy1Button, gameboy2Button);
+		gameboy2Button.setBottom(returnButton);
+		
+		elements.loopVertical(phone1Button, phone2Button);
+		elements.loopVertical(arie1Button, arie2Button);
+		
+		elements.coupleHorizontal(gameboy1Button, phone1Button);
+		elements.coupleHorizontal(gameboy2Button, phone2Button);
+		elements.coupleHorizontal(phone1Button, arie1Button);
+		elements.coupleHorizontal(phone2Button, arie2Button);
+		elements.coupleHorizontal(arie1Button, shuffleButton);
+		redButton.setLeft(arie1Button);
+		elements.coupleHorizontal(arie2Button, orangeButton);
+		
 		elements.coupleVertical(shuffleButton, redButton); 
 		elements.coupleVertical(redButton, orangeButton); 
-		elements.coupleVertical(orangeButton, returnButton); 
+		elements.coupleVertical(orangeButton, shuffleButton); 
 		
-		elements.coupleHorizontal(returnButton, shuffleButton);
 		elements.coupleHorizontal(shuffleButton, greenButton);
 		elements.coupleHorizontal(redButton, blueButton);
-		elements.loopHorizontal(orangeButton, whiteButton);
+		elements.coupleHorizontal(orangeButton, whiteButton);
 		
 		elements.coupleVertical(greenButton, blueButton);
 		elements.coupleVertical(blueButton, whiteButton);
@@ -283,8 +261,6 @@ public class MenuSettingsState extends BasicGameState {
 		elements.coupleHorizontal(blueButton, yellowButton);
 		
 		elements.loopVertical(pinkButton, yellowButton);
-		elements.coupleHorizontal(pinkButton, shuffleButton);
-		elements.coupleHorizontal(yellowButton, redButton);
 	}
 	
 	/**
@@ -304,7 +280,8 @@ public class MenuSettingsState extends BasicGameState {
 		
 		input = container.getInput();
 		elements.update(input);
-		if ((input.isMousePressed(Input.MOUSE_LEFT_BUTTON) || input.isKeyDown(Input.KEY_ENTER)) 
+		if ((input.isMousePressed(Input.MOUSE_LEFT_BUTTON) 
+				|| (input.isKeyDown(Input.KEY_ENTER) && input.isKeyPressed(Input.KEY_ENTER))) 
 				&& !mainGame.getShouldSwitchState()) {
 			processButtons(input);
 			processColorButtons(input);
@@ -313,25 +290,31 @@ public class MenuSettingsState extends BasicGameState {
 	}
 
 	/**
-	 * Process the buttons.
+	 * Process some of the buttons.
 	 * @param input the keyboard/mouse input of the user
 	 */
 	private void processButtons(Input input) {
-		if (mannetje1Rectangle.contains(input.getMouseX(), input.getMouseY())) {
+		if (gameboy1Button.isSelected()) {
+			gameboy1Button.makeActive();
 			processMannetje1Button();
-		} else if (telefoon1Rectangle.contains(input.getMouseX(), input.getMouseY())) {
-			processTelefoon1Button();
-		} else if (mannetje2Rectangle.contains(input.getMouseX(), input.getMouseY())) {
+		} else if (gameboy2Button.isSelected()) {
+			gameboy2Button.makeActive();
 			processMannetje2Button();
-		} else if (telefoon2Rectangle.contains(input.getMouseX(), input.getMouseY())) {
+		} else if (phone1Button.isSelected()) {
+			phone1Button.makeActive();
+			processTelefoon1Button();
+		} else if (phone2Button.isSelected()) {
+			phone2Button.makeActive();
 			processTelefoon2Button();
-		} else if (arie1Rectangle.contains(input.getMouseX(), input.getMouseY())) {
+		} else if (arie1Button.isSelected()) {
+			arie1Button.makeActive();
 			processArie1Button();
-		} else if (arie2Rectangle.contains(input.getMouseX(), input.getMouseY())) {
+		} else if (arie2Button.isSelected()) {
+			arie2Button.makeActive();
 			processArie2Button();
 		} else if (returnButton.isSelected()) {
 			processReturnButton();
-		} 
+		}
 	}
 	
 	/**
@@ -462,7 +445,6 @@ public class MenuSettingsState extends BasicGameState {
 	
 		RND.getInstance().text(graphics, container.getWidth() / 2 - BOTTOM_TEXT_OFFSET_X,
 				container.getHeight() - BOTTOM_TEXT_OFFSET_Y, "Waiting for user input...");
-		drawSprites(graphics);
 
 		mainGame.drawWaterMark();
 		RND.getInstance().drawLogo(graphics, LOGO_X, LOGO_Y);
@@ -490,134 +472,6 @@ public class MenuSettingsState extends BasicGameState {
 		RND.getInstance().text(graphics, CONTROL_X2, P1_CONTROL_Y, "# Player 2:");
 		RND.getInstance().text(graphics, CONTROL_X2 + CONTROL_XBETW, P1_CONTROL_Y, controlsPlayer2);
 		
-	}
-	
-	/**
-	 * Draw the player sprites.
-	 * @param graphics the Graphics object to draw things on screen
-	 */
-	private void drawSprites(Graphics graphics) {
-		drawPlayer1(graphics);
-		drawPlayer2(graphics);
-		drawSprites2(graphics);
-	}
-	
-	/**
-	 * Draw the sprite for player 1.
-	 * @param graphics the graphics object to draw things on screen.
-	 */
-	private void drawPlayer1(Graphics graphics) {
-		switch (mainGame.getPlayer1ImageStringN()) {
-		case PLAYERSPRITE_NORM:
-			drawPlayer1Mannetje(graphics);
-			break;
-		case PLAYER2SPRITE_NORM:
-			drawPlayer1Telefoon(graphics);
-			break;
-		case ARIESPRITE:
-			drawPlayer1Arie(graphics);
-			break;
-		default:	
-		}
-	}
-	
-	/**
-	 * Draw the sprite for player 2.
-	 * @param graphics the graphics object to draw things on screen.
-	 */
-	private void drawPlayer2(Graphics graphics) {
-		switch (mainGame.getPlayer2ImageStringN()) {
-		case PLAYERSPRITE_NORM:
-			drawPlayer2Mannetje(graphics);
-			break;
-		case PLAYER2SPRITE_NORM:
-			drawPlayer2Telefoon(graphics);
-			break;
-		case ARIESPRITE:
-			drawPlayer2Arie(graphics);
-			break;
-		default:
-		}
-	}
-	
-	/**
-	 * Draw the mannetje sprite for player 1.
-	 * @param graphics the graphics object to draw things on screen.
-	 */
-	private void drawPlayer1Mannetje(Graphics graphics) {
-		RND.getInstance().drawColor(new RenderOptions(graphics, highLightN, highLightA, 
-				MANNETJE_1_X, MANNETJE_1_Y, mainGame.getColor()));
-	}
-	
-	/**
-	 * Draw the telefoon sprite for player 1.
-	 * @param graphics the graphics object to draw things on screen.
-	 */
-	private void drawPlayer1Telefoon(Graphics graphics) {
-		RND.getInstance().drawColor(new RenderOptions(graphics, highLightN, highLightA, 
-				TELEFOON_1_X, TELEFOON_1_Y, mainGame.getColor()));
-	}
-	
-	/**
-	 * Draw the arie sprite for player 1.
-	 * @param graphics the graphics object to draw things on screen.
-	 */
-	private void drawPlayer1Arie(Graphics graphics) {
-		RND.getInstance().drawColor(new RenderOptions(graphics, highLightN, highLightA, 
-				ARIE_1_X, ARIE_1_Y, mainGame.getColor()));
-	}
-	
-	/**
-	 * Draw the mannetje sprite for player 2.
-	 * @param graphics the graphics object to draw things on screen.
-	 */
-	private void drawPlayer2Mannetje(Graphics graphics) {
-		RND.getInstance().drawColor(new RenderOptions(graphics, highLightN, highLightA, 
-				MANNETJE_2_X, MANNETJE_2_Y, mainGame.getColor()));
-	}
-	
-	/**
-	 * Draw the telefoon sprite for player 2.
-	 * @param graphics the graphics object to draw things on screen.
-	 */
-	private void drawPlayer2Telefoon(Graphics graphics) {
-		RND.getInstance().drawColor(new RenderOptions(graphics, highLightN, highLightA, 
-				TELEFOON_2_X, TELEFOON_2_Y, mainGame.getColor()));
-	}
-	
-	/**
-	 * Draw the arie sprite for player 2.
-	 * @param graphics the graphics object to draw things on screen.
-	 */
-	private void drawPlayer2Arie(Graphics graphics) {
-		RND.getInstance().drawColor(new RenderOptions(graphics, highLightN, highLightA, 
-				ARIE_2_X, ARIE_2_Y, mainGame.getColor()));
-	}
-	
-	/**
-	 * Draw the second batch of player sprites.
-	 * @param graphics the Graphics object to draw things on screen
-	 */
-	private void drawSprites2(Graphics graphics) {
-		RND.getInstance().drawColor(new RenderOptions(graphics, 
-				mannetjeN.getSprite(2, 0), mannetjeA.getSprite(2, 0),
-				mannetje1Rectangle.getX(), mannetje1Rectangle.getY(), mainGame.getColor()));
-		RND.getInstance().drawColor(new RenderOptions(graphics, 
-				telefoonN.getSprite(2, 0), telefoonA.getSprite(2, 0),
-				telefoon1Rectangle.getX(), telefoon1Rectangle.getY(), mainGame.getColor()));
-		RND.getInstance().drawColor(new RenderOptions(graphics, 
-				arieN.getSprite(2, 0), arieA.getSprite(2, 0),
-				arie1Rectangle.getX(), arie1Rectangle.getY(), mainGame.getColor()));
-		
-		RND.getInstance().drawColor(new RenderOptions(graphics, 
-				mannetjeN.getSprite(2, 0), mannetjeA.getSprite(2, 0),
-				mannetje2Rectangle.getX(), mannetje2Rectangle.getY(), mainGame.getColor()));
-		RND.getInstance().drawColor(new RenderOptions(graphics, 
-				telefoonN.getSprite(2, 0), telefoonA.getSprite(2, 0),
-				telefoon2Rectangle.getX(), telefoon2Rectangle.getY(), mainGame.getColor()));
-		RND.getInstance().drawColor(new RenderOptions(graphics, 
-				arieN.getSprite(2, 0), arieA.getSprite(2, 0),
-				arie2Rectangle.getX(), arie2Rectangle.getY(), mainGame.getColor()));
 	}
 
 	/**
