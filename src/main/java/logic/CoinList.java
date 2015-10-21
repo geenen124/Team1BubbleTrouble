@@ -70,6 +70,10 @@ public class CoinList implements Aggregate {
 	public Iterator createIterator() {
 		return new CoinListIterator(coins);
 	}
+	
+	public boolean contains(Coin element) {
+		return coins.contains(element);
+	}
 
 	/**
 	 * 
