@@ -150,6 +150,8 @@ public class GameState extends BasicGameState {
 		logicHelper.update(container, sbg, delta);
 		exit(container, sbg, delta);
 		
+		SoundPlayer.getInstance().playEffects();
+		SoundPlayer.getInstance().logShit();
 		commandQueue.executeQueue();
 	}
 	

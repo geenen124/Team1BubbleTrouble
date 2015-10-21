@@ -14,6 +14,9 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
+import sound.PlayerDeathSoundEffect;
+import sound.SoundPlayer;
+
 /**
  * A list of players.
  * @author Bart
@@ -259,6 +262,8 @@ public class PlayerList {
 				processCollisions = false;
 				mainGame.setSwitchState(mainGame.getGameState());
 			}
+			
+			SoundPlayer.getInstance().addEffect(new PlayerDeathSoundEffect());
 		}
 	}
 	

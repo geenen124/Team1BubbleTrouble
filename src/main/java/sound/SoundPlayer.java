@@ -1,6 +1,8 @@
 package sound;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 import logic.Logger;
 
@@ -24,8 +26,10 @@ public final class SoundPlayer implements MusicListener {
 	private static volatile SoundPlayer instance;
 	private boolean playingMusic;
 	private MusicLists activeList;
+	private Queue<SoundEffect> effectQueue;
 	
 	private static final int FADE_LENGTH = 20000;
+	private static final float BACKGROUND_VOLUME = 0.3f;
 	
 	  /**
      * The different powerup types.
@@ -48,6 +52,27 @@ public final class SoundPlayer implements MusicListener {
 		playingMusic = false;
 		currentMusic = 0;
 		activeMusic = getActiveList().get(currentMusic);
+		
+		effectQueue = new LinkedList<SoundEffect>();
+	}
+	
+	/**
+	 * Play all sounds in effectQueue.
+	 */
+	public void playEffects() {
+		while (!effectQueue.isEmpty()) {
+			effectQueue.poll().playSound();
+		}
+	}
+	
+	/**
+	 * Add an effect to the effecctQueue.
+	 * @param effect the effect to add
+	 */
+	public void addEffect(SoundEffect effect) {
+		if (!effectQueue.contains(effect)) {
+			effectQueue.add(effect);
+		}
 	}
 	
 	/**
@@ -84,9 +109,9 @@ public final class SoundPlayer implements MusicListener {
 			if (playingMusic) {
 				if (activeList == MusicLists.PLAY_LIST) {
 					activeMusic.play(1.0f, 0.0f);
-					activeMusic.fade(FADE_LENGTH, 1.0f, false);
+					activeMusic.fade(FADE_LENGTH, BACKGROUND_VOLUME, false);
 				} else {
-					activeMusic.play();					
+					activeMusic.play(1.0f, BACKGROUND_VOLUME);					
 				}
 			}
 		}
@@ -166,7 +191,7 @@ public final class SoundPlayer implements MusicListener {
 	 */
 	public void play() {
 		if (!playingMusic) {
-			activeMusic.play();
+			activeMusic.play(1.0f, BACKGROUND_VOLUME);
 			playingMusic = true;
 		}
 	}
@@ -198,6 +223,9 @@ public final class SoundPlayer implements MusicListener {
 	public void musicSwapped(Music arg0, Music arg1) {
 	}
 	
+	public void logShit() {
+		System.out.println(activeMusic.getVolume());
+	}
 	
 
 }
