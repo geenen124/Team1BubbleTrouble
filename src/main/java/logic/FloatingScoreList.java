@@ -76,4 +76,13 @@ public class FloatingScoreList implements Aggregate {
 	public boolean contains(FloatingScore element) {
 		return floatingScores.contains(element);
 	}
+	
+	/**
+	 * 
+	 * @param element the floatingScore to remove
+	 * @return true if the FloatingScore was indeed in the list of FloatingScores stored
+	 */
+	public boolean remove(FloatingScore element) {
+		return floatingScores.remove(element);
+	}
 }

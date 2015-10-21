@@ -71,24 +71,21 @@ public class CoinList implements Aggregate {
 		return new CoinListIterator(coins);
 	}
 	
+	/**
+	 * 
+	 * @param element the element for which you want to know if it is contained
+	 * @return true if the element is contained in the CoinList
+	 */
 	public boolean contains(Coin element) {
 		return coins.contains(element);
 	}
-
+	
 	/**
 	 * 
-	 * @return the Coin objects stored
+	 * @param toRemove the ArrayList of Coins to remove from CoinList
+	 * @return true if CoinList is changes as a result of the call
 	 */
-	public ArrayList<Coin> getCoins() {
-		return coins;
+	public boolean removeAll(ArrayList<Coin> toRemove) {
+		return coins.removeAll(toRemove);
 	}
-
-	/**
-	 * 
-	 * @param coins the Coins to store
-	 */
-	public void setCoins(ArrayList<Coin> coins) {
-		this.coins = coins;
-	}
-
 }

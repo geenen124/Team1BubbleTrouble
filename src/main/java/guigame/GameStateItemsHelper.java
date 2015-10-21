@@ -192,15 +192,15 @@ public class GameStateItemsHelper extends GameStateHelper {
 	/**
 	 * @return the droppedCoins
 	 */
-	public ArrayList<Coin> getDroppedCoins() {
-		return droppedCoins.getCoins();
+	public CoinList getDroppedCoins() {
+		return droppedCoins;
 	}
 
 	/**
 	 * @param droppedCoins the droppedCoins to set
 	 */
-	public void setDroppedCoins(ArrayList<Coin> droppedCoins) {
-		this.droppedCoins.setCoins(droppedCoins);
+	public void setDroppedCoins(CoinList droppedCoins) {
+		this.droppedCoins = droppedCoins;
 	}
 
 	/**
