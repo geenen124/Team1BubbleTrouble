@@ -105,12 +105,4 @@ public class PowerupList implements Aggregate {
 	public ArrayList<Powerup> getPowerups() {
 		return powerups;
 	}
-
-	/**
-	 * 
-	 * @param powerups the Powerup objects to store
-	 */
-	public void setPowerups(ArrayList<Powerup> powerups) {
-		this.powerups = powerups;
-	}
 }
