@@ -14,14 +14,14 @@ public class StartStateTest {
 
 	@Test
 	public void testGetID() {
-		MainGame mg = new MainGame("hello");
+		MainGame mg = new MainGame("hello", true);
 		MenuMainState s = new MenuMainState(mg);
 		assertEquals(0, s.getID());
 	}
 
 	@Test
 	public void testStartState() {
-		MainGame mg = new MainGame("hello");
+		MainGame mg = new MainGame("hello", true);
 		MenuMainState s = new MenuMainState(mg);
 		assertEquals(s.getMainGame(), mg);
 	}

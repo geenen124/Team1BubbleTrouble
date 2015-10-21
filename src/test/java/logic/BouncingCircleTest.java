@@ -46,7 +46,7 @@ public class BouncingCircleTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		mg = new MainGame("TestGame");
+		mg = new MainGame("TestGame", true);
 		gs = mock(GameState.class);
 		//gs.getCirclesHelper().setCircleList(new CircleList(new ArrayList<BouncingCircle>()));
 

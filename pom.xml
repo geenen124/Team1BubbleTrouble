@@ -94,6 +94,34 @@
 						<file>${basedir}/libraries/lwjgl_util.jar</file>
 					</configuration>
 				</execution>
+				<execution>
+					<id>JOGG</id>
+					<phase>initialize</phase>
+					<goals>
+						<goal>install-file</goal>
+					</goals>
+					<configuration>
+						<version>0.0.7</version>
+						<groupId>org.jogg</groupId>
+						<artifactId>jogg</artifactId>
+						<packaging>jar</packaging>
+						<file>${basedir}/libraries/jogg-0.0.7.jar</file>
+					</configuration>
+				</execution>
+				<execution>
+					<id>JORBIS</id>
+					<phase>initialize</phase>
+					<goals>
+						<goal>install-file</goal>
+					</goals>
+					<configuration>
+						<version>0.0.15</version>
+						<groupId>org.jorbis</groupId>
+						<artifactId>jorbis</artifactId>
+						<packaging>jar</packaging>
+						<file>${basedir}/libraries/jorbis-0.0.15.jar</file>
+					</configuration>
+				</execution>
 			</executions>
 		</plugin>
 			<plugin>

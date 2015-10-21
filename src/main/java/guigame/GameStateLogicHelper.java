@@ -152,7 +152,7 @@ public class GameStateLogicHelper extends GameStateHelper {
 		}
 
 		if (timeRemaining <= 0) {
-            mainGame.getPlayerList().playerDeath(sbg);
+            mainGame.getPlayerList().playerDeath(sbg, false);
         }
 		prevTime = curTime;
 	}

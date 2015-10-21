@@ -35,7 +35,7 @@ public class Separator {
 		this.screenWidth = width;
 		this.hasButton = button;
 		this.title = title;
-		recalculate();
+		update();
 	}
 
 	/**
@@ -50,7 +50,7 @@ public class Separator {
 	/**
 	 * Recalculates the position, size and layout of text.
 	 */
-	private void recalculate() {
+	private void update() {
 
 		StringBuffer firstHalf = new StringBuffer(), secondHalf = new StringBuffer();
 		// lengths
@@ -114,7 +114,7 @@ public class Separator {
 	 */
 	public void setTitle(String text) {
 		this.title = text;
-		recalculate();
+		update();
 	}
 
 	/**

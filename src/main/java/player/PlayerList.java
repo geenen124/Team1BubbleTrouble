@@ -15,6 +15,9 @@ import iterator.Iterator;
 import iterator.PlayerListIterator;
 import logic.BouncingCircle;
 import logic.Logger;
+import sound.PlayerDeathSoundEffect;
+import sound.SoundPlayer;
+
 
 /**
  * A list of players.
@@ -85,17 +88,18 @@ public class PlayerList implements Aggregate {
 	/**
 	 * Inserct all players with a circle.
 	 * @param circle	- the circle to intersect with
+	 * @param testing if we are testing or not
 	 */
-	public void intersectPlayersWithCircle(BouncingCircle circle) {
+	public void intersectPlayersWithCircle(BouncingCircle circle, boolean testing) {
 		if (processCollisions) {
 			if (playerList.get(0).getLogicHelper().getRectangle().intersects(circle) 
 					&& !playerList.get(0).getPowerupHelper().hasShield()) {
 				//LIVES FUNCTIONALITY
 				if (!mainGame.isLanMultiplayer()) {
-					playerDeath(mainGame);
+					playerDeath(mainGame, testing);
 				} else if (mainGame.isHost()) {
 					mainGame.getHost().updateDead();
-					playerDeath(mainGame);
+					playerDeath(mainGame, testing);
 				}
 			}
 			
@@ -104,10 +108,10 @@ public class PlayerList implements Aggregate {
 					&& !playerList.get(1).getPowerupHelper().hasShield()) {
 				//LIVES FUNCTIONALITY
 				if (!mainGame.isLanMultiplayer()) {
-					playerDeath(mainGame);
+					playerDeath(mainGame, testing);
 				} else if (mainGame.isClient()) {
 					mainGame.getClient().updateDead();
-					playerDeath(mainGame);
+					playerDeath(mainGame, testing);
 				}
 			}
 		}
@@ -240,8 +244,9 @@ public class PlayerList implements Aggregate {
 	/**
 	 * Player death.
 	 * @param sbg The stateBasedGame that uses this state.
+	 * @param testing if we are testing or not
 	 */
-	public void playerDeath(StateBasedGame sbg) {
+	public void playerDeath(StateBasedGame sbg, boolean testing) {
 		if (!died) {
 			logger.log("Player died, reducing lives", Logger.PriorityLevels.MEDIUM,
 					"players");
@@ -261,6 +266,8 @@ public class PlayerList implements Aggregate {
 				processCollisions = false;
 				mainGame.setSwitchState(mainGame.getGameState());
 			}
+			
+			SoundPlayer.getInstance(testing).addEffect(new PlayerDeathSoundEffect(testing));
 		}
 	}
 	
