@@ -464,7 +464,7 @@ public class ClientTest {
 		when(pl.getPlayers()).thenReturn(plist);
 		Image i1 = mock(Image.class);
 		Image i2 = mock(Image.class);
-
+ 
 		Image i3 = mock(Image.class);
 
 		Image i4 = mock(Image.class);

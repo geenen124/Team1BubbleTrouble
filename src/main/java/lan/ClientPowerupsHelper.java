@@ -58,8 +58,7 @@ public class ClientPowerupsHelper {
     private void addPowerup(String[] stringList) {
         synchronized (gameState.getItemsHelper().getDroppedPowerups()) {
             Powerup.PowerupType type = Powerup.PowerupType.SHIELD;
-            type = getPowerupType(stringList[2], type);
-            if (type != null) {
+            type = getPowerupType(st 
             	commandQueue.addCommand(new AddDroppedPowerupCommand(
     					gameState.getItemsHelper().getDroppedPowerups(), 
     					new Powerup(Float.parseFloat(stringList[0]),
