@@ -1,6 +1,8 @@
 package sound;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 import logic.Logger;
 
@@ -14,7 +16,7 @@ import org.newdawn.slick.SlickException;
  *
  */
 public final class SoundPlayer implements MusicListener {
-
+	
 	private Music activeMusic;
 	private ArrayList<Music> menuList;
 	private ArrayList<Music> playList;
@@ -24,8 +26,11 @@ public final class SoundPlayer implements MusicListener {
 	private static volatile SoundPlayer instance;
 	private boolean playingMusic;
 	private MusicLists activeList;
+	private Queue<SoundEffect> effectQueue;
+	private boolean testing;
 	
 	private static final int FADE_LENGTH = 20000;
+	private static final float BACKGROUND_VOLUME = 0.3f;
 	
 	  /**
      * The different powerup types.
@@ -37,17 +42,53 @@ public final class SoundPlayer implements MusicListener {
 
     /**
 	 * Private constructor (singleton).
+	 * @param testing .
 	 */
-	private SoundPlayer() {
-		initMenuList();
-		initPlayList();
-		initWonList();
-		initLostList();
+    private SoundPlayer(boolean testing) {
+    	if (!testing) {
+
+    		initMenuList();
+    		initPlayList();
+    		initWonList();
+    		initLostList();
+
+    		activeList = MusicLists.MENU_LIST;
+    		playingMusic = false;
+    		currentMusic = 0;
+    		activeMusic = getActiveList().get(currentMusic);
+
+    		effectQueue = new LinkedList<SoundEffect>();
+    	}
+
+    	this.testing = testing;
+	
+	}
+	
+	/**
+	 * Play all sounds in effectQueue.
+	 */
+	public void playEffects() {
+		if (testing) {
+			return;
+		}
 		
-		activeList = MusicLists.MENU_LIST;
-		playingMusic = false;
-		currentMusic = 0;
-		activeMusic = getActiveList().get(currentMusic);
+		while (!effectQueue.isEmpty()) {
+			effectQueue.poll().playSound();
+		}
+	}
+	
+	/**
+	 * Add an effect to the effecctQueue.
+	 * @param effect the effect to add
+	 */
+	public void addEffect(SoundEffect effect) {
+		if (testing) {
+			return;
+		}
+		
+		if (!effectQueue.contains(effect)) {
+			effectQueue.add(effect);
+		}
 	}
 	
 	/**
@@ -74,6 +115,10 @@ public final class SoundPlayer implements MusicListener {
 	 * @param list	the active list.
 	 */
 	public void setActiveList(MusicLists list) {
+		if (testing) {
+			return;
+		}
+		
 		if (list != activeList) {
 			activeList = list;
 			currentMusic = 0;
@@ -84,9 +129,9 @@ public final class SoundPlayer implements MusicListener {
 			if (playingMusic) {
 				if (activeList == MusicLists.PLAY_LIST) {
 					activeMusic.play(1.0f, 0.0f);
-					activeMusic.fade(FADE_LENGTH, 1.0f, false);
+					activeMusic.fade(FADE_LENGTH, BACKGROUND_VOLUME, false);
 				} else {
-					activeMusic.play();					
+					activeMusic.play(1.0f, BACKGROUND_VOLUME);					
 				}
 			}
 		}
@@ -96,6 +141,10 @@ public final class SoundPlayer implements MusicListener {
 	 * Init the menuList.
 	 */
 	private void initMenuList() {
+		if (testing) {
+			return;
+		}
+		
 		menuList = new ArrayList<Music>();
 		try {
 			menuList.add(new Music("resources/sound/menu_music.ogg"));
@@ -109,6 +158,10 @@ public final class SoundPlayer implements MusicListener {
 	 * Init the playList.
 	 */
 	private void initPlayList() {
+		if (testing) {
+			return;
+		}
+		
 		playList = new ArrayList<Music>();
 		try {
 			playList.add(new Music("resources/sound/play_music_2.ogg"));
@@ -123,6 +176,10 @@ public final class SoundPlayer implements MusicListener {
 	 * Init the wonList.
 	 */
 	private void initWonList() {
+		if (testing) {
+			return;
+		}
+		
 		wonList = new ArrayList<Music>();
 		try {
 			wonList.add(new Music("resources/sound/win_music.ogg"));
@@ -136,6 +193,10 @@ public final class SoundPlayer implements MusicListener {
 	 * Init the lostList.
 	 */
 	private void initLostList() {
+		if (testing) {
+			return;
+		}
+		
 		lostList = new ArrayList<Music>();
 		try {
 			lostList.add(new Music("resources/sound/lost_music.ogg"));
@@ -154,7 +215,23 @@ public final class SoundPlayer implements MusicListener {
 		if (instance == null) {
 			synchronized (Logger.class) {
 				if (instance == null) {
-					instance = new SoundPlayer();
+					instance = new SoundPlayer(false);
+				}
+			}
+		}
+		return instance;
+	}
+	
+	/**
+	 * Return the Logger instance.
+	 * @param testing indicates if we are testing
+	 * @return the logger
+	 */
+	public static SoundPlayer getInstance(boolean testing) {		
+		if (instance == null) {
+			synchronized (Logger.class) {
+				if (instance == null) {
+					instance = new SoundPlayer(testing);
 				}
 			}
 		}
@@ -165,8 +242,12 @@ public final class SoundPlayer implements MusicListener {
 	 * Start playing music.
 	 */
 	public void play() {
+		if (testing) {
+			return;
+		}
+		
 		if (!playingMusic) {
-			activeMusic.play();
+			activeMusic.play(1.0f, BACKGROUND_VOLUME);
 			playingMusic = true;
 		}
 	}
@@ -175,6 +256,10 @@ public final class SoundPlayer implements MusicListener {
 	 * pause music.
 	 */
 	public void pause() {
+		if (testing) {
+			return;
+		}
+		
 		if (playingMusic) {
 			activeMusic.pause();
 			playingMusic = false;
@@ -198,6 +283,12 @@ public final class SoundPlayer implements MusicListener {
 	public void musicSwapped(Music arg0, Music arg1) {
 	}
 	
+	/**
+	 * Testing method for logging.
+	 */
+	public void logShit() {
+//		System.out.println(activeMusic.getVolume());
+	}
 	
 
 }
