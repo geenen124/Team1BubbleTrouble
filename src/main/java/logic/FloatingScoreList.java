@@ -74,13 +74,6 @@ public class FloatingScoreList implements Aggregate {
 	 * @return true if this list contains element, false otherwise
 	 */
 	public boolean contains(FloatingScore element) {
-		Iterator iterator = this.createIterator();
-		while (iterator.hasNext()) {
-			FloatingScore score = (FloatingScore) iterator.next();
-			if (score.equals(element)) {
-				return true;
-			}
-		}
-		return false;
+		return floatingScores.contains(element);
 	}
 }

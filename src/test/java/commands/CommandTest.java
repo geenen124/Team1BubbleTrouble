@@ -1,33 +1,28 @@
 package commands;
 
-import static org.junit.Assert.*;
-import guimenu.MainGame;
+import static org.junit.Assert.assertTrue;
 
-import java.awt.Image;
 import java.util.ArrayList;
+
+import org.junit.Before;
+import org.junit.Test;
 
 import logic.BouncingCircle;
 import logic.CircleList;
 import logic.Coin;
+import logic.CoinList;
 import logic.FloatingScore;
-
-import org.junit.Before;
-import org.junit.Test;
-import org.newdawn.slick.SpriteSheet;
-
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
-import player.Player;
+import logic.FloatingScoreList;
 import powerups.Powerup;
-import powerups.SpeedPowerup;
+import powerups.PowerupList;
 
 public class CommandTest {
 
-	ArrayList<Coin> coinList;
+	CoinList coinList;
 	
 	@Before
 	public void setup() {
-		coinList = new ArrayList<Coin>();
+		coinList = new CoinList
 		coinList.add(new Coin(0, 0, true));
 	}
 	
@@ -61,7 +56,7 @@ public class CommandTest {
 	
 	@Test
 	public void testAddDroppedPowerup() {
-		ArrayList<Powerup> powerlist = new ArrayList<Powerup>();
+		PowerupList powerlist = new PowerupList();
 		Powerup p = new Powerup(0, 0, Powerup.PowerupType.SHIELD);
 		AddDroppedPowerupCommand a = new AddDroppedPowerupCommand(powerlist, p);
 		a.execute();
@@ -71,10 +66,10 @@ public class CommandTest {
 	@Test
 	public void testAddFloatingScoreCommand() {
 		FloatingScore sc = new FloatingScore("dada", 0, 0);
-		ArrayList<FloatingScore> list = new ArrayList<FloatingScore>();
+		FloatingScoreList list = new FloatingScoreList();
 		AddFloatingScoreCommand c = new AddFloatingScoreCommand(list, sc);
 		c.execute();
-		assertTrue(!list.isEmpty());
+		assertTrue(!list.empty());
 	}
 	
 	@Test
@@ -90,11 +85,11 @@ public class CommandTest {
 	@Test
 	public void testRemoveFloatingScoreCommand() {
 		FloatingScore sc = new FloatingScore("dada", 0, 0);
-		ArrayList<FloatingScore> list = new ArrayList<FloatingScore>();
+		FloatingScoreList list = new FloatingScoreList();
 		list.add(sc);
 		RemoveFloatingScoreCommand c = new RemoveFloatingScoreCommand(list, sc);
 		c.execute();
-		assertTrue(list.isEmpty());
+		assertTrue(list.empty());
 	}
 	
 	@Test

@@ -1,8 +1,8 @@
 package commands;
 
-import java.util.ArrayList;
-
+import iterator.Iterator;
 import logic.Coin;
+import logic.CoinList;
 
 /**
  * Command which removes coin from given list.
@@ -11,16 +11,16 @@ import logic.Coin;
  */
 public class RemoveDroppedCoinCommand extends Command {
 
-	private final ArrayList<Coin> list;
+	private final CoinList list;
 	private final Coin item;
 	
 	/**
 	 * @param list	- the list to remove from
 	 * @param item	- the item to remove
 	 */
-	public RemoveDroppedCoinCommand(ArrayList<Coin> list, Coin item) {
+	public RemoveDroppedCoinCommand(CoinList list, Coin item) {
 		this.list = list;
-		this.item = item;
+		this.item = item; 
 	}
 
 
@@ -29,7 +29,12 @@ public class RemoveDroppedCoinCommand extends Command {
 	public void execute() {
 		synchronized (list) {
 			if (list.contains(item)) {
-				list.remove(item);
+				Iterator iterator = list.createIterator();
+				Coin c = null;
+				while (!c.equals(item)) {
+					c = (Coin) iterator.next();
+				}
+				iterator.remove();
 			}
 		}
 	}

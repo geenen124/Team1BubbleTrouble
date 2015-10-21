@@ -1,13 +1,12 @@
 package logic;
-import guigame.GameState;
-import guimenu.MainGame;
-import iterator.GateListIterator;
-
 import java.util.ArrayList;
 
-import logic.Logger.PriorityLevels;
-
 import org.newdawn.slick.geom.Circle;
+
+import guigame.GameState;
+import guimenu.MainGame;
+import iterator.Iterator;
+import logic.Logger.PriorityLevels;
 
 /**
  * Class that represents a bouncing circle (bubble).
@@ -152,8 +151,7 @@ public class BouncingCircle extends Circle implements Cloneable {
 				- gameState.getLevelsHelper().getRightWall().getWidth()) {
 			xSpeed = -initSpeed;
 		} else {
-			GateListIterator iterator = (GateListIterator)
-					gameState.getGateHelper().getGateList().createIterator();
+			Iterator iterator = gameState.getGateHelper().getGateList().createIterator();
 			while (iterator.hasNext()) {
 				Gate gate = (Gate) iterator.next();
 				if (gate.getRectangle().intersects(this.getCircle())) {

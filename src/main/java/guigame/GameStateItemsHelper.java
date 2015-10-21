@@ -1,13 +1,7 @@
 package guigame;
 
-import guimenu.MainGame;
-import guiobjects.RND;
-
 import java.util.ArrayList;
 import java.util.Random;
-
-import logic.BouncingCircle;
-import logic.Coin;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -15,7 +9,12 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
+import guimenu.MainGame;
+import guiobjects.RND;
+import logic.BouncingCircle;
+import logic.Coin;
 import powerups.Powerup;
+import powerups.PowerupList;
 import powerups.SpeedPowerup;
 
 /**
@@ -24,7 +23,7 @@ import powerups.SpeedPowerup;
  */
 public class GameStateItemsHelper extends GameStateHelper {
 	
-	private ArrayList<Powerup> droppedPowerups = new ArrayList<>();
+	private PowerupList droppedPowerups = new PowerupList();
 	private ArrayList<Coin> droppedCoins = new ArrayList<>();
 	private ArrayList<SpeedPowerup> speedPowerups = new ArrayList<SpeedPowerup>();
 	
@@ -47,7 +46,7 @@ public class GameStateItemsHelper extends GameStateHelper {
 	
 	@Override
 	public void enter() {
-		droppedPowerups = new ArrayList<>();
+		droppedPowerups = new PowerupList();
 		droppedCoins = new ArrayList<>();
 		random = new Random();
 	}
@@ -163,14 +162,14 @@ public class GameStateItemsHelper extends GameStateHelper {
 	/**
 	 * @return the droppedPowerups
 	 */
-	public ArrayList<Powerup> getDroppedPowerups() {
+	public PowerupList getDroppedPowerups() {
 		return droppedPowerups;
 	}
 
 	/**
 	 * @param droppedPowerups the droppedPowerups to set
 	 */
-	public void setDroppedPowerups(ArrayList<Powerup> droppedPowerups) {
+	public void setDroppedPowerups(PowerupList droppedPowerups) {
 		this.droppedPowerups = droppedPowerups;
 	}
 
