@@ -24,6 +24,7 @@ public class Popup {
 	private static final int SEPARATOR_OFFSET_X = -200;
 	private static final int TEXT_OFFSET_X = 10;
 	private static final int TEXT_OFFSET_Y = -40;
+	private static final int TESTING_WIDTH = 200;
 	private boolean active = false;
 	private Button button;
 	private Separator separator;
@@ -47,6 +48,24 @@ public class Popup {
 		separator = new Separator(screenWidth / 2 + SEPARATOR_OFFSET_X,
 				screenHeight / 2, false, "", screenWidth);
 	}
+	/**
+	 * Popup testing constructor method.
+	 * @param warning string player gets to read.
+	 * @param screenWidth width of the screen.
+	 * @param screenHeight height of the screen.
+	 * @param testing whether we are testing. Sorry, RND.
+	 * @throws SlickException means button images can't be found.
+	 */
+	public Popup(String warning, float screenWidth, float screenHeight, boolean testing) 
+			throws SlickException {
+		this.warning = warning;
+		this.screenWidth = screenWidth;
+		this.screenHeight = screenHeight;
+		buttons = new ElementList();
+		button = new Button(TESTING_WIDTH, screenHeight / 2f + BUTTON_OFFSET_Y, "> OK <", testing);
+		buttons.add(button);
+	}
+	
 	
 	/**
 	 * @return whether or not the popup is active.

@@ -57,6 +57,20 @@ public class PlayerButton extends Button {
 	 */
 	public PlayerButton(float x, float y, PlayerType type, int player) {
 		super(x, y, "");
+		setWidth(PLAYER_SPRITE_WIDTH); setHeight(PLAYER_SPRITE_HEIGHT);
+		setType(type); this.player = player;
+	}
+	
+	/**
+	 * Testing Constructor for the PlayerButton object.
+	 * @param x location
+	 * @param y location
+	 * @param type the player image type.
+	 * @param player player 1 or 2.
+	 * @param testing for evading RND. CANNOT BE MOCKED.
+	 */
+	public PlayerButton(float x, float y, PlayerType type, int player, boolean testing) {
+		super(x, y, "", testing);
 		setWidth(PLAYER_SPRITE_WIDTH);
 		setHeight(PLAYER_SPRITE_HEIGHT);
 		setType(type);

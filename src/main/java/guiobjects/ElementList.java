@@ -103,14 +103,18 @@ public class ElementList {
 	 * @param i index of element to remove.
 	 */
 	public void remove(int i) {
-		if (i < 0 || i > list.size()) {
-			IndexOutOfBoundsException baby = new IndexOutOfBoundsException();
-			throw baby;
+		if (list.get(i).getLeft() != null) {
+			list.get(i).getLeft().removeRight();
 		}
-		list.get(i).getLeft().removeRight();
-		list.get(i).getRight().removeLeft();
-		list.get(i).getTop().removeBottom();
-		list.get(i).getBottom().removeTop();
+		if (list.get(i).getRight() != null) {
+			list.get(i).getRight().removeLeft();
+		}
+		if (list.get(i).getTop() != null) {
+			list.get(i).getTop().removeBottom();
+		}
+		if (list.get(i).getBottom() != null) {
+			list.get(i).getBottom().removeTop();
+		}
 		list.remove(i);
 	}
 	
@@ -119,10 +123,6 @@ public class ElementList {
 	 * @param b element to remove.
 	 */
 	public void remove(Element b) {
-//		if (!list.contains(b)) {
-//			IndexOutOfBoundsException baby = new IndexOutOfBoundsException();
-//			throw baby;
-//		}
 		if (b.getLeft() != null) {
 			b.getLeft().removeRight();
 		}
@@ -147,16 +147,11 @@ public class ElementList {
 	
 	/**
 	 * Return an element from the buttonList.
-	 * @param element integer to return
+	 * @param i integer to return
 	 * @return the button you want.
-	 * @throws IndexOutOfBoundsException index out of bounds.
 	 */
-	public Element get(int element) {
-		if (element < 0 || element > list.size()) {
-			IndexOutOfBoundsException baby = new IndexOutOfBoundsException();
-			throw baby; // woooh!
-		}
-		return list.get(element);
+	public Element get(int i) {
+		return list.get(i);
 	}
 	
 	/**
@@ -245,6 +240,7 @@ public class ElementList {
 	 */
 	private void updateButtonsKeyboard(Input input) {
 		if (!textfieldActive  && !(popup != null && popup.getActive())) {
+			int g = 0;
 			if (input.isKeyPressed(Input.KEY_DOWN) // double check IS necessary.
 					&& input.isKeyDown(Input.KEY_DOWN)) { // don't refactor.
 				navigateBottom();
@@ -344,7 +340,7 @@ public class ElementList {
 	 * @param e element to search for
 	 * @return the index of this element
 	 */
-	private int findIndex(Element e) {
+	public int findIndex(Element e) {
 		for (int i = 0; i < list.size(); i++) {
 			if (list.get(i) == e) {
 				return i;
