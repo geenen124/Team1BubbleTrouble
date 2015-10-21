@@ -15,8 +15,12 @@ public abstract class SoundEffect {
 	/**
 	 * Constructor which initializes the sound.
 	 * @param filePath the path to the sound file.
+	 * @param testing if we are testing or not.
 	 */
-	public SoundEffect(String filePath) {
+	public SoundEffect(String filePath, boolean testing) {
+		if (testing) {
+			return;
+		}
 		
 		try {
 			this.sound = new Sound(filePath);

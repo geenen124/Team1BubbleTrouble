@@ -11,12 +11,13 @@ public class PlayerDeathSoundEffect extends SoundEffect {
 	
 	/**
 	 * 
-	 * @param filePath
+	 * @param testing if we are testing or not.
 	 */
-	public PlayerDeathSoundEffect() {
-		super(FILE_PATH);
+	public PlayerDeathSoundEffect(boolean testing) {
+		super(FILE_PATH, testing);
 	}
 
+	
 	@Override
 	public void playSound() {
 		this.getSound().play();

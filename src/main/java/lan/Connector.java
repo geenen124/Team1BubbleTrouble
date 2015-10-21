@@ -372,7 +372,7 @@ public abstract class Connector implements Runnable {
      * @param message the message to process
      */
     public void deadMessage(String message) {
-    	mainGame.getPlayerList().playerDeath(mainGame);
+    	mainGame.getPlayerList().playerDeath(mainGame, false);
     }
     
     /**

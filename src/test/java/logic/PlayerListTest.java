@@ -121,7 +121,7 @@ public class PlayerListTest {
 		mg = mock(MainGame.class);
 		PlayerList pl = new PlayerList(p, mg, gs);
 		when(gs.getLogicHelper().getScore()).thenReturn(100);
-		pl.playerDeath(sbg);
+		pl.playerDeath(sbg, true);
 		
 	}
 	
@@ -134,7 +134,7 @@ public class PlayerListTest {
 		
 		PlayerList pl = new PlayerList(p, mg, gs);
 		pl.setDied(true);
-		pl.playerDeath(sbg);
+		pl.playerDeath(sbg, true);
 		
 	}
 	
@@ -147,7 +147,7 @@ public class PlayerListTest {
 		PlayerList pl = new PlayerList(p, mg, gs);
 		pl.setDied(false);
 		when(mg.isLanMultiplayer()).thenReturn(true);
-		pl.playerDeath(sbg);
+		pl.playerDeath(sbg, true);
 		
 	}
 	
@@ -161,7 +161,7 @@ public class PlayerListTest {
 		pl.setDied(false);
 		when(mg.isLanMultiplayer()).thenReturn(false);
 		when(mg.isMultiplayer()).thenReturn(true);
-		pl.playerDeath(sbg);
+		pl.playerDeath(sbg, true);
 		
 	}
 	
@@ -180,7 +180,7 @@ public class PlayerListTest {
 		when(mg.getLifeCount()).thenReturn(1);
 		when(mg.isHost()).thenReturn(true);
 		when(mg.getHost()).thenReturn(h);
-		pl.playerDeath(sbg);
+		pl.playerDeath(sbg, true);
 	}
 	
 	@Test
@@ -207,7 +207,7 @@ public class PlayerListTest {
 		pl.add(p);
 		
 		BouncingCircle circle = new BouncingCircle(1,1,1,1,10,1, 0);
-		pl.intersectPlayersWithCircle(circle);
+		pl.intersectPlayersWithCircle(circle, true);
 	}
 	
 	@Test 
@@ -221,7 +221,7 @@ public class PlayerListTest {
 		pl.add(p);
 		
 		BouncingCircle circle = new BouncingCircle(1,1,1,1,10,1, 0);
-		pl.intersectPlayersWithCircle(circle);
+		pl.intersectPlayersWithCircle(circle, true);
 	}
 	
 	@Test

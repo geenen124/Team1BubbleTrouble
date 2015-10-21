@@ -121,7 +121,7 @@ public class GameStateCirclesHelper extends GameStateHelper {
 				BouncingCircle circle = iterator.next();
 				circle.update(parentState, container.getHeight(), container.getWidth(), deltaFloat);
 
-				mainGame.getPlayerList().intersectPlayersWithCircle(circle);
+				mainGame.getPlayerList().intersectPlayersWithCircle(circle, false);
 
 				parentState.getPlayerHelper().getWeaponList().intersectWeaponsWithCircle(circle);
 
