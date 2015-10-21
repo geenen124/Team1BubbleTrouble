@@ -2,6 +2,7 @@ package guigame;
 
 import guimenu.MainGame;
 import guiobjects.Button;
+import guiobjects.ElementList;
 import guiobjects.RND;
 
 import java.util.concurrent.Executors;
@@ -21,6 +22,7 @@ import org.newdawn.slick.state.StateBasedGame;
  */
 public class GameStatePauseHelper extends GameStateHelper {
 	
+	private ElementList elements;
 	private Button returnButton;
 	private Button menuButton;
 	private Button exitButton;
@@ -31,8 +33,6 @@ public class GameStatePauseHelper extends GameStateHelper {
 	private static final int RETURN_BUTTON_Y = 238;
 	private static final int MENU_BUTTON_Y = 288;
 	private static final int EXIT_BUTTON_Y = 338;
-	private static final int BUTTON_WIDTH = 1000;
-	private static final int BUTTON_HEIGHT = 50;
 	private static final int TEXT_X = 164;
 	private static final int TEXT_1_Y = 142;
 	private static final int TEXT_2_Y = 190;
@@ -54,20 +54,21 @@ public class GameStatePauseHelper extends GameStateHelper {
 	 * Initialize the buttons.
 	 */
 	private void initButtons() {
-		returnButton = new Button(BUTTON_X, RETURN_BUTTON_Y,
-				BUTTON_WIDTH, BUTTON_HEIGHT,
-				"> Return");
-		menuButton = new Button(BUTTON_X, MENU_BUTTON_Y,
-				BUTTON_WIDTH, BUTTON_HEIGHT,
-				"> Main Menu");
-		exitButton = new Button(BUTTON_X, EXIT_BUTTON_Y,
-				BUTTON_WIDTH, BUTTON_HEIGHT,
-				"> Quit");
+		elements = new ElementList();
+		returnButton = new Button(BUTTON_X, RETURN_BUTTON_Y, "> Return");
+		menuButton = new Button(BUTTON_X, MENU_BUTTON_Y, "> Main Menu");
+		exitButton = new Button(BUTTON_X, EXIT_BUTTON_Y, "> Quit");
+		elements.add(returnButton);
+		elements.add(menuButton);
+		elements.add(exitButton);
+		elements.coupleVertical(returnButton, menuButton);
+		elements.coupleVertical(menuButton, exitButton);
+		elements.coupleVertical(exitButton, returnButton);
 	}
 	
 	@Override
 	public void enter() {
-		  throw new UnsupportedOperationException("not supported");
+		elements.reset();
 	}
 
 	@Override
@@ -80,16 +81,19 @@ public class GameStatePauseHelper extends GameStateHelper {
 		Input input = container.getInput();
 		if (parentState.getSavedInput().isKeyDown(Input.KEY_ESCAPE) & !waitEsc) {
 			parentState.getLogicHelper().pauseStopped(false);
+			elements.reset();
 		}
-		if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON) & !mainGame.getShouldSwitchState()) {
-			if (returnButton.isMouseOver(input) & !waitEsc) {
-				parentState.getLogicHelper().pauseStopped(false); }
-			if (menuButton.isMouseOver(input)) {
+		elements.update(input);
+		if ((input.isMousePressed(Input.MOUSE_LEFT_BUTTON) || input.isKeyDown(Input.KEY_ENTER)) 
+				&& !mainGame.getShouldSwitchState()) {
+			if (returnButton.isSelected() && !waitEsc) {
+				parentState.getLogicHelper().pauseStopped(false); elements.reset(); }
+			if (menuButton.isSelected()) {
 				mainGame.setScore(0);
 				mainGame.setLevelCounter(0);
 				mainGame.killMultiplayer();
 				mainGame.setSwitchState(mainGame.getMainState()); }
-			if (exitButton.isMouseOver(input)) {
+			if (exitButton.isSelected()) {
 				mainGame.killMultiplayer();
 				mainGame.setSwitchState(-1); }
 		}
@@ -120,9 +124,7 @@ public class GameStatePauseHelper extends GameStateHelper {
 		RND.getInstance().text(graphics, TEXT_X, TEXT_1_Y, "# Game is paused...");
 		RND.getInstance().text(graphics, TEXT_X, TEXT_2_Y, "========================");
 		Input input = container.getInput();
-		returnButton.drawColor(graphics, input, mainGame.getColor());
-		menuButton.drawColor(graphics, input, mainGame.getColor());
-		exitButton.drawColor(graphics, input, mainGame.getColor());
+		elements.render(graphics, input, mainGame.getColor());
 	}
 
 }

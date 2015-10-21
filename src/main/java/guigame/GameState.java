@@ -68,7 +68,7 @@ public class GameState extends BasicGameState {
 		interfaceHelper.enter();
 		logicHelper.enter();
 		gateHelper.enter();
-		
+		pauseHelper.enter();
 		SoundPlayer.getInstance().setActiveList(MusicLists.PLAY_LIST);
 	}
 	

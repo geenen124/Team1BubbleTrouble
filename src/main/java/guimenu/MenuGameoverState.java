@@ -1,5 +1,6 @@
 package guimenu;
 import guiobjects.Button;
+import guiobjects.ElementList;
 import guiobjects.RND;
 import guiobjects.Separator;
 import guiobjects.Textfield;
@@ -24,7 +25,9 @@ import sound.SoundPlayer.MusicLists;
  *
  */
 public class MenuGameoverState extends BasicGameState {
-
+	
+	private ElementList elements;
+	private Textfield nameField;
 	private Button playButton;
 	private Button menuButton;
 	private Button saveButton;
@@ -38,8 +41,6 @@ public class MenuGameoverState extends BasicGameState {
 	private Image health4Image;
 	private Image health5Image;
 	private String inputMessage;
-	
-	private Textfield nameField;
 
 	private boolean highScoreEntered;
 	
@@ -55,9 +56,6 @@ public class MenuGameoverState extends BasicGameState {
 	private static final int MENU_BUTTON_Y = 638;
 	private static final int EXIT_BUTTON_Y = 688;
 	
-	private static final int BUTTON_WIDTH = 1000;
-	private static final int BUTTON_HEIGHT = 50;
-	
 	private static final int TEXT_FIELD_X = 164;
 	private static final int TEXT_FIELD_Y = 438;
 	
@@ -71,7 +69,6 @@ public class MenuGameoverState extends BasicGameState {
 	private static final int SEPARATOR_Y = 190;
 	private static final int BOTTOM_TEXT_OFFSET_X = 250;
 	private static final int BOTTOM_TEXT_OFFSET_Y = 75;
-	private static final int MAX_NAME_LENGTH = 34;
 	
 	private static final int HIGHSCORES_X = 900;
 	private static final int HIGHSCORES_Y = 288;
@@ -103,11 +100,11 @@ public class MenuGameoverState extends BasicGameState {
 	 */
 	public void init(GameContainer container, StateBasedGame arg1)
 			throws SlickException {
+		nameField = new Textfield(TEXT_FIELD_X, TEXT_FIELD_Y, "Player name", container);
 		initButtons();
 		initHealthImages();
 		separatorTop = new Separator(SEPARATOR_X, SEPARATOR_Y, false, separatorTopTitle,
 				container.getWidth());
-		nameField = new Textfield(TEXT_FIELD_X, TEXT_FIELD_Y, "Player name", container);
 	}
 
 	/**
@@ -115,18 +112,10 @@ public class MenuGameoverState extends BasicGameState {
 	 * @throws SlickException if something goes wrong / file not found
 	 */
 	private void initButtons() throws SlickException {
-		saveButton = new Button(BUTTON_X, SAVE_BUTTON_Y,
-				BUTTON_WIDTH, BUTTON_HEIGHT,
-				"> Save Highscore");
-		playButton = new Button(BUTTON_X, PLAY_BUTTON_Y,
-				BUTTON_WIDTH, BUTTON_HEIGHT,
-				"> Play Again");
-		menuButton = new Button(BUTTON_X, MENU_BUTTON_Y,
-				BUTTON_WIDTH, BUTTON_HEIGHT,
-				"> Main Menu");
-		quitButton = new Button(BUTTON_X, EXIT_BUTTON_Y,
-				BUTTON_WIDTH, BUTTON_HEIGHT,
-				"> Quit");
+		saveButton = new Button(BUTTON_X, SAVE_BUTTON_Y, "> Save Highscore");
+		playButton = new Button(BUTTON_X, PLAY_BUTTON_Y, "> Play Again");
+		menuButton = new Button(BUTTON_X, MENU_BUTTON_Y, "> Main Menu");
+		quitButton = new Button(BUTTON_X, EXIT_BUTTON_Y, "> Quit");
 	}
 
 	/**
@@ -150,6 +139,18 @@ public class MenuGameoverState extends BasicGameState {
 		displayLives = mainGame.getLifeCount();
 		mainGame.setLifeCount(MainGame.getLives());
 		inputMessage = null;
+		elements = new ElementList();
+		nameField.setText("Player name");
+		elements.add(nameField);
+		elements.add(saveButton);
+		elements.add(playButton);
+		elements.add(menuButton);
+		elements.add(quitButton);
+		elements.coupleVertical(nameField, saveButton);
+		elements.coupleVertical(saveButton, playButton);
+		elements.coupleVertical(playButton, menuButton);
+		elements.coupleVertical(menuButton, quitButton);
+		elements.coupleVertical(quitButton, nameField);
 		highScoreEntered = false;
 		
 		if (displayLives > 0) {
@@ -202,11 +203,13 @@ public class MenuGameoverState extends BasicGameState {
 					+ ((float) delta) / mainGame.getOpacityFadeTimer());
 		}
 		Input input = container.getInput();
-		if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON) && !mainGame.getShouldSwitchState()) {
+		elements.update(input);
+		if ((input.isMousePressed(Input.MOUSE_LEFT_BUTTON) || input.isKeyDown(Input.KEY_ENTER)) 
+				&& !mainGame.getShouldSwitchState()) {
 			processButtons(input);
 		}
 		nameField.update(input);
-		handleTextField(input);
+		//handleTextField(input);
 		exit(container, sbg, delta);
 	}
 	
@@ -215,18 +218,20 @@ public class MenuGameoverState extends BasicGameState {
 	 * @param input the keyboard/mouse input of the user
 	 */
 	private void processButtons(Input input) {
-		if (playButton.isMouseOver(input)) {
+		if (playButton.isSelected()) {
 			processStartOver();
 			Logger.getInstance().log("play again button clicked", 
 					Logger.PriorityLevels.MEDIUM, USER_INPUT);
 		} 
-		else if (saveButton.isMouseOver(input)) {
+		else if (saveButton.isSelected()) {
 			saveScore();
 			Logger.getInstance().log("save button clicked", 
 					Logger.PriorityLevels.MEDIUM, USER_INPUT);
+			elements.remove(nameField);
+			elements.reset();
+			elements.coupleVertical(quitButton, playButton);
 		}
-		else if (menuButton.isMouseOver(input)) {
-			// Go to startState
+		else if (menuButton.isSelected()) {
 			mainGame.resetLifeCount();
 			mainGame.resetLevelCount();
 			mainGame.setScore(0);
@@ -235,7 +240,7 @@ public class MenuGameoverState extends BasicGameState {
 			Logger.getInstance().log("main menu button clicked", 
 					Logger.PriorityLevels.MEDIUM, USER_INPUT);
 		}
-		else if (quitButton.isMouseOver(input)) {
+		else if (quitButton.isSelected()) {
 			mainGame.setSwitchState(-1);
 			Logger.getInstance().log("exit button clicked", 
 					Logger.PriorityLevels.MEDIUM, USER_INPUT);
@@ -261,22 +266,22 @@ public class MenuGameoverState extends BasicGameState {
 		mainGame.setSwitchState(mainGame.getGameState());
 	}
 	
-	/**
-	 * Handle the text field input.
-	 * @param input the keyboard/mouse input user
-	 */
-	private void handleTextField(Input input) {
-		if (nameField.hasFocus() && input.isKeyPressed(Input.KEY_ENTER) && (inputMessage == null 
-				|| inputMessage.equals("Maximum length is 34 characters")) 
-				&& !highScoreEntered) {
-			if (nameField.getText().length() < MAX_NAME_LENGTH) {
-                highScoreEntered = true;
-                saveScore(); }
-			else {
-				inputMessage = "Maximum length is 34 characters";
-            }
-		}
-	}
+//	/**
+//	 * Handle the text field input.
+//	 * @param input the keyboard/mouse input user
+//	 */
+//	private void handleTextField(Input input) {
+//		if (nameField.hasFocus() && input.isKeyPressed(Input.KEY_ENTER) && (inputMessage == null 
+//				|| inputMessage.equals("Maximum length is 34 characters")) 
+//				&& !highScoreEntered) {
+//			if (nameField.getText().length() < MAX_NAME_LENGTH) {
+//                highScoreEntered = true;
+//                saveScore(); }
+//			else {
+//				inputMessage = "Maximum length is 34 characters";
+//            }
+//		}
+//	}
 
 	/**
 	 * Render method - draw things to screen.
@@ -289,8 +294,6 @@ public class MenuGameoverState extends BasicGameState {
 			throws SlickException {
 		RND.getInstance().drawBackground(graphics);
 		renderEndText(container, graphics);
-
-		nameField.drawColor(graphics, mainGame.getColor());
 		if (inputMessage != null) {
 			RND.getInstance().text(graphics, TEXT_X, TEXT_4_Y, inputMessage);
 		}
@@ -367,12 +370,11 @@ public class MenuGameoverState extends BasicGameState {
 	 */
 	private void renderButtons(GameContainer container, Graphics graphics) {
 		Input input = container.getInput();
-		playButton.drawColor(graphics, input, mainGame.getColor());
-		menuButton.drawColor(graphics, input, mainGame.getColor());
-		if (inputMessage == null) {
-			saveButton.drawColor(graphics, input, mainGame.getColor());
+		elements.render(graphics, input, mainGame.getColor());
+		if (inputMessage != null) {
+			elements.remove(saveButton);
+			elements.coupleVertical(quitButton, playButton);
 		}
-		quitButton.drawColor(graphics, input, mainGame.getColor());
 	}
 
 	/**

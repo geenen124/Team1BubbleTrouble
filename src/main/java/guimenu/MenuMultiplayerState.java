@@ -2,6 +2,7 @@ package guimenu;
 
 import guigame.GameState;
 import guiobjects.Button;
+import guiobjects.ElementList;
 import guiobjects.Popup;
 import guiobjects.RND;
 import guiobjects.Separator;
@@ -31,6 +32,8 @@ import sound.SoundPlayer.MusicLists;
  */
 public class MenuMultiplayerState extends BasicGameState {
 
+	private ElementList elements;
+	
 	private Button returnButton;
 	private Button hostButton;
 	private Button joinButton;
@@ -54,7 +57,6 @@ public class MenuMultiplayerState extends BasicGameState {
 	private String separatorMiscTitle = " Miscellaneous ";
 
 	private String message;
-	
 	
 	private static final int LOGO_X = 160;
 	private static final int LOGO_Y = 110;
@@ -114,6 +116,7 @@ public class MenuMultiplayerState extends BasicGameState {
 		Logger.getInstance().log("Entering MenuMultiplayerState", 
 				Logger.PriorityLevels.LOW, "States");
 		RND.getInstance().setOpacity(0.0f);
+		elements.reset();
 		mainGame.stopSwitchState();
 
 		SoundPlayer.getInstance().setActiveList(MusicLists.MENU_LIST);
@@ -150,9 +153,10 @@ public class MenuMultiplayerState extends BasicGameState {
 	 * @throws SlickException if something goes wrong
 	 */
 	public void init(GameContainer container, StateBasedGame arg1) throws SlickException {
-		initButtons();
 		nameField = new Textfield(TEXT_FIELD_X, TEXT_FIELD_Y, "Player", container);
 		ipField = new Textfield(TEXT_FIELD_X, TEXT_FIELD_Y_2, START_IP, container);
+		popup = new Popup("", MainGame.getxRes(), MainGame.getyRes());
+		initElements();
 		separatorTop = new Separator(SEPARATOR_X, SEPARATOR_Y, true, separatorTopTitle,
 				container.getWidth());
 		separatorHost = new Separator(SEPARATOR_X, SEPARATOR_Y_2, false, separatorHostTitle,
@@ -161,23 +165,28 @@ public class MenuMultiplayerState extends BasicGameState {
 				container.getWidth());
 		separatorMisc = new Separator(SEPARATOR_X, SEPARATOR_Y_4, false, separatorMiscTitle,
 				container.getWidth());
-		popup = new Popup("", MainGame.getxRes(), MainGame.getyRes());
 	}
 	
 	/**
 	 * Initialize the buttons.
 	 * @throws SlickException if something goes wrong / file not found
 	 */
-	private void initButtons() throws SlickException {
-		returnButton = new Button(RETURN_BUTTON_X, RETURN_BUTTON_Y, RETURN_BUTTON_WIDTH,
-				RETURN_BUTTON_HEIGHT, 
-				"< Return");
-		hostButton = new Button(HOST_BUTTON_X, HOST_BUTTON_Y, RETURN_BUTTON_WIDTH,
-				RETURN_BUTTON_HEIGHT, 
-				"> Host Game");
-		joinButton = new Button(JOIN_BUTTON_X, JOIN_BUTTON_Y, RETURN_BUTTON_WIDTH,
-				RETURN_BUTTON_HEIGHT, 
-				"> Join Game");
+	private void initElements() throws SlickException {
+		elements = new ElementList();
+		returnButton = new Button(RETURN_BUTTON_X, RETURN_BUTTON_Y, "< Return");
+		hostButton = new Button(HOST_BUTTON_X, HOST_BUTTON_Y, "> Host Game");
+		joinButton = new Button(JOIN_BUTTON_X, JOIN_BUTTON_Y, "> Join Game");
+		elements.add(returnButton);
+		elements.add(hostButton);
+		elements.add(joinButton);
+		elements.add(ipField);
+		elements.add(nameField);
+		elements.add(popup);
+		elements.coupleVertical(returnButton, hostButton);
+		elements.coupleVertical(hostButton, joinButton);
+		elements.coupleVertical(joinButton, ipField);
+		elements.coupleVertical(ipField, nameField);
+		elements.coupleVertical(nameField, returnButton);
 	}
 	
 	/**
@@ -198,11 +207,10 @@ public class MenuMultiplayerState extends BasicGameState {
 		input = container.getInput();
 		nameField.update(input);
 		ipField.update(input);
-		if (input.isKeyPressed(Input.KEY_ENTER) && ipField.hasFocus()) {
-			attemptJoin();
-		}
+		elements.update(input);
 		
-		if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON) && !mainGame.getShouldSwitchState()) {
+		if ((input.isMousePressed(Input.MOUSE_LEFT_BUTTON) || input.isKeyDown(Input.KEY_ENTER))
+				&& !mainGame.getShouldSwitchState()) {
 			processButtons(input);
 		}
 		
@@ -214,19 +222,15 @@ public class MenuMultiplayerState extends BasicGameState {
 	 * @param input the keyboard/mouse input of the user
 	 */
 	private void processButtons(Input input) {
-		if (!popup.getActive()) {
-			if (returnButton.isMouseOver(input)) {
-				processReturnButton();
-			} 
-			if (hostButton.isMouseOver(input)) {
-				attemptHost();
-			} 
-			if (joinButton.isMouseOver(input)) {
-				attemptJoin();
-			} 
-		} else {
-			popup.processButton(input);
-		}
+		if (returnButton.isSelected()) {
+			processReturnButton();
+		} 
+		if (hostButton.isSelected()) {
+			attemptHost();
+		} 
+		if (joinButton.isSelected()) {
+			attemptJoin();
+		} 
 	}
 	
 	/**
@@ -300,12 +304,14 @@ public class MenuMultiplayerState extends BasicGameState {
 			throws SlickException {
 		this.input = container.getInput();
 		RND.getInstance().drawBackground(graphics);
-		
 		drawText(graphics, container);
-		drawSprites(graphics);
+		separatorTop.drawColor(graphics, mainGame.getColor());
+		separatorHost.drawColor(graphics, mainGame.getColor());
+		separatorJoin.drawColor(graphics, mainGame.getColor());
+		separatorMisc.drawColor(graphics, mainGame.getColor());
 		mainGame.drawWaterMark();
 		RND.getInstance().drawLogo(graphics, LOGO_X, LOGO_Y);
-		popup.drawColor(graphics, this.input, mainGame.getColor());
+		elements.render(graphics, input, mainGame.getColor());
 		RND.getInstance().drawForeGround(graphics);
 	}
 	
@@ -334,22 +340,6 @@ public class MenuMultiplayerState extends BasicGameState {
 		RND.getInstance().text(graphics, TEXT_HELP_X, TEXT_JOIN_Y, "# Join this IP: ");
 		RND.getInstance().text(graphics, container.getWidth() / 2 - BOTTOM_TEXT_OFFSET_X,
 				container.getHeight() - BOTTOM_TEXT_OFFSET_Y, "Waiting for user input...");
-	}
-	
-	/**
-	 * Draw the player sprites.
-	 * @param graphics the Graphics object to draw things on screen
-	 */
-	private void drawSprites(Graphics graphics) {
-		returnButton.drawColor(graphics, input, mainGame.getColor(), !popup.getActive());
-		hostButton.drawColor(graphics, input, mainGame.getColor(), !popup.getActive());
-		joinButton.drawColor(graphics, input, mainGame.getColor(), !popup.getActive());
-		separatorTop.drawColor(graphics, mainGame.getColor());
-		separatorHost.drawColor(graphics, mainGame.getColor());
-		separatorJoin.drawColor(graphics, mainGame.getColor());
-		separatorMisc.drawColor(graphics, mainGame.getColor());
-		ipField.drawColor(graphics, mainGame.getColor());
-		nameField.drawColor(graphics, mainGame.getColor());
 	}
 	
 
@@ -383,7 +373,6 @@ public class MenuMultiplayerState extends BasicGameState {
 		mainGame.resetLevelCount();
 		mainGame.setScore(0);
 		this.message = message;
-		popup.setText(this.message);
-		popup.setActive(true);
+		elements.throwPopup(message);
 	}
 }

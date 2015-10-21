@@ -1,6 +1,9 @@
 package guimenu;
 import guigame.GameState;
+import guiobjects.Button;
+import guiobjects.PlayerButton;
 import guiobjects.RND;
+import guiobjects.Textfield;
 
 import java.util.Calendar;
 import java.util.concurrent.ExecutorService;
@@ -329,8 +332,7 @@ public class MainGame extends StateBasedGame {
 	 */
 	@Override
 	public void initStatesList(GameContainer container) throws SlickException {
-		this.container = container;
-		this.gameStateState = new GameState(this);
+		this.container = container; this.gameStateState = new GameState(this);
 		Logger.getInstance().log("GameState initialized", Logger.PriorityLevels.LOW, STATES);
 		this.menuSettingsState = new MenuSettingsState(this);
 		Logger.getInstance().log("MenuSettingsState initialized",
@@ -353,10 +355,11 @@ public class MainGame extends StateBasedGame {
 		Logger.getInstance().log("MenuSettingsstate added", Logger.PriorityLevels.LOW, STATES);
 		this.addState(menuMultiplayerState);
 		Logger.getInstance().log("MenuMultiplayerState added", Logger.PriorityLevels.LOW, STATES);
-		RND.getInstance().init();		initPlayers();
-		Calendar cal = Calendar.getInstance();
+		RND.getInstance().init(); initPlayers(); Button.init(); 
+		Textfield.init(); PlayerButton.init(); Calendar cal = Calendar.getInstance();
 		this.currentDate = cal.get(Calendar.DATE) + "/" + cal.get(Calendar.MONTH) 
 				+ "/" + cal.get(Calendar.YEAR);
+		this.enterState(0); // EDIT START STATE HERE
 	}
 	
 	/**
