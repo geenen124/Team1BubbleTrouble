@@ -2,6 +2,7 @@ package player;
 
 import guigame.GameState;
 import guimenu.MainGame;
+import iterator.Iterator;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -64,7 +65,9 @@ public class PlayerPowerupHelper {
 		}
 		ArrayList<Powerup> usedPowerups = new ArrayList<>();
 		synchronized (gameState.getItemsHelper().getDroppedPowerups()) {
-			for (Powerup powerup : gameState.getItemsHelper().getDroppedPowerups()) {
+			Iterator iterator = gameState.getItemsHelper().getDroppedPowerups().createIterator();
+			while (iterator.hasNext()) {
+				Powerup powerup = (Powerup) iterator.next();
 				powerup.update(gameState, containerHeight, deltaFloat);
 				if (powerup.getRectangle().intersects(player.getLogicHelper().getRectangle())) {
 					if (!mainGame.isLanMultiplayer() || (mainGame.isHost() 
@@ -82,11 +85,12 @@ public class PlayerPowerupHelper {
 					} else if (mainGame.isClient() && player.getPlayerNumber() == 1) {
 						mainGame.getClient().pleaPowerup(powerup);
 					}
-				}
 			}
 		}
 		gameState.getItemsHelper().getDroppedPowerups().removeAll(usedPowerups);
-		gameState.getItemsHelper().getDroppedPowerups().removeIf(Powerup::removePowerup);
+		gameState.getItemsHelper().getDroppedPowerups().getPowerups().removeIf(Powerup::removePowerup);
+		
+//		PlayerPowerupHelper.update
 	}
 	
 	/**

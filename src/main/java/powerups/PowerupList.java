@@ -88,6 +88,15 @@ public class PowerupList implements Aggregate {
 	public boolean remove(Powerup element) {
 		return powerups.remove(element);
 	}
+	
+	/**
+	 * 
+	 * @param toRemove the ArrayList of Powerups to remove from the PowerupList
+	 * @return true if the PowerupList has changed as a result of calling the method
+	 */
+	public boolean removeAll(ArrayList<Powerup> toRemove) {
+		return powerups.removeAll(toRemove);
+	}
 
 	/**
 	 * 
@@ -104,5 +113,4 @@ public class PowerupList implements Aggregate {
 	public void setPowerups(ArrayList<Powerup> powerups) {
 		this.powerups = powerups;
 	}
-
 }
