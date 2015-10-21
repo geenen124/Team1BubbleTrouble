@@ -17,21 +17,12 @@ public class ElementTest {
 	Button a;
 	Button b;
 	Button c;
-	Input input;
 	
 	@Before
 	public void setup() {
 		a = new Button(0, 0, "dada", true);
 		b = new Button(1, 1, "dede", true);
 		c = new Button(1, 1, "dede", true);
-		input = mock(Input.class);
-		when(input.getMouseX()).thenReturn(2);
-		when(input.getMouseY()).thenReturn(2);
-	}
-	
-	@Test
-	public void testIsMouseOver() {
-		assertTrue(a.isMouseOver(input));
 	}
 	
 	@Test

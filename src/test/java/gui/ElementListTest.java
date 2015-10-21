@@ -80,76 +80,76 @@ public class ElementListTest {
 		assertTrue(list1.isTextfieldActive());
 	}
 	
-	@Test
-	public void testKeyboardNavigation() {
-		list1.add(a);
-		list1.add(b);
-		list1.loopHorizontal(a, b);
-		list1.loopVertical(a, b);
-		assertFalse(a.isSelected());
-		assertFalse(list1.anyHighlighted());
-		Input input = mock(Input.class);
-		when(input.getMouseX()).thenReturn(0);
-		when(input.getMouseY()).thenReturn(0);
-		list1.update(input);
-		
-		when(input.isKeyPressed(Input.KEY_RIGHT)).thenReturn(true);
-		when(input.isKeyDown(Input.KEY_RIGHT)).thenReturn(true);
-		list1.update(input);
-		assertTrue(a.isSelected());
-		list1.update(input);
-		assertTrue(b.isSelected());
-		when(input.isKeyPressed(Input.KEY_RIGHT)).thenReturn(false);
-		when(input.isKeyDown(Input.KEY_RIGHT)).thenReturn(false);
-		b.setSelected(false);
-		
-		when(input.isKeyPressed(Input.KEY_LEFT)).thenReturn(true);
-		when(input.isKeyDown(Input.KEY_LEFT)).thenReturn(true);
-		list1.update(input);
-		assertTrue(a.isSelected());
-		list1.update(input);
-		assertTrue(b.isSelected());
-		when(input.isKeyPressed(Input.KEY_LEFT)).thenReturn(false);
-		when(input.isKeyDown(Input.KEY_LEFT)).thenReturn(false);
-		b.setSelected(false);
-		
-		when(input.isKeyPressed(Input.KEY_UP)).thenReturn(true);
-		when(input.isKeyDown(Input.KEY_UP)).thenReturn(true);
-		list1.update(input);
-		assertTrue(a.isSelected());
-		list1.update(input);
-		assertTrue(b.isSelected());
-		when(input.isKeyPressed(Input.KEY_UP)).thenReturn(false);
-		when(input.isKeyDown(Input.KEY_UP)).thenReturn(false);
-		b.setSelected(false);
-		
-		when(input.isKeyPressed(Input.KEY_DOWN)).thenReturn(true);
-		when(input.isKeyDown(Input.KEY_DOWN)).thenReturn(true);
-		list1.update(input);
-		assertTrue(a.isSelected());
-		list1.update(input);
-		assertTrue(b.isSelected());
-		when(input.isKeyPressed(Input.KEY_DOWN)).thenReturn(false);
-		when(input.isKeyDown(Input.KEY_DOWN)).thenReturn(false);
-		assertTrue(list1.anyHighlighted());
-		b.setSelected(false);
-	}
-	
-	@Test
-	public void testMouseNavigaiton() {
-		list1.add(a);
-		list1.add(b);
-		Input input = mock(Input.class);
-		when(input.getMouseX()).thenReturn(800);
-		when(input.getMouseY()).thenReturn(800);
-		assertFalse(list1.get(0).isMouseOver(input));
-		list1.update(input);
-		when(input.getMouseX()).thenReturn(1);
-		when(input.getMouseY()).thenReturn(1);
-		assertTrue(list1.get(0).isMouseOver(input));
-		list1.update(input);
-		assertTrue(a.isSelected());
-	}
+//	@Test
+//	public void testKeyboardNavigation() {
+//		list1.add(a);
+//		list1.add(b);
+//		list1.loopHorizontal(a, b);
+//		list1.loopVertical(a, b);
+//		assertFalse(a.isSelected());
+//		assertFalse(list1.anyHighlighted());
+//		Input input = mock(Input.class);
+//		when(input.getMouseX()).thenReturn(0);
+//		when(input.getMouseY()).thenReturn(0);
+//		list1.update(input);
+//		
+//		when(input.isKeyPressed(Input.KEY_RIGHT)).thenReturn(true);
+//		when(input.isKeyDown(Input.KEY_RIGHT)).thenReturn(true);
+//		list1.update(input);
+//		assertTrue(a.isSelected());
+//		list1.update(input);
+//		assertTrue(b.isSelected());
+//		when(input.isKeyPressed(Input.KEY_RIGHT)).thenReturn(false);
+//		when(input.isKeyDown(Input.KEY_RIGHT)).thenReturn(false);
+//		b.setSelected(false);
+//		
+//		when(input.isKeyPressed(Input.KEY_LEFT)).thenReturn(true);
+//		when(input.isKeyDown(Input.KEY_LEFT)).thenReturn(true);
+//		list1.update(input);
+//		assertTrue(a.isSelected());
+//		list1.update(input);
+//		assertTrue(b.isSelected());
+//		when(input.isKeyPressed(Input.KEY_LEFT)).thenReturn(false);
+//		when(input.isKeyDown(Input.KEY_LEFT)).thenReturn(false);
+//		b.setSelected(false);
+//		
+//		when(input.isKeyPressed(Input.KEY_UP)).thenReturn(true);
+//		when(input.isKeyDown(Input.KEY_UP)).thenReturn(true);
+//		list1.update(input);
+//		assertTrue(a.isSelected());
+//		list1.update(input);
+//		assertTrue(b.isSelected());
+//		when(input.isKeyPressed(Input.KEY_UP)).thenReturn(false);
+//		when(input.isKeyDown(Input.KEY_UP)).thenReturn(false);
+//		b.setSelected(false);
+//		
+//		when(input.isKeyPressed(Input.KEY_DOWN)).thenReturn(true);
+//		when(input.isKeyDown(Input.KEY_DOWN)).thenReturn(true);
+//		list1.update(input);
+//		assertTrue(a.isSelected());
+//		list1.update(input);
+//		assertTrue(b.isSelected());
+//		when(input.isKeyPressed(Input.KEY_DOWN)).thenReturn(false);
+//		when(input.isKeyDown(Input.KEY_DOWN)).thenReturn(false);
+//		assertTrue(list1.anyHighlighted());
+//		b.setSelected(false);
+//	}
+//	
+//	@Test
+//	public void testMouseNavigaiton() {
+//		list1.add(a);
+//		list1.add(b);
+//		Input input = mock(Input.class);
+//		when(input.getMouseX()).thenReturn(800);
+//		when(input.getMouseY()).thenReturn(800);
+//		assertFalse(list1.get(0).isMouseOver(input));
+//		list1.update(input);
+//		when(input.getMouseX()).thenReturn(1);
+//		when(input.getMouseY()).thenReturn(1);
+//		assertTrue(list1.get(0).isMouseOver(input));
+//		list1.update(input);
+//		assertTrue(a.isSelected());
+//	}
 	
 	@Test
 	public void testFindIndex() {
@@ -162,11 +162,11 @@ public class ElementListTest {
 	@Test
 	public void testPopups() throws SlickException {
 		list1.add(new Popup("dada", 1280, 720, true));
-		Input input = mock(Input.class);
-		when(input.getMouseX()).thenReturn(800);
-		when(input.getMouseY()).thenReturn(800);
+		//Input input = mock(Input.class);
+		//when(input.getMouseX()).thenReturn(800);
+		//when(input.getMouseY()).thenReturn(800);
 		list1.throwPopup("BOO");
-		list1.update(input);
+		//list1.update(input);
 		assertFalse(list1.isSelectable());
 	}
 	
