@@ -70,5 +70,9 @@ public class PowerupList implements Aggregate {
 	public Iterator createIterator() {
 		return new PowerupListIterator(powerups);
 	}
+	
+	public boolean contains(Powerup element) {
+		return powerups.contains(element);
+	}
 
 }

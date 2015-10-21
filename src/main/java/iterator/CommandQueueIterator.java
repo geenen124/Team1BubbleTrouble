@@ -2,6 +2,8 @@ package iterator;
 
 import java.util.Queue;
 
+import commands.Command;
+
 /**
  * Iterator for a CommandQueue.
  * @author Menno
@@ -9,24 +11,44 @@ import java.util.Queue;
  */
 public class CommandQueueIterator implements Iterator {
 	
-	private Queue queue;
+	private Queue<Command> queue;
+	private int position;
+	private Object[] array;
+	
+	/**
+	 * Construct a new CommandQueueIterator.
+	 * @param queue the queue to iterate over.
+	 */
+	public CommandQueueIterator(Queue<Command> queue) {
+		this.queue = queue;
+		reset();
+	}
+	
+	/**
+	 * Reset this iterator.
+	 */
+	private void reset() {
+		position = 0;
+		array = queue.toArray();
+	}
 
 	@Override
 	public boolean hasNext() {
-		// TODO Auto-generated method stub
-		return false;
+		return position < queue.size();
 	}
 
 	@Override
 	public Object next() {
-		// TODO Auto-generated method stub
-		return null;
+		position++;
+		return array[position - 1];
 	}
 
 	@Override
 	public void remove() {
-		// TODO Auto-generated method stub
-		
+		Command c = (Command) array[position - 1];
+		queue.remove(c);
+		array = queue.toArray();
+		position--;
 	}
 
 }
