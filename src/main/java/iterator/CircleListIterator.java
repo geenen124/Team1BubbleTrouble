@@ -27,7 +27,7 @@ public class CircleListIterator implements Iterator {
 	 */
 	private void reset() {
 		position = 0;
-	}
+	} 
 
 
 	@Override

@@ -37,6 +37,7 @@ public class LevelContainerIterator implements Iterator {
 
 	@Override
 	public Object next() {
+		position++;
 		return list.get(position - 1);
 		
 	}
