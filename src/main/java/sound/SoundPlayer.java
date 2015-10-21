@@ -223,8 +223,11 @@ public final class SoundPlayer implements MusicListener {
 	public void musicSwapped(Music arg0, Music arg1) {
 	}
 	
+	/**
+	 * Testing method for logging.
+	 */
 	public void logShit() {
-		System.out.println(activeMusic.getVolume());
+//		System.out.println(activeMusic.getVolume());
 	}
 	
 
