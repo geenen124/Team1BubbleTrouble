@@ -22,6 +22,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import sound.MenuTransitionSoundEffect;
 import sound.SoundPlayer;
 import sound.SoundPlayer.MusicLists;
 
@@ -222,15 +223,24 @@ public class MenuMultiplayerState extends BasicGameState {
 	 * @param input the keyboard/mouse input of the user
 	 */
 	private void processButtons(Input input) {
+		boolean playSFX = true;
 		if (returnButton.isSelected()) {
 			processReturnButton();
-		} 
-		if (hostButton.isSelected()) {
+		}
+		else if (hostButton.isSelected()) {
 			attemptHost();
-		} 
-		if (joinButton.isSelected()) {
+		}
+		else if (joinButton.isSelected()) {
 			attemptJoin();
-		} 
+		} else {
+			playSFX = false;
+		}
+
+		if (playSFX) {
+			SoundPlayer soundPlayer = SoundPlayer.getInstance();
+			soundPlayer.addEffect(new MenuTransitionSoundEffect(false));
+			soundPlayer.playEffects();
+		}
 	}
 	
 	/**
