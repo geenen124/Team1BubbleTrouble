@@ -1,5 +1,7 @@
 package logic;
 import org.newdawn.slick.geom.Rectangle;
+import sound.SoundEffect;
+import sound.WeaponFireSoundEffect;
 
 /**
  * Class that represents a weapon.
@@ -127,5 +129,12 @@ public class Weapon {
 	 */
 	public void setLaserSpeed(float laserSpeed) {
 		this.laserSpeed = laserSpeed;
+	}
+
+	/**
+	 * @return Weapon sound effect
+	 */
+	public SoundEffect getWeaponSoundEffect() {
+		return new WeaponFireSoundEffect(false);
 	}
 }

@@ -15,6 +15,8 @@ import org.newdawn.slick.Input;
 import org.newdawn.slick.SpriteSheet;
 
 import powerups.Powerup;
+import sound.CoinPickupSoundEffect;
+import sound.SoundPlayer;
 
 /**
  * This class represents a Player.
@@ -130,6 +132,7 @@ public class Player {
 	 * @param usedCoins to dump it in
 	 */
 	private void processCoin(Coin coin, ArrayList<Coin> usedCoins) {
+		SoundPlayer.getInstance().addEffect(new CoinPickupSoundEffect(false));
 		if (!mainGame.isLanMultiplayer() || (mainGame.isHost() && playerNumber == 0)) {
 			gameState.getLogicHelper().addToScore(coin.getPoints());
 			gameState.getInterfaceHelper().getFloatingScores().

@@ -19,6 +19,7 @@ import powerups.FreezePowerup;
 import powerups.Powerup;
 import powerups.SlowPowerup;
 import powerups.SpeedPowerup;
+import sound.SoundPlayer;
 
 /**
  * Class which helps player processing powerups.
@@ -86,7 +87,8 @@ public class PlayerPowerupHelper {
 			Powerup powerup = (Powerup) iterator.next();
 			powerup.update(gameState, containerHeight, deltaFloat);
 			if (powerup.getRectangle().intersects(player.getLogicHelper().getRectangle())) {
-				if (!mainGame.isLanMultiplayer() || (mainGame.isHost() 
+				SoundPlayer.getInstance().addEffect(powerup.getSoundEffect());
+				if (!mainGame.isLanMultiplayer() || (mainGame.isHost()
 						&& player.getPlayerNumber() == 0)) {
 					commandQueue.addCommand(new AddPowerupToPlayerCommand(
 							player, powerup.getType()));

@@ -12,6 +12,7 @@ import logic.Logger.PriorityLevels;
 import powerups.InstantLaser;
 import powerups.Powerup;
 import powerups.Spiky;
+import sound.SoundPlayer;
 
 /**
  * Class which helps player processing weapons.
@@ -59,6 +60,7 @@ public class PlayerWeaponHelper {
 			Weapon weapon = gameState.getPlayerHelper().getWeaponList().
 					getWeaponList().get(player.getPlayerNumber());
 			boolean spiky = (weapon instanceof Spiky);
+			SoundPlayer.getInstance().addEffect(weapon.getWeaponSoundEffect());
 			if (mainGame.isHost()) {
 				mainGame.getHost().updateLaser(player.getPlayerNumber(), weapon.getX(), 
 						weapon.getY(), weapon.getLaserSpeed(), weapon.getWidth(), spiky);
@@ -69,8 +71,7 @@ public class PlayerWeaponHelper {
 		}
 		Weapon weapon = gameState.getPlayerHelper().getWeaponList().
 				getWeaponList().get(player.getPlayerNumber());
-		// Update laser
-		if (shot) {
+		if (shot) { // update laser
 			weapon.update(gameState.getLevelsHelper().getCeiling(), 
 					gameState.getLevelsHelper().getFloor(), deltaFloat);
 			// Disable laser when it has reached the ceiling

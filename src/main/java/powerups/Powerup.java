@@ -7,6 +7,10 @@ import org.newdawn.slick.SlickException;
 
 import guigame.GameState;
 import logic.MyRectangle;
+import sound.GeneralPickupSoundEffect;
+import sound.SoundEffect;
+import sound.WeaponPickupSoundEffect;
+
 /**
  * Created by alexandergeenen on 09/09/15.
  */
@@ -267,5 +271,13 @@ public class Powerup implements Cloneable {
     	timeRemaining = time;
     }
 
-	
+	/**
+	 * @return powerup sound effect (either weapon or other effect)
+	 */
+	public SoundEffect getSoundEffect() {
+		if (this.type == PowerupType.SPIKY || this.type == PowerupType.INSTANT) {
+			return new WeaponPickupSoundEffect(false);
+		}
+		return new GeneralPickupSoundEffect(false);
+	}
 }
