@@ -7,7 +7,8 @@ package sound;
  */
 public class MenuItemConfirmationSoundEffect extends SoundEffect {
 
-    private static final String FILE_PATH = "resources/sound/effects/menu_item_confirmation_effect.ogg";
+    private static final String FILE_PATH =
+            "resources/sound/effects/menu_item_confirmation_effect.ogg";
 
     /**
      *
