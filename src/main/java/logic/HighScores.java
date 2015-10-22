@@ -2,6 +2,9 @@ package logic;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import iterator.Aggregate;
+import iterator.HighScoresIterator;
+import iterator.Iterator;
 import logic.Logger.PriorityLevels;
 
 /**
@@ -9,7 +12,7 @@ import logic.Logger.PriorityLevels;
  * @author Menno
  *
  */
-public class HighScores {
+public class HighScores implements Aggregate {
 	
 	private ArrayList<Score> scoreList;
 	private static final int MAX_HIGHSCORES = 10;
@@ -88,6 +91,13 @@ public class HighScores {
 		}
 		
 		logger.log("Highscore list sorted", Logger.PriorityLevels.VERYLOW, "Highscores");
+	}
+
+
+
+	@Override
+	public Iterator createIterator() {
+		return new HighScoresIterator(scoreList);
 	}
 
 

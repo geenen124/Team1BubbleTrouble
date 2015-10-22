@@ -1,13 +1,8 @@
 package guigame;
 
-import guimenu.MainGame;
-import guiobjects.RND;
 
 import java.util.ArrayList;
 import java.util.Random;
-
-import logic.BouncingCircle;
-import logic.Coin;
 
 import org.newdawn.slick.Color;
 import org.newdawn.slick.GameContainer;
@@ -15,7 +10,14 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
+import guimenu.MainGame;
+import guiobjects.RND;
+import iterator.Iterator;
+import logic.BouncingCircle;
+import logic.Coin;
+import logic.CoinList;
 import powerups.Powerup;
+import powerups.PowerupList;
 import powerups.SpeedPowerup;
 
 /**
@@ -24,8 +26,9 @@ import powerups.SpeedPowerup;
  */
 public class GameStateItemsHelper extends GameStateHelper {
 	
-	private ArrayList<Powerup> droppedPowerups = new ArrayList<>();
-	private ArrayList<Coin> droppedCoins = new ArrayList<>();
+	private PowerupList droppedPowerups = new PowerupList();
+	private CoinList droppedCoins = new CoinList();
+
 	private ArrayList<SpeedPowerup> speedPowerups = new ArrayList<SpeedPowerup>();
 	
 	private Random random;
@@ -47,8 +50,9 @@ public class GameStateItemsHelper extends GameStateHelper {
 	
 	@Override
 	public void enter() {
-		droppedPowerups = new ArrayList<>();
-		droppedCoins = new ArrayList<>();
+		droppedPowerups = new PowerupList();
+		droppedCoins = new CoinList();
+
 		random = new Random();
 	}
 
@@ -90,9 +94,11 @@ public class GameStateItemsHelper extends GameStateHelper {
 	 * @param deltafloat the time in seconds since the last frame
 	 */
 	private void processCoins(GameContainer container, float deltafloat) {
-		for (Coin coin : droppedCoins) {
+		Iterator iterator = droppedCoins.createIterator();
+		while (iterator.hasNext()) {
+			Coin coin = (Coin) iterator.next();
 			coin.update(parentState.getLevelsHelper().getFloor(), 
-					deltafloat, container.getHeight());
+			deltafloat, container.getHeight());
 		}
 	}
 	
@@ -140,8 +146,10 @@ public class GameStateItemsHelper extends GameStateHelper {
 	 */
 	private void renderPowerups(Graphics graphics) {
 		synchronized (droppedPowerups) {
-			for (Powerup pow : droppedPowerups) {
-				RND.getInstance().drawPowerup(graphics, pow);
+			Iterator iterator = droppedPowerups.createIterator();
+			while (iterator.hasNext()) {
+				Powerup powerup = (Powerup) iterator.next();
+				RND.getInstance().drawPowerup(graphics, powerup);
 			}
 		}
 	}
@@ -153,38 +161,45 @@ public class GameStateItemsHelper extends GameStateHelper {
 	private void renderCoins(Graphics graphics) {
 		graphics.setColor(Color.blue);
 		synchronized (droppedCoins) {
-			for (Coin coin : droppedCoins) {
+			Iterator iterator = droppedCoins.createIterator();
+			while (iterator.hasNext()) {
+				Coin coin = (Coin) iterator.next();
 				coin.draw(graphics, mainGame);
-			}	
+			}
 		}
 		graphics.setColor(Color.white);
 	}
 
+	//Disable getters and setters to find out what dies
+	
 	/**
 	 * @return the droppedPowerups
 	 */
-	public ArrayList<Powerup> getDroppedPowerups() {
+
+	public PowerupList getDroppedPowerups() {
 		return droppedPowerups;
+
 	}
 
 	/**
 	 * @param droppedPowerups the droppedPowerups to set
 	 */
-	public void setDroppedPowerups(ArrayList<Powerup> droppedPowerups) {
+	public void setDroppedPowerups(PowerupList droppedPowerups) {
 		this.droppedPowerups = droppedPowerups;
+
 	}
 
 	/**
 	 * @return the droppedCoins
 	 */
-	public ArrayList<Coin> getDroppedCoins() {
+	public CoinList getDroppedCoins() {
 		return droppedCoins;
 	}
 
 	/**
 	 * @param droppedCoins the droppedCoins to set
 	 */
-	public void setDroppedCoins(ArrayList<Coin> droppedCoins) {
+	public void setDroppedCoins(CoinList droppedCoins) {
 		this.droppedCoins = droppedCoins;
 	}
 

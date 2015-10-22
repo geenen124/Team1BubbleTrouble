@@ -70,5 +70,39 @@ public class PowerupList implements Aggregate {
 	public Iterator createIterator() {
 		return new PowerupListIterator(powerups);
 	}
+	
+	/**
+	 * 
+	 * @param element the element for which you want to know whether it is contained
+	 * @return true if the given element was contained
+	 */
+	public boolean contains(Powerup element) {
+		return powerups.contains(element);
+	}
+	
+	/**
+	 * 
+	 * @param element the element to remove
+	 * @return true if the element was found in the list before removal
+	 */
+	public boolean remove(Powerup element) {
+		return powerups.remove(element);
+	}
+	
+	/**
+	 * 
+	 * @param toRemove the ArrayList of Powerups to remove from the PowerupList
+	 * @return true if the PowerupList has changed as a result of calling the method
+	 */
+	public boolean removeAll(ArrayList<Powerup> toRemove) {
+		return powerups.removeAll(toRemove);
+	}
 
+	/**
+	 * 
+	 * @return the stored Powerup Objects
+	 */
+	public ArrayList<Powerup> getPowerups() {
+		return powerups;
+	}
 }

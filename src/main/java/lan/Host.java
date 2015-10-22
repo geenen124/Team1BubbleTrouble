@@ -3,6 +3,7 @@ package lan;
 import guigame.GameState;
 import guimenu.MainGame;
 import guimenu.MenuMultiplayerState;
+import iterator.Iterator;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -297,24 +298,24 @@ public class Host extends Connector {
     	if (stringList[THREE].equals("PLEA")) {
     		synchronized (gameState.getItemsHelper().getDroppedPowerups()) {
 				PowerupType type = getPowerupType(stringList[2]);
-        		for (Powerup powerup : gameState.getItemsHelper().getDroppedPowerups()) {
+				Iterator iterator =
+						gameState.getItemsHelper().getDroppedPowerups().createIterator();
+				while (iterator.hasNext()) {
+					Powerup powerup = (Powerup) iterator.next();
         			if (powerup.getxId() == Float.parseFloat(stringList[0])
         					&& powerup.getyId() == Float.parseFloat(stringList[1])) {
-        				
         				commandQueue.addCommand(new RemoveDroppedPowerupCommand(
         						gameState.getItemsHelper().getDroppedPowerups(), powerup));
-        				
         				this.updatePowerupsGrant(powerup);
         				synchronized (gameState.getInterfaceHelper().getFloatingScores()) {
         					commandQueue.addCommand(new AddFloatingScoreCommand(
         							gameState.getInterfaceHelper().getFloatingScores(), 
         							new FloatingScore(powerup)));
         				}
-        				
         				commandQueue.addCommand(new AddPowerupToPlayerCommand(
         						mainGame.getPlayerList().getPlayers().get(1), type));
         			}
-        		} //end of loop
+				}
     		}
     	} else if (stringList[THREE].equals("ADD")) {
     		addPowerup(stringList);
@@ -396,8 +397,9 @@ public class Host extends Connector {
     	String[] stringList = message.split(" ");
     	if (stringList[THREE].equals("PLEA")) {
     		synchronized (gameState.getItemsHelper().getDroppedCoins()) {
-
-        		for (Coin coin : gameState.getItemsHelper().getDroppedCoins()) {
+    			Iterator iterator = gameState.getItemsHelper().getDroppedCoins().createIterator();
+    			while (iterator.hasNext()) {
+    				Coin coin = (Coin) iterator.next();
         			if (coin.getxId() == Float.parseFloat(stringList[0])
         					&& coin.getyId() == Float.parseFloat(stringList[1])) {
         				
@@ -410,7 +412,7 @@ public class Host extends Connector {
         						gameState.getInterfaceHelper().getFloatingScores(), 
         						new FloatingScore(coin)));
         			}
-        		}
+    			}
     		}
     	}
 	}

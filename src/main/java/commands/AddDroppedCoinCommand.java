@@ -1,8 +1,7 @@
 package commands;
 
-import java.util.ArrayList;
-
 import logic.Coin;
+import logic.CoinList;
 
 /**
  * Command which removes coin from given list.
@@ -11,14 +10,14 @@ import logic.Coin;
  */
 public class AddDroppedCoinCommand extends Command {
 
-	private final ArrayList<Coin> list;
+	private final CoinList list;
 	private final Coin item;
 	
 	/**
 	 * @param list	- the list to remove from
 	 * @param item	- the item to remove
 	 */
-	public AddDroppedCoinCommand(ArrayList<Coin> list, Coin item) {
+	public AddDroppedCoinCommand(CoinList list, Coin item) {
 		this.list = list;
 		this.item = item;
 	}

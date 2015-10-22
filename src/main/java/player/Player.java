@@ -1,6 +1,7 @@
 package player;
 import guigame.GameState;
 import guimenu.MainGame;
+import iterator.Iterator;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -112,7 +113,9 @@ public class Player {
 	private void processCoins() {
 		ArrayList<Coin> usedCoins = new ArrayList<>();
 		synchronized (gameState.getItemsHelper().getDroppedCoins()) {
-			for (Coin coin : gameState.getItemsHelper().getDroppedCoins()) {
+			Iterator iterator = gameState.getItemsHelper().getDroppedCoins().createIterator();
+			while (iterator.hasNext()) {
+				Coin coin = (Coin) iterator.next();
 				if (coin.getRectangle().intersects(logicHelper.getRectangle())) {
 					processCoin(coin, usedCoins);
 				}

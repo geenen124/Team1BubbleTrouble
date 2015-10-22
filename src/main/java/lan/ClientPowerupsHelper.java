@@ -1,11 +1,11 @@
 package lan;
 
+import iterator.Iterator;
 import guigame.GameState;
 import guimenu.MainGame;
 import logic.FloatingScore;
 import powerups.Powerup;
 import powerups.Powerup.PowerupType;
-
 import commands.AddDroppedPowerupCommand;
 import commands.AddFloatingScoreCommand;
 import commands.AddPowerupToPlayerCommand;
@@ -57,7 +57,7 @@ public class ClientPowerupsHelper {
      */
     private void addPowerup(String[] stringList) {
         synchronized (gameState.getItemsHelper().getDroppedPowerups()) {
-            Powerup.PowerupType type = Powerup.PowerupType.SHIELD;
+        	Powerup.PowerupType type = Powerup.PowerupType.SHIELD;
             type = getPowerupType(stringList[2], type);
             if (type != null) {
             	commandQueue.addCommand(new AddDroppedPowerupCommand(
@@ -73,9 +73,11 @@ public class ClientPowerupsHelper {
      * @param stringList information on powerup
      */
     private void dictatePowerup(String[] stringList) {
-        Powerup.PowerupType type = Powerup.PowerupType.SHIELD;
+    	Powerup.PowerupType type = Powerup.PowerupType.SHIELD;
         type = getPowerupType(stringList[2], type);
-        for (Powerup powerup : gameState.getItemsHelper().getDroppedPowerups()) {
+        Iterator iterator = gameState.getItemsHelper().getDroppedPowerups().createIterator();
+        while (iterator.hasNext()) {
+        	Powerup powerup = (Powerup) iterator.next();
             if (powerup.getxId() == Float.parseFloat(stringList[0])
                     && powerup.getyId() == Float.parseFloat(stringList[1])) {
             	commandQueue.addCommand(new RemoveDroppedPowerupCommand(
@@ -126,7 +128,9 @@ public class ClientPowerupsHelper {
     private void grantPowerup(String[] stringList) {
         parsePowerupCommand(stringList[2]);
         synchronized (gameState.getItemsHelper().getDroppedPowerups()) {
-            for (Powerup powerup : gameState.getItemsHelper().getDroppedPowerups()) {
+        	Iterator iterator = gameState.getItemsHelper().getDroppedPowerups().createIterator();
+        	while (iterator.hasNext()) {
+        		Powerup powerup = (Powerup) iterator.next();
                 if (powerup.getxId() == Float.parseFloat(stringList[0])
                         && powerup.getyId() == Float.parseFloat(stringList[1])) {
                 	commandQueue.addCommand(new RemoveDroppedPowerupCommand(
@@ -135,7 +139,7 @@ public class ClientPowerupsHelper {
     						gameState.getInterfaceHelper().getFloatingScores(), 
     						new FloatingScore(powerup)));
                 }
-            }
+        	}
         }
     }
 
