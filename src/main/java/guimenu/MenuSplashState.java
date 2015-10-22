@@ -37,6 +37,8 @@ public class MenuSplashState extends BasicGameState {
 	private static final int SEPARATOR_Y = 450;
 	private static final int BOTTOM_TEXT_OFFSET_X = 250;
 	private static final int BOTTOM_TEXT_OFFSET_Y = 75;
+	private static final int BUTTON_X = 120, BUTTON_Y = 500;
+	private static final int TEXT_X = 590, TEXT_Y = 400;
 	
 	/**
 	 * Construct a SettingsState.
@@ -94,7 +96,7 @@ public class MenuSplashState extends BasicGameState {
 	 * @throws SlickException if something goes wrong
 	 */
 	public void init(GameContainer container, StateBasedGame arg1) throws SlickException {
-		enterButton = new Button(container.getWidth() / 2 - 120, 500, "> Enter game <");
+		enterButton = new Button(container.getWidth() / 2 - BUTTON_X, BUTTON_Y, "> Enter game <");
 		System.out.println("DADADA" + enterButton.getWidth());
 		initElements();
 		separator = new Separator(SEPARATOR_X, SEPARATOR_Y, false, separatorTitle,
@@ -161,8 +163,8 @@ public class MenuSplashState extends BasicGameState {
 		//mainGame.drawWaterMark();
 		RND.getInstance().drawLogo(graphics, LOGO_X, LOGO_Y);
 		separator.drawColor(graphics, mainGame.getColor());
-		RND.getInstance().textSpecifiedColor(graphics, 590, 400, "Welcome to Bubble Trouble!", 
-				mainGame.getColor());
+		RND.getInstance().textSpecifiedColor(graphics, TEXT_X, TEXT_Y, 
+				"Welcome to Bubble Trouble!", mainGame.getColor());
 
 		RND.getInstance().text(graphics, container.getWidth() / 2 - BOTTOM_TEXT_OFFSET_X,
 				container.getHeight() - BOTTOM_TEXT_OFFSET_Y, "Waiting for user input...");
