@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
+import sound.MenuSelectionChangeSoundEffect;
+import sound.SoundPlayer;
 
 /**
  * A class responsible for storing buttons in a menu, as well as handling keyboard/mouse inputs.
@@ -22,6 +24,7 @@ public class ElementList {
 	private boolean mouseActive = true;
 	private boolean textfieldActive = false;
 	private int mouseX = 0, mouseY = 0;
+	private MenuSelectionChangeSoundEffect selectionChangeSoundEffect;
 	
 	// popup data
 	private Popup popup; // an elementlist can throw "OK" popups!
@@ -34,6 +37,7 @@ public class ElementList {
 	 */
 	public ElementList() {
 		list = new ArrayList<Element>();
+		selectionChangeSoundEffect = new MenuSelectionChangeSoundEffect(false);
 	}
 	
 	/**
@@ -268,6 +272,7 @@ public class ElementList {
 			int newIndex = findIndex(list.get(index).getRight());
 			if (newIndex != -1) {
 				index = newIndex;
+				this.selectionChangeSoundEffect.playSound();
 			}
 		}
 	}
@@ -283,6 +288,7 @@ public class ElementList {
 			int newIndex = findIndex(list.get(index).getLeft());
 			if (newIndex != -1) {
 				index = newIndex;
+				this.selectionChangeSoundEffect.playSound();
 			}
 		}
 	}
@@ -298,6 +304,7 @@ public class ElementList {
 			int newIndex = findIndex(list.get(index).getTop());
 			if (newIndex != -1) {
 				index = newIndex;
+				this.selectionChangeSoundEffect.playSound();
 			}
 		}
 	}
@@ -313,6 +320,7 @@ public class ElementList {
 			int newIndex = findIndex(list.get(index).getBottom());
 			if (newIndex != -1) {
 				index = newIndex;
+				this.selectionChangeSoundEffect.playSound();
 			}
 		}
 	}
