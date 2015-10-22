@@ -93,12 +93,14 @@ public class MainGame extends StateBasedGame {
 	private static final int MENU_GAMEOVER_STATE = 2;
 	private static final int MENU_SETTINGS_STATE = 3;
 	private static final int MENU_MULTIPLAYER_STATE = 4;
+	private static final int MENU_SPLASH_STATE = 5;
 	
 	private GameState gameStateState;
 	private MenuSettingsState menuSettingsState;
 	private MenuMainState menuMainState;
 	private MenuGameoverState menuGameoverState;
 	private MenuMultiplayerState menuMultiplayerState;
+	private MenuSplashState menuSplashState;
 	
 	private boolean shouldSwitchState = false;
 	private int switchState = 0;
@@ -147,8 +149,8 @@ public class MainGame extends StateBasedGame {
 		this.player2ImageStringN = "Player2sprite_Norm.png";
 		this.player2ImageStringA = "Player2sprite_Add.png";
 		this.lifeCount = LIVES;
-		this.setColor(COLOR_YELLOW);
-		this.setNextColor(COLOR_YELLOW);
+		this.setColor(COLOR_BLUE);
+		this.setNextColor(COLOR_BLUE);
 		this.highscores = HighScoresParser.readHighScores(highscoresFile);
 		this.multiplayer = false;
 		this.lanMultiplayer = false;
@@ -328,7 +330,7 @@ public class MainGame extends StateBasedGame {
 
 	/**
 	 * InitStateLists here.
-	 * Add all states and start the first one
+	 * Initialize, add, all states and start the first one
 	 */
 	@Override
 	public void initStatesList(GameContainer container) throws SlickException {
@@ -343,8 +345,21 @@ public class MainGame extends StateBasedGame {
 		Logger.getInstance().log("MenuGameoverState initialized", 
 				Logger.PriorityLevels.LOW, STATES);
 		this.menuMultiplayerState = new MenuMultiplayerState(this, gameStateState);
+		this.menuSplashState = new MenuSplashState(this);
 		Logger.getInstance().log("MenuMultiplayerState initialized", 
 				Logger.PriorityLevels.LOW, STATES);
+		addStates();
+		RND.getInstance().init(); initPlayers(); Button.init(); 
+		Textfield.init(); PlayerButton.init(); Calendar cal = Calendar.getInstance();
+		this.currentDate = cal.get(Calendar.DATE) + "/" + cal.get(Calendar.MONTH) 
+				+ "/" + cal.get(Calendar.YEAR);
+		this.enterState(MENU_SPLASH_STATE); // EDIT START STATE HERE
+	}
+	
+	/**
+	 * After initialisation, add all states to the game.
+	 */
+	private void addStates() {
 		this.addState(menuMainState);
 		Logger.getInstance().log("MenuMainstate added", Logger.PriorityLevels.LOW, STATES);
 		this.addState(gameStateState);
@@ -355,11 +370,8 @@ public class MainGame extends StateBasedGame {
 		Logger.getInstance().log("MenuSettingsstate added", Logger.PriorityLevels.LOW, STATES);
 		this.addState(menuMultiplayerState);
 		Logger.getInstance().log("MenuMultiplayerState added", Logger.PriorityLevels.LOW, STATES);
-		RND.getInstance().init(); initPlayers(); Button.init(); 
-		Textfield.init(); PlayerButton.init(); Calendar cal = Calendar.getInstance();
-		this.currentDate = cal.get(Calendar.DATE) + "/" + cal.get(Calendar.MONTH) 
-				+ "/" + cal.get(Calendar.YEAR);
-		this.enterState(0); // EDIT START STATE HERE
+		this.addState(menuSplashState);
+		Logger.getInstance().log("MenuSplashState added", Logger.PriorityLevels.LOW, STATES);
 	}
 	
 	/**
@@ -659,6 +671,13 @@ public class MainGame extends StateBasedGame {
 		return MENU_MULTIPLAYER_STATE;
 	}
 
+	/**
+	 * @return the splash state
+	 */
+	public int getSplashState() {
+		return MENU_SPLASH_STATE;
+	}
+	
 	/**
 	 * @return the targetFramerate
 	 */
