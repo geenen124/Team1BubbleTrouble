@@ -14,6 +14,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import sound.MenuTransitionSoundEffect;
 import sound.SoundPlayer;
 import sound.SoundPlayer.MusicLists;
 
@@ -385,6 +386,9 @@ public class MenuSettingsState extends BasicGameState {
 	 * Process a click on the return button.
 	 */
 	private void processReturnButton() {
+		SoundPlayer soundPlayer = SoundPlayer.getInstance();
+		soundPlayer.addEffect(new MenuTransitionSoundEffect(false));
+		soundPlayer.playEffects();
 		mainGame.setSwitchState(mainGame.getMainState());
 	}
 	
