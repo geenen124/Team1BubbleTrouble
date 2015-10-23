@@ -163,7 +163,8 @@ public class MenuMainState extends BasicGameState {
 				&& !mainGame.getShouldSwitchState()) {
 			processButtonsMouse(input);
 		}
-		
+
+		SoundPlayer.getInstance().playEffects();
 		exit(container, sbg, delta);
 	}
 	
@@ -188,9 +189,7 @@ public class MenuMainState extends BasicGameState {
 		}
 
 		if (playSFX) {
-			SoundPlayer soundPlayer = SoundPlayer.getInstance();
-			soundPlayer.addEffect(new MenuTransitionSoundEffect(false));
-			soundPlayer.playEffects();
+			SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
 		}
 	}
 	

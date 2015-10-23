@@ -12,6 +12,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import sound.MenuTransitionSoundEffect;
 import sound.SoundPlayer;
 import sound.SoundPlayer.MusicLists;
 
@@ -30,6 +31,14 @@ public class MenuSplashState extends BasicGameState {
 	
 	private MainGame mainGame;
 	private Input input;
+	
+	private static final int NAMES_X_START = 1050;
+	private static final int NAMES_X_END = 450;
+	private static final String NAMES = 
+			"Alex Geenen, Bart de Jonge, Mark van de Ruit, Menno Oudshoorn, Stefan de Vringer";
+	private static final int NAMES_Y = 630;
+	private static final float NAMES_SPEED = 1.5f;
+	private float namesMovingX;
 	
 	private static final int LOGO_X = 570;
 	private static final int LOGO_Y = 300;
@@ -61,7 +70,7 @@ public class MenuSplashState extends BasicGameState {
 		elements.reset();
 		RND.getInstance().setOpacity(0.0f);
 		mainGame.stopSwitchState();
-
+		namesMovingX = NAMES_X_START;
 		SoundPlayer.getInstance().setActiveList(MusicLists.MENU_LIST);
 	}
 	
@@ -134,6 +143,9 @@ public class MenuSplashState extends BasicGameState {
 				&& !mainGame.getShouldSwitchState()) {
 			processButtons(input);
 		}
+		
+		SoundPlayer.getInstance().playEffects();
+		
 		exit(container, sbg, delta);
 	}
 
@@ -143,6 +155,7 @@ public class MenuSplashState extends BasicGameState {
 	 */
 	private void processButtons(Input input) {
 		if (enterButton.isSelected()) {
+			SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
 			mainGame.setSwitchState(mainGame.getMainState());
 		}
 	}
@@ -165,9 +178,14 @@ public class MenuSplashState extends BasicGameState {
 		separator.drawColor(graphics, mainGame.getColor());
 		RND.getInstance().textSpecifiedColor(graphics, TEXT_X, TEXT_Y, 
 				"Welcome to Bubble Trouble!", mainGame.getColor());
-
-		RND.getInstance().text(graphics, container.getWidth() / 2 - BOTTOM_TEXT_OFFSET_X,
-				container.getHeight() - BOTTOM_TEXT_OFFSET_Y, "Waiting for user input...");
+		
+		RND.getInstance().text(graphics, namesMovingX, 
+				container.getHeight() - BOTTOM_TEXT_OFFSET_Y, NAMES);
+		namesMovingX -= NAMES_SPEED;
+		if (namesMovingX < NAMES_X_END - RND.getInstance().getStringPixelWidth(NAMES)) {
+			namesMovingX = NAMES_X_START;
+		}
+		
 		elements.render(graphics, input, mainGame.getColor());
 		// any and all drawing is done BEFORE THESE TWO FOR THE 1000TH TIME
 		RND.getInstance().drawForeGround(graphics);

@@ -14,6 +14,9 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.state.StateBasedGame;
 
+import sound.MenuTransitionSoundEffect;
+import sound.SoundPlayer;
+
 /**
  * GameState Helper class for managing the Pause UI. This is done to prevent
  * GameState and GameStateInterfaceHeplper from having too much responsibility 
@@ -87,15 +90,19 @@ public class GameStatePauseHelper extends GameStateHelper {
 		if ((input.isMousePressed(Input.MOUSE_LEFT_BUTTON) || input.isKeyDown(Input.KEY_ENTER)) 
 				&& !mainGame.getShouldSwitchState()) {
 			if (returnButton.isSelected() && !waitEsc) {
-				parentState.getLogicHelper().pauseStopped(false); elements.reset(); }
-			if (menuButton.isSelected()) {
+				parentState.getLogicHelper().pauseStopped(false); elements.reset(); 
+				SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
+			} else if (menuButton.isSelected()) {
 				mainGame.setScore(0);
 				mainGame.setLevelCounter(0);
 				mainGame.killMultiplayer();
-				mainGame.setSwitchState(mainGame.getMainState()); }
-			if (exitButton.isSelected()) {
+				mainGame.setSwitchState(mainGame.getMainState()); 
+				SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
+			} else if (exitButton.isSelected()) {
 				mainGame.killMultiplayer();
-				mainGame.setSwitchState(-1); }
+				mainGame.setSwitchState(-1); 
+				SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
+			}
 		}
 	}
 	
