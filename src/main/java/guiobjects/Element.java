@@ -22,6 +22,8 @@ public abstract class Element {
 	private Element bottom;
 	private Element top;
 	
+	private boolean playSound = false;
+	
 	private boolean enabled = true; // determine whether an element is 'interactive'.
 	private boolean selected = false; // determine whether an element is the one selected.
 	private int x, y, width, height;

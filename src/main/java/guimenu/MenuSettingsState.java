@@ -285,6 +285,10 @@ public class MenuSettingsState extends BasicGameState {
 			processButtons(input);
 			processColorButtons(input);
 		}
+		
+
+		SoundPlayer.getInstance().playEffects();
+		
 		exit(container, sbg, delta);
 	}
 
@@ -294,23 +298,23 @@ public class MenuSettingsState extends BasicGameState {
 	 */
 	private void processButtons(Input input) {
 		if (gameboy1Button.isSelected()) {
-			gameboy1Button.makeActive();
-			processMannetje1Button();
+			gameboy1Button.makeActive(); processMannetje1Button();
+			SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
 		} else if (gameboy2Button.isSelected()) {
-			gameboy2Button.makeActive();
-			processMannetje2Button();
+			gameboy2Button.makeActive(); processMannetje2Button();
+			SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
 		} else if (phone1Button.isSelected()) {
-			phone1Button.makeActive();
-			processTelefoon1Button();
+			phone1Button.makeActive(); processTelefoon1Button();
+			SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
 		} else if (phone2Button.isSelected()) {
-			phone2Button.makeActive();
-			processTelefoon2Button();
+			phone2Button.makeActive(); processTelefoon2Button();
+			SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
 		} else if (arie1Button.isSelected()) {
-			arie1Button.makeActive();
-			processArie1Button();
+			arie1Button.makeActive(); processArie1Button();
+			SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
 		} else if (arie2Button.isSelected()) {
-			arie2Button.makeActive();
-			processArie2Button();
+			arie2Button.makeActive(); processArie2Button();
+			SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
 		} else if (returnButton.isSelected()) {
 			processReturnButton();
 		}
@@ -386,9 +390,7 @@ public class MenuSettingsState extends BasicGameState {
 	 * Process a click on the return button.
 	 */
 	private void processReturnButton() {
-		SoundPlayer soundPlayer = SoundPlayer.getInstance();
-		soundPlayer.addEffect(new MenuTransitionSoundEffect(false));
-		soundPlayer.playEffects();
+		SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
 		mainGame.setSwitchState(mainGame.getMainState());
 	}
 	
@@ -399,30 +401,37 @@ public class MenuSettingsState extends BasicGameState {
 	 */
 	private void processColorButtons(Input input) {
 		if (shuffleButton.isSelected()) {
-			mainGame.shuffleColor(true);
-			mainGame.setSwitchState(mainGame.getSettingsState());
+			mainGame.shuffleColor(true); reloadState();
+			SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
 		} else if (redButton.isSelected()) {
-			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_RED);
-			mainGame.setSwitchState(mainGame.getSettingsState());
+			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_RED); reloadState();
+			SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
 		} else if (blueButton.isSelected()) {
-			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_BLUE);
-			mainGame.setSwitchState(mainGame.getSettingsState());
+			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_BLUE); reloadState();
+			SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
 		} else if (orangeButton.isSelected()) {
-			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_ORANGE);
-			mainGame.setSwitchState(mainGame.getSettingsState());
+			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_ORANGE); reloadState();
+			SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
 		} else if (greenButton.isSelected()) {
-			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_GREEN);
-			mainGame.setSwitchState(mainGame.getSettingsState());
+			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_GREEN); reloadState();
+			SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
 		} else if (whiteButton.isSelected()) {
-			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_WHITE);
-			mainGame.setSwitchState(mainGame.getSettingsState());
+			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_WHITE); reloadState();
+			SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
 		} else if (pinkButton.isSelected()) {
-			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_PINK);
-			mainGame.setSwitchState(mainGame.getSettingsState());
+			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_PINK); reloadState();
+			SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
 		} else if (yellowButton.isSelected()) {
-			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_YELLOW);
-			mainGame.setSwitchState(mainGame.getSettingsState());
+			mainGame.shuffleColor(false); mainGame.setNextColor(COLOR_YELLOW); reloadState();
+			SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
 		} 
+	}
+	
+	/**
+	 * Force this state to reload, updating colors.
+	 */
+	private void reloadState() {
+		mainGame.setSwitchState(mainGame.getSettingsState());
 	}
 	
 	/**

@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
+
 import sound.MenuSelectionChangeSoundEffect;
+import sound.SoundPlayer;
 
 /**
  * A class responsible for storing buttons in a menu, as well as handling keyboard/mouse inputs.
@@ -17,6 +19,8 @@ public class ElementList {
 	// storage data
 	private ArrayList<Element> list;
 	private int index = 0;
+	private int oldIndex = 0;
+	private boolean oldAnyHighlighted;
 	
 	// mouse data
 	private boolean mouseMoved = false;
@@ -163,7 +167,8 @@ public class ElementList {
 		for (int i = 0; i < list.size(); i++) {
 			list.get(i).reset();
 		}
-		index = 0;
+		index = 0; 
+		oldIndex = 0; oldAnyHighlighted = false;
 		mouseActive = true;
 		mouseMoved = false;
 		textfieldActive = false;
@@ -181,15 +186,15 @@ public class ElementList {
 	 * @param input the input to process with.
 	 */
 	public void update(Input input) {
-		for (int i = 0; i < list.size(); i++) {
-			list.get(i).update(input);
-		}
 		// check if the mouse has moved
 		updateMouseMovement(input);
 		// respond to keyboard inputs
 		updateButtonsKeyboard(input);
 		// respond to mouse inputs
 		updateButtonsMouseOver(input);
+		for (int i = 0; i < list.size(); i++) {
+			list.get(i).update(input);
+		}
 		// loop-around the index.
 		if (index < 0) {
 			index = list.size() - 1;
@@ -198,9 +203,12 @@ public class ElementList {
 		}
 		// make sure all buttons have the appropriate highlighting.
 		updateHighlighting(input);
+		updateSound();
 		if (popup != null) {
 			popup.update(input);
 		}
+		oldIndex = index;
+		oldAnyHighlighted = anyHighlighted();
 	}
 	
 	/**
@@ -236,14 +244,24 @@ public class ElementList {
 	}
 	
 	/**
+	 * Properly update navigation sounds for buttons.
+	 */
+	private void updateSound() {
+		if ((index != oldIndex && anyHighlighted()) 
+				|| 
+				(oldAnyHighlighted != anyHighlighted() && anyHighlighted())) {
+			SoundPlayer.getInstance().addEffect(new MenuSelectionChangeSoundEffect(false));
+		}
+	}
+	
+	/**
 	 * Update button index for the keyboard.
 	 * @param input the input context to use.
 	 */
 	private void updateButtonsKeyboard(Input input) {
 		if (!textfieldActive  && !(popup != null && popup.getActive())) {
-			int g = 0;
 			if (input.isKeyPressed(Input.KEY_DOWN) // double check IS necessary.
-					&& input.isKeyDown(Input.KEY_DOWN)) { // don't refactor.
+					&& input.isKeyDown(Input.KEY_DOWN)) { // don't refactor. - Mark
 				navigateBottom();
 			} else if (input.isKeyPressed(Input.KEY_UP)
 					&& input.isKeyDown(Input.KEY_UP)) {
@@ -269,7 +287,6 @@ public class ElementList {
 			int newIndex = findIndex(list.get(index).getRight());
 			if (newIndex != -1) {
 				index = newIndex;
-				new MenuSelectionChangeSoundEffect(false).playSound();
 			}
 		}
 	}
@@ -285,7 +302,6 @@ public class ElementList {
 			int newIndex = findIndex(list.get(index).getLeft());
 			if (newIndex != -1) {
 				index = newIndex;
-				new MenuSelectionChangeSoundEffect(false).playSound();
 			}
 		}
 	}
@@ -301,7 +317,6 @@ public class ElementList {
 			int newIndex = findIndex(list.get(index).getTop());
 			if (newIndex != -1) {
 				index = newIndex;
-				new MenuSelectionChangeSoundEffect(false).playSound();
 			}
 		}
 	}
@@ -317,7 +332,6 @@ public class ElementList {
 			int newIndex = findIndex(list.get(index).getBottom());
 			if (newIndex != -1) {
 				index = newIndex;
-				new MenuSelectionChangeSoundEffect(false).playSound();
 			}
 		}
 	}

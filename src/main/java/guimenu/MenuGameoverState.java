@@ -16,6 +16,7 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import sound.MenuTransitionSoundEffect;
 import sound.SoundPlayer;
 import sound.SoundPlayer.MusicLists;
 
@@ -209,7 +210,9 @@ public class MenuGameoverState extends BasicGameState {
 			processButtons(input);
 		}
 		nameField.update(input);
-		//handleTextField(input);
+
+		SoundPlayer.getInstance().playEffects();
+		
 		exit(container, sbg, delta);
 	}
 	
@@ -222,28 +225,29 @@ public class MenuGameoverState extends BasicGameState {
 			processStartOver();
 			Logger.getInstance().log("play again button clicked", 
 					Logger.PriorityLevels.MEDIUM, USER_INPUT);
+			SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
 		} 
 		else if (saveButton.isSelected()) {
 			saveScore();
 			Logger.getInstance().log("save button clicked", 
 					Logger.PriorityLevels.MEDIUM, USER_INPUT);
-			elements.remove(nameField);
-			elements.reset();
+			elements.remove(nameField); elements.reset();
 			elements.coupleVertical(quitButton, playButton);
+			SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
 		}
 		else if (menuButton.isSelected()) {
-			mainGame.resetLifeCount();
-			mainGame.resetLevelCount();
-			mainGame.setScore(0);
+			mainGame.resetLifeCount(); mainGame.resetLevelCount(); mainGame.setScore(0);
 			mainGame.killMultiplayer();
 			mainGame.setSwitchState(mainGame.getMainState());
 			Logger.getInstance().log("main menu button clicked", 
 					Logger.PriorityLevels.MEDIUM, USER_INPUT);
+			SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
 		}
 		else if (quitButton.isSelected()) {
 			mainGame.setSwitchState(-1);
 			Logger.getInstance().log("exit button clicked", 
 					Logger.PriorityLevels.MEDIUM, USER_INPUT);
+			SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
 		}
 	}
 

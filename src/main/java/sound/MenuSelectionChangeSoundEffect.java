@@ -8,7 +8,7 @@ package sound;
 public class MenuSelectionChangeSoundEffect extends SoundEffect {
 
     private static final String FILE_PATH =
-            "resources/sound/effects/menu_selection_change_effect.ogg";
+            "resources/sound/effects/menu_transition_effect.ogg";
 
     /**
      *
@@ -16,13 +16,6 @@ public class MenuSelectionChangeSoundEffect extends SoundEffect {
      */
     public MenuSelectionChangeSoundEffect(boolean testing) {
         super(FILE_PATH, testing);
-    }
-
-
-    @Override
-    public void playSound() {
-        this.getSound().play();
-
     }
 
 }

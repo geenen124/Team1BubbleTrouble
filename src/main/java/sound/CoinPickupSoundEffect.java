@@ -13,9 +13,4 @@ public class CoinPickupSoundEffect extends SoundEffect {
     public CoinPickupSoundEffect(boolean testing) {
         super(SOUND_FILE, testing);
     }
-
-    @Override
-    public void playSound() {
-        this.getSound().play();
-    }
 }

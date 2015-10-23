@@ -13,6 +13,9 @@ import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.gui.TextField;
 
+import sound.MenuTransitionSoundEffect;
+import sound.SoundPlayer;
+
 /**
  * Textfield class, representing a textfield in our GUI.
  * @author Mark
@@ -126,6 +129,7 @@ public class Textfield extends Element {
 			getList().setTextfieldActive(true);
 			textfield.setText("");
 			cursor = 0;
+			SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
 		}
 	}
 	
@@ -145,6 +149,7 @@ public class Textfield extends Element {
 			getList().setTextfieldActive(!getList().isTextfieldActive());
 			cursor = getText().length();
 			textfield.setCursorPos(cursor);
+			SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
 		}
 	}
 	
@@ -160,6 +165,7 @@ public class Textfield extends Element {
 			getList().setTextfieldActive(true);
 			textfield.setText("");
 			cursor = 0;
+			SoundPlayer.getInstance().addEffect(new MenuTransitionSoundEffect(false));
 		}
 	}
 	

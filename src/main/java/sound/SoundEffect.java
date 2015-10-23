@@ -33,7 +33,9 @@ public abstract class SoundEffect {
 	/**
 	 * Play the sound effect.
 	 */
-	public abstract void playSound();
+	public void playSound() {
+		this.getSound().play();
+	};
 
 	/**
 	 * @return the sound

@@ -15,8 +15,4 @@ public class SpikyFireSoundEffect extends SoundEffect {
         super(SOUND_FILE, testing);
     }
 
-    @Override
-    public void playSound() {
-        this.getSound().play();
-    }
 }
