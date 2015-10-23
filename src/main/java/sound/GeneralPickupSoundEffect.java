@@ -13,9 +13,4 @@ public class GeneralPickupSoundEffect extends SoundEffect {
     public GeneralPickupSoundEffect(boolean testing) {
         super(SOUND_FILE, testing);
     }
-
-    @Override
-    public void playSound() {
-        this.getSound().play();
-    }
 }

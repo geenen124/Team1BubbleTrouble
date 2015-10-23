@@ -18,11 +18,4 @@ public class MenuSelectionChangeSoundEffect extends SoundEffect {
         super(FILE_PATH, testing);
     }
 
-
-    @Override
-    public void playSound() {
-        this.getSound().play();
-
-    }
-
 }
