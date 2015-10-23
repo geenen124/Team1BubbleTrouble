@@ -6,7 +6,7 @@ package sound;
  */
 public class WeaponFireSoundEffect extends SoundEffect {
 
-    private static final String SOUND_FILE = "resources/sound/effects/weapon_fire_effect.ogg";
+    private static final String SOUND_FILE = "resources/sound/effects/laser_fire_effect.ogg";
 
     /**
      * @param testing Whether or not testing
