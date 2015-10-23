@@ -8,6 +8,8 @@ import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
+import sound.BalPopSoundEffect;
+import sound.SoundPlayer;
 import commands.CommandQueue;
 import commands.RemoveCircleCommand;
 import guimenu.MainGame;
@@ -143,6 +145,8 @@ public class GameStateCirclesHelper extends GameStateHelper {
             		mainGame.getHost().sendFloatingScore(floatingScore);
             	}
             	updateShotCirles2(circle, false);
+            	
+            	SoundPlayer.getInstance().addEffect(new BalPopSoundEffect(false));
 			}
         }
 	}
