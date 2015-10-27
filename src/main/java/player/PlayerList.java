@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.SpriteSheet;
 import org.newdawn.slick.state.StateBasedGame;
 
 import guigame.GameState;
@@ -43,6 +44,8 @@ public class PlayerList implements Aggregate {
 	private static final int SHIELD_DRAW_X_DEVIATION = 43;
 	
 	private static final String PLAYER_IMAGES = "resources/images_Player/";
+	private static final int SPRITESHEET_VALUE = 120;
+	private static SpriteSheet arieLaserEyes;
 	
 	private Logger logger = Logger.getInstance();
 	
@@ -60,6 +63,18 @@ public class PlayerList implements Aggregate {
 		processCollisions = true;
 		this.died = false;
 	} 
+	
+	/**
+	 * Initialize some images.
+	 */
+	public static void init() {
+		try {
+			arieLaserEyes = new SpriteSheet(PLAYER_IMAGES + "arieLaser.png", 
+					SPRITESHEET_VALUE, SPRITESHEET_VALUE);
+		} catch (SlickException e) {
+			e.printStackTrace();
+		}
+	}
 	
 	/**
 	 * Update all players.
@@ -197,6 +212,13 @@ public class PlayerList implements Aggregate {
 				player.getLogicHelper().getSpritesheetA().getSprite(2, 0),
 				player.getLogicHelper().getX() - PLAYER_DRAW_X_DEVIATION,
 				player.getLogicHelper().getY() - PLAYER_DRAW_Y_DEVIATION, mainGame.getColor()));
+		// draw laser eyes
+		if (player.getPlayerNumber() == 0 
+				&& mainGame.getPlayer1ImageStringN() == "arieSprite.png") {
+			graphics.drawImage(arieLaserEyes.getSprite(2, 0), 
+					player.getLogicHelper().getX() - PLAYER_DRAW_X_DEVIATION, 
+					player.getLogicHelper().getY() - PLAYER_DRAW_Y_DEVIATION);
+		}
 	}
 
 	/**
