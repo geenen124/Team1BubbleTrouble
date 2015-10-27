@@ -81,9 +81,9 @@ public final class RND {
 	 */
 	public void init() {
 		try {
-			imageBackground = new Image("resources/terminal/Screen_Underlayer.png");
-			imageForeground = new Image("resources/terminal/Screen_Overlayer.png");
-			imageTerminal = new Image("resources/terminal/Terminal_Base.png");
+			imageBackground = new Image("resources/Terminal/Screen_Underlayer.png");
+			imageForeground = new Image("resources/Terminal/Screen_Overlayer.png");
+			imageTerminal = new Image("resources/Terminal/Terminal_Base.png");
 			imageGameLogoN = new Image("resources/images_UI/Menu_Logo_Norm.png");
 			imageGameLogoA = new Image("resources/images_UI/Menu_Logo_Add.png");
 			initButtonImages();
@@ -113,17 +113,17 @@ public final class RND {
 	 */
 	private void initButtonImages() throws SlickException {
 		imageButtonHeadN = 
-				new Image("resources/images_UI/images_Buttons/Menu_Button_Head_Norm.png");
+				new Image("resources/images_UI/Images_Buttons/Menu_Button_Head_Norm.png");
 		imageButtonHeadA = 
-				new Image("resources/images_UI/images_Buttons/Menu_Button_Head_Add.png");
+				new Image("resources/images_UI/Images_Buttons/Menu_Button_Head_Add.png");
 		imageButtonBodyN = 
-				new Image("resources/images_UI/images_Buttons/Menu_Button_Body_Norm.png");
+				new Image("resources/images_UI/Images_Buttons/Menu_Button_Body_Norm.png");
 		imageButtonBodyA = 
-				new Image("resources/images_UI/images_Buttons/Menu_Button_Body_Add.png");
+				new Image("resources/images_UI/Images_Buttons/Menu_Button_Body_Add.png");
 		imageButtonTailN = 
-				new Image("resources/images_UI/images_Buttons/Menu_Button_Tail_Norm.png");
+				new Image("resources/images_UI/Images_Buttons/Menu_Button_Tail_Norm.png");
 		imageButtonTailA = 
-				new Image("resources/images_UI/images_Buttons/Menu_Button_Tail_Add.png");
+				new Image("resources/images_UI/Images_Buttons/Menu_Button_Tail_Add.png");
 	}
 	
 	
