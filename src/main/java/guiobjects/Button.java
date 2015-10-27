@@ -67,17 +67,17 @@ public class Button extends Element {
 	 */
 	public static void init() throws SlickException {
 		imageButtonHeadN = 
-				new Image("resources/images_UI/images_Buttons/Menu_Button_Head_Norm.png");
+				new Image("resources/images_UI/Images_Buttons/Menu_Button_Head_Norm.png");
 		imageButtonHeadA = 
-				new Image("resources/images_UI/images_Buttons/Menu_Button_Head_Add.png");
+				new Image("resources/images_UI/Images_Buttons/Menu_Button_Head_Add.png");
 		imageButtonBodyN = 
-				new Image("resources/images_UI/images_Buttons/Menu_Button_Body_Norm.png");
+				new Image("resources/images_UI/Images_Buttons/Menu_Button_Body_Norm.png");
 		imageButtonBodyA = 
-				new Image("resources/images_UI/images_Buttons/Menu_Button_Body_Add.png");
+				new Image("resources/images_UI/Images_Buttons/Menu_Button_Body_Add.png");
 		imageButtonTailN = 
-				new Image("resources/images_UI/images_Buttons/Menu_Button_Tail_Norm.png");
+				new Image("resources/images_UI/Images_Buttons/Menu_Button_Tail_Norm.png");
 		imageButtonTailA = 
-				new Image("resources/images_UI/images_Buttons/Menu_Button_Tail_Add.png");
+				new Image("resources/images_UI/Images_Buttons/Menu_Button_Tail_Add.png");
 		dosFontM = new AngelCodeFont("resources/images_Font/dosfont.fnt",
 				"resources/images_Font/dosfont_Mask.png");
 	}

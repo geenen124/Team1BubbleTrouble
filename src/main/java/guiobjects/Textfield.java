@@ -95,8 +95,8 @@ public class Textfield extends Element {
 		fieldOnAdd = new Image("resources/images_UI/textfield2_Add.png");
 		fieldMouseNorm = new Image("resources/images_UI/textfield3_Norm.png");
 		fieldMouseAdd = new Image("resources/images_UI/textfield3_Add.png");
-		cursorNorm = new Image("resources/images_UI/textcursor_normal.png");
-		cursorAdd = new Image("resources/images_UI/textcursor_Add.png");
+		cursorNorm = new Image("resources/images_UI/Textcursor_normal.png");
+		cursorAdd = new Image("resources/images_UI/Textcursor_Add.png");
 	}
 	
 	/**

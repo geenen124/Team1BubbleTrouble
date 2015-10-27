@@ -111,7 +111,7 @@ public class Gate extends Rectangle {
 	 */
 	public static void loadImages() throws SlickException {
 		
-		gateUpperN = new Image("resources//images_Level/gate_upper_Norm.png");
+		gateUpperN = new Image("resources/images_Level/gate_upper_Norm.png");
 		gateUpperA = new Image("resources/images_Level/gate_upper_Add.png");
 		gateLowerN = new Image("resources/images_Level/gate_lower_Norm.png");
 		gateLowerA = new Image("resources/images_Level/gate_lower_Add.png");

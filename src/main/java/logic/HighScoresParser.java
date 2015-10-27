@@ -35,7 +35,7 @@ public final class HighScoresParser {
 		logger.log("Highscores read from file, filename=" + fileName, 
 				PriorityLevels.LOW, "Highscores");
 		BufferedReader reader = null;
-		HighScores hs = null;
+		HighScores hs = new HighScores();
 		try {
 			reader = new BufferedReader(new FileReader(fileName));
 			hs = new HighScores();
