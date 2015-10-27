@@ -349,7 +349,7 @@ public class MainGame extends StateBasedGame {
 		Logger.getInstance().log("MenuMultiplayerState initialized", 
 				Logger.PriorityLevels.LOW, STATES);
 		addStates();
-		RND.getInstance().init(); initPlayers(); Button.init(); 
+		RND.getInstance().init(); initPlayers(); Button.init(); PlayerList.init();
 		Textfield.init(); PlayerButton.init(); Calendar cal = Calendar.getInstance();
 		this.currentDate = cal.get(Calendar.DATE) + "/" + cal.get(Calendar.MONTH) 
 				+ "/" + cal.get(Calendar.YEAR);

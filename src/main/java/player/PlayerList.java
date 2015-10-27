@@ -45,7 +45,7 @@ public class PlayerList implements Aggregate {
 	
 	private static final String PLAYER_IMAGES = "resources/images_Player/";
 	private static final int SPRITESHEET_VALUE = 120;
-	private SpriteSheet arieLaserEyes;
+	private static SpriteSheet arieLaserEyes;
 	
 	private Logger logger = Logger.getInstance();
 	
@@ -58,17 +58,23 @@ public class PlayerList implements Aggregate {
 	public PlayerList(Player player1, MainGame mainGame, GameState gameState) {
 		playerList = new ArrayList<Player>();
 		playerList.add(player1);
+		this.mainGame = mainGame;
+		this.gameState = gameState;
+		processCollisions = true;
+		this.died = false;
+	} 
+	
+	/**
+	 * Initialize some images.
+	 */
+	public static void init() {
 		try {
 			arieLaserEyes = new SpriteSheet(PLAYER_IMAGES + "arieLaser.png", 
 					SPRITESHEET_VALUE, SPRITESHEET_VALUE);
 		} catch (SlickException e) {
 			e.printStackTrace();
 		}
-		this.mainGame = mainGame;
-		this.gameState = gameState;
-		processCollisions = true;
-		this.died = false;
-	} 
+	}
 	
 	/**
 	 * Update all players.
