@@ -1,0 +1,1588 @@
+2015-10-28 21:08:12.264 - [Highscores|2]: Highscores read from file, filename=resources/highscores.txt
+2015-10-28 21:08:18.301 - [shutdown|3]: Shutdown hook attacked
+2015-10-28 21:08:19.095 - [States|2]: GameState initialized
+2015-10-28 21:08:19.097 - [States|2]: MenuSettingsState initialized
+2015-10-28 21:08:19.098 - [States|2]: MenuMainState initialized
+2015-10-28 21:08:19.099 - [States|2]: MenuGameoverState initialized
+2015-10-28 21:08:19.100 - [States|2]: MenuMultiplayerState initialized
+2015-10-28 21:08:19.101 - [States|2]: MenuMainstate added
+2015-10-28 21:08:19.101 - [States|2]: GameState added
+2015-10-28 21:08:19.101 - [States|2]: MenuGameoverState added
+2015-10-28 21:08:19.101 - [States|2]: MenuSettingsstate added
+2015-10-28 21:08:19.101 - [States|2]: MenuMultiplayerState added
+2015-10-28 21:08:19.101 - [States|2]: MenuSplashState added
+2015-10-28 21:08:19.345 - [players|3]: player added
+2015-10-28 21:08:19.701 - [States|2]: Entering MenuMainState
+2015-10-28 21:08:19.720 - [States|2]: Entering MenuSettingsState
+2015-10-28 21:08:23.755 - [GUI|1]: Showing UI-transition to MainState
+2015-10-28 21:08:23.966 - [States|2]: Exiting MenuSettingsState
+2015-10-28 21:08:23.970 - [color|3]: Color changed to Color (0.15,0.5,0.8,1.0)
+2015-10-28 21:08:23.982 - [States|2]: Entering MenuMainState
+2015-10-28 21:08:30.350 - [GUI|1]: Showing UI-transition to GameState
+2015-10-28 21:08:30.350 - [user-input|3]: Play button pressed
+2015-10-28 21:08:30.566 - [States|2]: Exiting MenuMainState
+2015-10-28 21:08:30.566 - [color|3]: Color changed to Color (0.15,0.5,0.8,1.0)
+2015-10-28 21:08:30.583 - [States|2]: Entering GameState
+2015-10-28 21:08:30.593 - [LevelContainer|4]: Levels are initialized
+2015-10-28 21:08:33.601 - [levels|3]: Starting level
+2015-10-28 21:08:33.617 - [Player|2]: Moved to position 750.0
+2015-10-28 21:08:33.634 - [Player|1]: Moving left from position 742.8
+2015-10-28 21:08:34.334 - [Player|2]: Moved to position 469.59998
+2015-10-28 21:08:34.483 - [Player|3]: Shot regular laser from position 469.59998
+2015-10-28 21:08:34.684 - [Player|1]: Moving right from position 469.59998
+2015-10-28 21:08:34.801 - [weapon|2]: Circle shot
+2015-10-28 21:08:34.802 - [BouncingCircles|3]: Circle with radius 30.0 shot, two circles with radius 20.0 entered the game
+2015-10-28 21:08:34.802 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:08:34.867 - [Player|2]: Moved to position 543.1999
+2015-10-28 21:08:34.984 - [Player|3]: Shot regular laser from position 543.1999
+2015-10-28 21:08:35.317 - [weapon|2]: Circle shot
+2015-10-28 21:08:35.317 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:08:35.317 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:08:35.501 - [Player|3]: Shot regular laser from position 643.1999
+2015-10-28 21:08:35.501 - [Player|2]: Moved to position 643.1999
+2015-10-28 21:08:36.267 - [Player|3]: Shot regular laser from position 796.4001
+2015-10-28 21:08:36.268 - [Player|2]: Moved to position 796.4001
+2015-10-28 21:08:36.552 - [weapon|2]: Circle shot
+2015-10-28 21:08:36.552 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:08:36.585 - [Player|1]: Moving left from position 789.6001
+2015-10-28 21:08:37.434 - [Player|2]: Moved to position 456.40015
+2015-10-28 21:08:37.617 - [Player|3]: Shot regular laser from position 456.40015
+2015-10-28 21:08:37.668 - [Player|1]: Moving right from position 456.40015
+2015-10-28 21:08:37.817 - [Player|2]: Moved to position 516.80005
+2015-10-28 21:08:37.951 - [weapon|2]: Circle shot
+2015-10-28 21:08:37.952 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:08:37.952 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:08:38.051 - [Player|3]: Shot regular laser from position 516.80005
+2015-10-28 21:08:38.301 - [weapon|2]: Circle shot
+2015-10-28 21:08:38.301 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:08:38.418 - [Player|2]: Moved to position 563.60004
+2015-10-28 21:08:38.485 - [Player|1]: Moving left from position 556.4
+2015-10-28 21:08:38.636 - [powerups|3]: Adding powerup FREEZE
+2015-10-28 21:08:38.751 - [Player|2]: Moved to position 456.8001
+2015-10-28 21:08:38.818 - [Player|1]: Moving right from position 456.8001
+2015-10-28 21:08:38.951 - [Player|2]: Moved to position 510.00006
+2015-10-28 21:08:39.118 - [Player|1]: Moving left from position 503.20007
+2015-10-28 21:08:39.235 - [Player|2]: Moved to position 463.60013
+2015-10-28 21:08:39.685 - [Player|1]: Moving right from position 463.60013
+2015-10-28 21:08:39.818 - [Player|2]: Moved to position 517.2001
+2015-10-28 21:08:44.269 - [Player|3]: Shot regular laser from position 517.2001
+2015-10-28 21:08:44.451 - [weapon|2]: Circle shot
+2015-10-28 21:08:44.452 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:08:44.569 - [Player|1]: Moving left from position 510.4001
+2015-10-28 21:08:45.152 - [Player|2]: Moved to position 284.0003
+2015-10-28 21:08:45.186 - [Player|3]: Shot regular laser from position 284.0003
+2015-10-28 21:08:45.302 - [Player|1]: Moving right from position 284.0003
+2015-10-28 21:08:45.386 - [weapon|2]: Circle shot
+2015-10-28 21:08:45.386 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:08:45.635 - [Player|2]: Moved to position 417.60016
+2015-10-28 21:08:46.536 - [GUI|1]: Showing UI-transition to GameState
+2015-10-28 21:08:46.735 - [States|2]: Exiting GameState
+2015-10-28 21:08:46.735 - [color|3]: Color changed to Color (0.15,0.5,0.8,1.0)
+2015-10-28 21:08:46.752 - [States|2]: Entering GameState
+2015-10-28 21:08:46.754 - [LevelContainer|4]: Levels are initialized
+2015-10-28 21:08:49.770 - [levels|3]: Starting level
+2015-10-28 21:08:49.837 - [Player|1]: Moving left from position 742.8
+2015-10-28 21:08:50.537 - [Player|2]: Moved to position 476.39993
+2015-10-28 21:08:50.720 - [Player|3]: Shot regular laser from position 476.39993
+2015-10-28 21:08:50.870 - [Player|1]: Moving right from position 476.39993
+2015-10-28 21:08:50.986 - [weapon|2]: Circle shot
+2015-10-28 21:08:50.987 - [BouncingCircles|3]: Circle with radius 45.0 shot, two circles with radius 30.0 entered the game
+2015-10-28 21:08:50.987 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:08:51.036 - [Player|2]: Moved to position 542.79987
+2015-10-28 21:08:51.170 - [Player|3]: Shot regular laser from position 542.79987
+2015-10-28 21:08:51.486 - [weapon|2]: Circle shot
+2015-10-28 21:08:51.486 - [BouncingCircles|3]: Circle with radius 30.0 shot, two circles with radius 20.0 entered the game
+2015-10-28 21:08:51.486 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:08:51.670 - [Player|2]: Moved to position 662.7999
+2015-10-28 21:08:51.686 - [Player|3]: Shot regular laser from position 662.7999
+2015-10-28 21:08:52.069 - [weapon|2]: Circle shot
+2015-10-28 21:08:52.070 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:08:52.070 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:08:52.454 - [Player|2]: Moved to position 829.60004
+2015-10-28 21:08:52.470 - [Player|3]: Shot regular laser from position 829.60004
+2015-10-28 21:08:52.837 - [Player|1]: Moving left from position 822.4
+2015-10-28 21:08:52.903 - [weapon|2]: Circle shot
+2015-10-28 21:08:52.903 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:08:53.253 - [Player|2]: Moved to position 662.79987
+2015-10-28 21:08:53.437 - [Player|1]: Moving right from position 662.79987
+2015-10-28 21:08:53.553 - [Player|2]: Moved to position 709.1999
+2015-10-28 21:08:53.603 - [Player|1]: Moving left from position 702.79987
+2015-10-28 21:08:53.645 - [powerups|3]: Picked up coin
+2015-10-28 21:08:53.887 - [powerups|3]: Picked up coin
+2015-10-28 21:08:54.070 - [Player|2]: Moved to position 522.7998
+2015-10-28 21:08:54.120 - [Player|3]: Shot regular laser from position 522.7998
+2015-10-28 21:08:54.121 - [Player|1]: Moving right from position 522.7998
+2015-10-28 21:08:54.304 - [Player|2]: Moved to position 595.9999
+2015-10-28 21:08:54.336 - [weapon|2]: Circle shot
+2015-10-28 21:08:54.336 - [BouncingCircles|3]: Circle with radius 30.0 shot, two circles with radius 20.0 entered the game
+2015-10-28 21:08:54.336 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:08:54.537 - [Player|3]: Shot regular laser from position 595.9999
+2015-10-28 21:08:54.787 - [weapon|2]: Circle shot
+2015-10-28 21:08:54.787 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:08:54.787 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:08:55.137 - [Player|2]: Moved to position 742.8
+2015-10-28 21:08:55.204 - [Player|3]: Shot regular laser from position 742.8
+2015-10-28 21:08:55.470 - [Player|1]: Moving left from position 736.0
+2015-10-28 21:08:55.537 - [weapon|2]: Circle shot
+2015-10-28 21:08:55.537 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:08:55.687 - [Player|2]: Moved to position 656.0
+2015-10-28 21:08:55.853 - [Player|3]: Shot regular laser from position 656.0
+2015-10-28 21:08:55.987 - [Player|1]: Moving right from position 656.0
+2015-10-28 21:08:56.153 - [weapon|2]: Circle shot
+2015-10-28 21:08:56.153 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:08:56.153 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:08:56.237 - [Player|2]: Moved to position 756.4
+2015-10-28 21:08:56.270 - [Player|3]: Shot regular laser from position 756.4
+2015-10-28 21:08:56.604 - [Player|1]: Moving left from position 749.60004
+2015-10-28 21:08:56.704 - [weapon|2]: Circle shot
+2015-10-28 21:08:56.704 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:08:56.762 - [powerups|3]: Adding powerup INSTANT
+2015-10-28 21:08:56.837 - [Player|2]: Moved to position 663.19995
+2015-10-28 21:08:57.388 - [Player|4]: Shot instant laser from position 663.19995
+2015-10-28 21:08:57.504 - [weapon|2]: Circle shot
+2015-10-28 21:08:57.504 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:08:57.804 - [Player|2]: Moved to position 570.3999
+2015-10-28 21:08:58.187 - [Player|4]: Shot instant laser from position 570.3999
+2015-10-28 21:08:58.320 - [weapon|2]: Circle shot
+2015-10-28 21:08:58.320 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:08:58.320 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:08:58.354 - [Player|4]: Shot instant laser from position 570.3999
+2015-10-28 21:08:58.404 - [weapon|2]: Circle shot
+2015-10-28 21:08:58.404 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:08:58.504 - [Player|1]: Moving right from position 570.3999
+2015-10-28 21:08:58.537 - [Player|4]: Shot instant laser from position 583.5999
+2015-10-28 21:08:58.804 - [Player|2]: Moved to position 690.39996
+2015-10-28 21:08:58.954 - [Player|1]: Moving left from position 683.6
+2015-10-28 21:08:59.104 - [Player|2]: Moved to position 630.3999
+2015-10-28 21:08:59.237 - [Player|1]: Moving right from position 630.3999
+2015-10-28 21:08:59.321 - [Player|2]: Moved to position 663.5999
+2015-10-28 21:08:59.771 - [Player|4]: Shot instant laser from position 663.5999
+2015-10-28 21:08:59.837 - [weapon|2]: Circle shot
+2015-10-28 21:08:59.837 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:09:00.054 - [Player|1]: Moving left from position 657.1999
+2015-10-28 21:09:00.287 - [Player|2]: Moved to position 570.79974
+2015-10-28 21:09:00.371 - [Player|1]: Moving right from position 570.79974
+2015-10-28 21:09:00.620 - [Player|2]: Moved to position 670.3999
+2015-10-28 21:09:00.988 - [Player|1]: Moving left from position 663.5999
+2015-10-28 21:09:01.071 - [Player|2]: Moved to position 636.7999
+2015-10-28 21:09:01.154 - [Player|4]: Shot instant laser from position 636.7999
+2015-10-28 21:09:01.571 - [Player|2]: Moved to position 563.1998
+2015-10-28 21:09:01.871 - [Player|2]: Moved to position 496.39984
+2015-10-28 21:09:02.105 - [Player|2]: Moved to position 449.59988
+2015-10-28 21:09:02.154 - [Player|1]: Moving right from position 449.59988
+2015-10-28 21:09:02.188 - [Player|4]: Shot instant laser from position 462.79987
+2015-10-28 21:09:02.205 - [weapon|2]: Circle shot
+2015-10-28 21:09:02.205 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:09:03.171 - [Player|2]: Moved to position 856.4001
+2015-10-28 21:09:04.305 - [Player|2]: Moved to position 1223.2013
+2015-10-28 21:09:04.338 - [Player|4]: Shot instant laser from position 1223.2013
+2015-10-28 21:09:04.355 - [weapon|2]: Circle shot
+2015-10-28 21:09:04.355 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:09:04.439 - [Player|1]: Moving left from position 1216.4012
+2015-10-28 21:09:04.888 - [Player|2]: Moved to position 1042.8005
+2015-10-28 21:09:05.388 - [GUI|1]: Showing UI-transition to GameState
+2015-10-28 21:09:05.605 - [States|2]: Exiting GameState
+2015-10-28 21:09:05.605 - [color|3]: Color changed to Color (0.15,0.5,0.8,1.0)
+2015-10-28 21:09:05.621 - [States|2]: Entering GameState
+2015-10-28 21:09:05.623 - [LevelContainer|4]: Levels are initialized
+2015-10-28 21:09:08.638 - [levels|3]: Starting level
+2015-10-28 21:09:09.422 - [Player|2]: Moved to position 463.19995
+2015-10-28 21:09:09.506 - [Player|3]: Shot regular laser from position 463.19995
+2015-10-28 21:09:09.722 - [Player|1]: Moving right from position 463.19995
+2015-10-28 21:09:09.772 - [weapon|2]: Circle shot
+2015-10-28 21:09:09.773 - [BouncingCircles|3]: Circle with radius 65.0 shot, two circles with radius 45.0 entered the game
+2015-10-28 21:09:09.773 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:09:09.955 - [Player|2]: Moved to position 555.9999
+2015-10-28 21:09:09.972 - [Player|3]: Shot regular laser from position 555.9999
+2015-10-28 21:09:10.323 - [weapon|2]: Circle shot
+2015-10-28 21:09:10.323 - [BouncingCircles|3]: Circle with radius 45.0 shot, two circles with radius 30.0 entered the game
+2015-10-28 21:09:10.323 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:09:10.372 - [Player|3]: Shot regular laser from position 649.60004
+2015-10-28 21:09:10.423 - [Player|2]: Moved to position 669.60004
+2015-10-28 21:09:10.806 - [weapon|2]: Circle shot
+2015-10-28 21:09:10.806 - [BouncingCircles|3]: Circle with radius 30.0 shot, two circles with radius 20.0 entered the game
+2015-10-28 21:09:10.806 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:09:11.039 - [Player|3]: Shot regular laser from position 803.2002
+2015-10-28 21:09:11.073 - [Player|2]: Moved to position 816.4002
+2015-10-28 21:09:11.473 - [Player|1]: Moving left from position 809.2002
+2015-10-28 21:09:11.555 - [weapon|2]: Circle shot
+2015-10-28 21:09:11.556 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:09:11.556 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:09:12.106 - [Player|2]: Moved to position 562.80005
+2015-10-28 21:09:12.122 - [Player|3]: Shot regular laser from position 562.80005
+2015-10-28 21:09:12.606 - [weapon|2]: Circle shot
+2015-10-28 21:09:12.606 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:09:12.906 - [Player|1]: Moving right from position 562.80005
+2015-10-28 21:09:12.940 - [Player|2]: Moved to position 576.00006
+2015-10-28 21:09:13.007 - [Player|1]: Moving left from position 568.80005
+2015-10-28 21:09:13.240 - [powerups|3]: Picked up coin
+2015-10-28 21:09:13.689 - [Player|3]: Shot regular laser from position 302.80038
+2015-10-28 21:09:13.723 - [Player|2]: Moved to position 289.2004
+2015-10-28 21:09:13.790 - [Player|1]: Moving right from position 289.2004
+2015-10-28 21:09:14.057 - [Player|2]: Moved to position 396.00027
+2015-10-28 21:09:14.157 - [weapon|2]: Circle shot
+2015-10-28 21:09:14.157 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:09:14.157 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:09:14.623 - [Player|1]: Moving left from position 390.00027
+2015-10-28 21:09:15.139 - [Player|2]: Moved to position 190.00038
+2015-10-28 21:09:15.156 - [Player|3]: Shot regular laser from position 190.00038
+2015-10-28 21:09:15.173 - [Player|1]: Moving right from position 190.00038
+2015-10-28 21:09:15.340 - [weapon|2]: Circle shot
+2015-10-28 21:09:15.340 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:09:16.573 - [Player|3]: Shot regular laser from position 750.0001
+2015-10-28 21:09:16.573 - [Player|1]: Moving left from position 743.20013
+2015-10-28 21:09:16.873 - [Player|2]: Moved to position 630.0001
+2015-10-28 21:09:16.973 - [Player|1]: Moving right from position 630.0001
+2015-10-28 21:09:17.524 - [Player|2]: Moved to position 850.00037
+2015-10-28 21:09:17.573 - [Player|3]: Shot regular laser from position 850.00037
+2015-10-28 21:09:17.573 - [Player|1]: Moving left from position 843.2004
+2015-10-28 21:09:17.940 - [weapon|2]: Circle shot
+2015-10-28 21:09:17.940 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:09:17.974 - [Player|2]: Moved to position 690.00037
+2015-10-28 21:09:18.106 - [Player|1]: Moving right from position 690.00037
+2015-10-28 21:09:18.990 - [Player|2]: Moved to position 1043.2004
+2015-10-28 21:09:19.024 - [Player|3]: Shot regular laser from position 1043.2004
+2015-10-28 21:09:19.142 - [Player|1]: Moving left from position 1036.4005
+2015-10-28 21:09:19.340 - [weapon|2]: Circle shot
+2015-10-28 21:09:19.341 - [BouncingCircles|3]: Circle with radius 45.0 shot, two circles with radius 30.0 entered the game
+2015-10-28 21:09:19.341 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:09:19.490 - [Player|2]: Moved to position 903.6004
+2015-10-28 21:09:19.506 - [Player|3]: Shot regular laser from position 903.6004
+2015-10-28 21:09:20.040 - [weapon|2]: Circle shot
+2015-10-28 21:09:20.040 - [BouncingCircles|3]: Circle with radius 30.0 shot, two circles with radius 20.0 entered the game
+2015-10-28 21:09:20.040 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:09:20.123 - [Player|2]: Moved to position 803.60046
+2015-10-28 21:09:20.190 - [Player|3]: Shot regular laser from position 803.60046
+2015-10-28 21:09:20.640 - [weapon|2]: Circle shot
+2015-10-28 21:09:20.640 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:09:20.641 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:09:21.008 - [Player|3]: Shot regular laser from position 643.20044
+2015-10-28 21:09:21.008 - [Player|2]: Moved to position 643.20044
+2015-10-28 21:09:21.507 - [weapon|2]: Circle shot
+2015-10-28 21:09:21.507 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:09:21.674 - [Player|1]: Moving right from position 643.20044
+2015-10-28 21:09:21.874 - [Player|2]: Moved to position 723.20044
+2015-10-28 21:09:21.890 - [Player|1]: Moving left from position 716.8004
+2015-10-28 21:09:21.908 - [Player|3]: Shot regular laser from position 716.8004
+2015-10-28 21:09:22.207 - [Player|2]: Moved to position 596.8003
+2015-10-28 21:09:22.340 - [weapon|2]: Circle shot
+2015-10-28 21:09:22.340 - [BouncingCircles|3]: Circle with radius 30.0 shot, two circles with radius 20.0 entered the game
+2015-10-28 21:09:22.341 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:09:22.442 - [Player|3]: Shot regular laser from position 596.8003
+2015-10-28 21:09:22.991 - [weapon|2]: Circle shot
+2015-10-28 21:09:22.991 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:09:22.992 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:09:23.191 - [Player|2]: Moved to position 476.80035
+2015-10-28 21:09:23.224 - [Player|3]: Shot regular laser from position 476.80035
+2015-10-28 21:09:23.641 - [weapon|2]: Circle shot
+2015-10-28 21:09:23.641 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:09:23.758 - [Player|1]: Moving right from position 476.80035
+2015-10-28 21:09:24.024 - [powerups|3]: Adding powerup FAST
+2015-10-28 21:09:24.092 - [Player|1]: Moving left from position 603.2003
+2015-10-28 21:09:24.691 - [Player|2]: Moved to position 370.00052
+2015-10-28 21:09:24.758 - [Player|1]: Moving right from position 370.00052
+2015-10-28 21:09:24.808 - [Player|3]: Shot regular laser from position 390.00052
+2015-10-28 21:09:24.825 - [Player|2]: Moved to position 396.4005
+2015-10-28 21:09:24.908 - [Player|1]: Moving left from position 390.00052
+2015-10-28 21:09:24.925 - [weapon|2]: Circle shot
+2015-10-28 21:09:24.925 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:09:25.342 - [Player|2]: Moved to position 223.2006
+2015-10-28 21:09:25.358 - [Player|1]: Moving right from position 223.2006
+2015-10-28 21:09:25.574 - [Player|2]: Moved to position 309.6006
+2015-10-28 21:09:25.675 - [Player|3]: Shot regular laser from position 309.6006
+2015-10-28 21:09:25.858 - [Player|1]: Moving left from position 302.8006
+2015-10-28 21:09:25.908 - [weapon|2]: Circle shot
+2015-10-28 21:09:25.908 - [BouncingCircles|3]: Circle with radius 30.0 shot, two circles with radius 20.0 entered the game
+2015-10-28 21:09:25.908 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:09:25.975 - [Player|2]: Moved to position 263.20062
+2015-10-28 21:09:26.124 - [Player|2]: Moved to position 223.20062
+2015-10-28 21:09:26.291 - [Player|3]: Shot regular laser from position 223.20062
+2015-10-28 21:09:26.475 - [Player|2]: Moved to position 169.60063
+2015-10-28 21:09:26.708 - [Player|1]: Moving right from position 169.60063
+2015-10-28 21:09:26.808 - [weapon|2]: Circle shot
+2015-10-28 21:09:26.808 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:09:26.808 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:09:27.192 - [Player|2]: Moved to position 363.20056
+2015-10-28 21:09:27.225 - [Player|3]: Shot regular laser from position 363.20056
+2015-10-28 21:09:27.225 - [Player|1]: Moving left from position 356.40057
+2015-10-28 21:09:27.441 - [Player|2]: Moved to position 276.40067
+2015-10-28 21:09:27.558 - [weapon|2]: Circle shot
+2015-10-28 21:09:27.558 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:09:27.625 - [powerups|3]: Picked up coin
+2015-10-28 21:09:27.659 - [players|3]: Player died, reducing lives
+2015-10-28 21:09:27.659 - [GUI|1]: Showing UI-transition to GameState
+2015-10-28 21:09:27.875 - [States|2]: Exiting GameState
+2015-10-28 21:09:27.875 - [color|3]: Color changed to Color (0.15,0.5,0.8,1.0)
+2015-10-28 21:09:27.892 - [States|2]: Entering GameState
+2015-10-28 21:09:27.893 - [LevelContainer|4]: Levels are initialized
+2015-10-28 21:09:30.909 - [levels|3]: Starting level
+2015-10-28 21:09:31.592 - [Player|2]: Moved to position 483.59998
+2015-10-28 21:09:31.659 - [Player|3]: Shot regular laser from position 483.59998
+2015-10-28 21:09:31.909 - [Player|1]: Moving right from position 483.59998
+2015-10-28 21:09:32.010 - [weapon|2]: Circle shot
+2015-10-28 21:09:32.010 - [BouncingCircles|3]: Circle with radius 65.0 shot, two circles with radius 45.0 entered the game
+2015-10-28 21:09:32.010 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:09:32.126 - [Player|2]: Moved to position 570.3999
+2015-10-28 21:09:32.175 - [Player|3]: Shot regular laser from position 570.3999
+2015-10-28 21:09:32.559 - [weapon|2]: Circle shot
+2015-10-28 21:09:32.559 - [BouncingCircles|3]: Circle with radius 45.0 shot, two circles with radius 30.0 entered the game
+2015-10-28 21:09:32.559 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:09:32.776 - [Player|2]: Moved to position 703.6
+2015-10-28 21:09:32.792 - [Player|3]: Shot regular laser from position 703.6
+2015-10-28 21:09:33.276 - [weapon|2]: Circle shot
+2015-10-28 21:09:33.276 - [BouncingCircles|3]: Circle with radius 30.0 shot, two circles with radius 20.0 entered the game
+2015-10-28 21:09:33.276 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:09:33.443 - [Player|2]: Moved to position 797.19995
+2015-10-28 21:09:34.376 - [Player|2]: Moved to position 1016.8
+2015-10-28 21:09:34.559 - [Player|3]: Shot regular laser from position 1016.8
+2015-10-28 21:09:34.892 - [weapon|2]: Circle shot
+2015-10-28 21:09:34.893 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:09:34.893 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:09:35.059 - [Player|2]: Moved to position 1150.0006
+2015-10-28 21:09:35.076 - [Player|3]: Shot regular laser from position 1150.0006
+2015-10-28 21:09:35.593 - [Player|1]: Moving left from position 1143.2006
+2015-10-28 21:09:35.609 - [weapon|2]: Circle shot
+2015-10-28 21:09:35.610 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:09:36.026 - [Player|2]: Moved to position 976.40015
+2015-10-28 21:09:36.676 - [Player|2]: Moved to position 836.40015
+2015-10-28 21:09:37.093 - [Player|2]: Moved to position 729.60004
+2015-10-28 21:09:37.776 - [Player|2]: Moved to position 602.4
+2015-10-28 21:09:37.793 - [Player|3]: Shot regular laser from position 602.4
+2015-10-28 21:09:38.094 - [Player|1]: Moving right from position 602.4
+2015-10-28 21:09:38.259 - [Player|2]: Moved to position 668.80005
+2015-10-28 21:09:38.327 - [weapon|2]: Circle shot
+2015-10-28 21:09:38.327 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:09:38.327 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:09:38.393 - [Player|3]: Shot regular laser from position 668.80005
+2015-10-28 21:09:38.710 - [weapon|2]: Circle shot
+2015-10-28 21:09:38.710 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:09:38.726 - [Player|2]: Moved to position 715.2001
+2015-10-28 21:09:39.227 - [Player|2]: Moved to position 808.8001
+2015-10-28 21:09:39.243 - [Player|1]: Moving left from position 802.4001
+2015-10-28 21:09:39.627 - [powerups|3]: Adding powerup SLOW
+2015-10-28 21:09:40.210 - [Player|2]: Moved to position 422.0001
+2015-10-28 21:09:40.660 - [Player|2]: Moved to position 362.00015
+2015-10-28 21:09:40.910 - [Player|2]: Moved to position 342.00018
+2015-10-28 21:09:41.061 - [Player|3]: Shot regular laser from position 342.00018
+2015-10-28 21:09:41.111 - [Player|1]: Moving right from position 342.00018
+2015-10-28 21:09:41.177 - [weapon|2]: Circle shot
+2015-10-28 21:09:41.177 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:09:41.361 - [Player|2]: Moved to position 442.0001
+2015-10-28 21:09:41.477 - [Player|1]: Moving left from position 435.2001
+2015-10-28 21:09:42.061 - [Player|2]: Moved to position 208.80031
+2015-10-28 21:09:42.194 - [Player|1]: Moving right from position 208.80031
+2015-10-28 21:09:42.210 - [Player|3]: Shot regular laser from position 215.60031
+2015-10-28 21:09:42.644 - [weapon|2]: Circle shot
+2015-10-28 21:09:42.644 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:09:42.693 - [Player|2]: Moved to position 408.80017
+2015-10-28 21:09:44.143 - [Player|2]: Moved to position 895.2004
+2015-10-28 21:09:44.244 - [Player|3]: Shot regular laser from position 895.2004
+2015-10-28 21:09:44.694 - [weapon|2]: Circle shot
+2015-10-28 21:09:44.694 - [BouncingCircles|3]: Circle with radius 45.0 shot, two circles with radius 30.0 entered the game
+2015-10-28 21:09:44.694 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:09:44.911 - [Player|1]: Moving left from position 888.4004
+2015-10-28 21:09:45.011 - [Player|2]: Moved to position 854.8004
+2015-10-28 21:09:45.061 - [Player|3]: Shot regular laser from position 854.8004
+2015-10-28 21:09:45.795 - [Player|3]: Shot regular laser from position 648.0001
+2015-10-28 21:09:45.828 - [Player|2]: Moved to position 634.4001
+2015-10-28 21:09:45.961 - [Player|1]: Moving right from position 634.4001
+2015-10-28 21:09:46.012 - [weapon|2]: Circle shot
+2015-10-28 21:09:46.012 - [BouncingCircles|3]: Circle with radius 30.0 shot, two circles with radius 20.0 entered the game
+2015-10-28 21:09:46.012 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:09:46.644 - [powerups|3]: Adding powerup INSTANT
+2015-10-28 21:09:46.661 - [Player|2]: Moved to position 914.0003
+2015-10-28 21:09:46.694 - [Player|1]: Moving left from position 907.2003
+2015-10-28 21:09:46.794 - [Player|4]: Shot instant laser from position 874.00024
+2015-10-28 21:09:46.877 - [Player|2]: Moved to position 840.4002
+2015-10-28 21:09:46.894 - [weapon|2]: Circle shot
+2015-10-28 21:09:46.895 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:09:46.895 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:09:46.928 - [Player|1]: Moving right from position 840.4002
+2015-10-28 21:09:46.961 - [Player|4]: Shot instant laser from position 854.00024
+2015-10-28 21:09:47.211 - [Player|2]: Moved to position 954.00037
+2015-10-28 21:09:47.244 - [Player|4]: Shot instant laser from position 954.00037
+2015-10-28 21:09:47.345 - [weapon|2]: Circle shot
+2015-10-28 21:09:47.345 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:09:47.395 - [Player|4]: Shot instant laser from position 954.00037
+2015-10-28 21:09:47.594 - [Player|2]: Moved to position 1020.4004
+2015-10-28 21:09:47.678 - [Player|1]: Moving left from position 1013.6004
+2015-10-28 21:09:48.011 - [Player|4]: Shot instant laser from position 887.20026
+2015-10-28 21:09:48.195 - [Player|4]: Shot instant laser from position 814.0002
+2015-10-28 21:09:48.394 - [Player|4]: Shot instant laser from position 734.0001
+2015-10-28 21:09:48.477 - [Player|1]: Moving right from position 700.0001
+2015-10-28 21:09:49.145 - [Player|2]: Moved to position 966.8003
+2015-10-28 21:09:49.228 - [Player|4]: Shot instant laser from position 966.8003
+2015-10-28 21:09:49.478 - [Player|1]: Moving left from position 960.40027
+2015-10-28 21:09:49.529 - [Player|4]: Shot instant laser from position 947.20026
+2015-10-28 21:09:49.595 - [weapon|2]: Circle shot
+2015-10-28 21:09:49.595 - [BouncingCircles|3]: Circle with radius 30.0 shot, two circles with radius 20.0 entered the game
+2015-10-28 21:09:49.595 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:09:49.628 - [Player|2]: Moved to position 907.20026
+2015-10-28 21:09:49.661 - [Player|4]: Shot instant laser from position 907.20026
+2015-10-28 21:09:49.762 - [weapon|2]: Circle shot
+2015-10-28 21:09:49.762 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:09:49.762 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:09:49.812 - [Player|4]: Shot instant laser from position 907.20026
+2015-10-28 21:09:49.894 - [weapon|2]: Circle shot
+2015-10-28 21:09:49.895 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:09:49.979 - [Player|4]: Shot instant laser from position 907.20026
+2015-10-28 21:09:50.311 - [Player|1]: Moving right from position 907.20026
+2015-10-28 21:09:50.529 - [powerups|3]: Adding powerup SLOW
+2015-10-28 21:09:50.628 - [Player|2]: Moved to position 1034.0002
+2015-10-28 21:09:50.645 - [Player|1]: Moving left from position 1027.2003
+2015-10-28 21:09:51.728 - [Player|2]: Moved to position 600.8001
+2015-10-28 21:09:51.746 - [Player|4]: Shot instant laser from position 600.8001
+2015-10-28 21:09:51.746 - [Player|1]: Moving right from position 600.8001
+2015-10-28 21:09:51.762 - [players|3]: Player died, reducing lives
+2015-10-28 21:09:51.762 - [GUI|1]: Showing UI-transition to GameState
+2015-10-28 21:09:51.763 - [weapon|2]: Circle shot
+2015-10-28 21:09:51.763 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:09:51.763 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:09:51.962 - [States|2]: Exiting GameState
+2015-10-28 21:09:51.963 - [color|3]: Color changed to Color (0.15,0.5,0.8,1.0)
+2015-10-28 21:09:51.979 - [States|2]: Entering GameState
+2015-10-28 21:09:51.981 - [LevelContainer|4]: Levels are initialized
+2015-10-28 21:09:54.996 - [levels|3]: Starting level
+2015-10-28 21:09:55.012 - [Player|3]: Shot regular laser from position 750.0
+2015-10-28 21:09:55.013 - [Player|2]: Moved to position 750.0
+2015-10-28 21:09:56.595 - [Player|2]: Moved to position 936.8001
+2015-10-28 21:09:56.862 - [Player|1]: Moving left from position 930.4001
+2015-10-28 21:09:57.063 - [Player|2]: Moved to position 856.8001
+2015-10-28 21:09:57.762 - [Player|3]: Shot regular laser from position 856.8001
+2015-10-28 21:09:57.863 - [Player|1]: Moving right from position 856.8001
+2015-10-28 21:09:58.112 - [weapon|2]: Circle shot
+2015-10-28 21:09:58.113 - [BouncingCircles|3]: Circle with radius 65.0 shot, two circles with radius 45.0 entered the game
+2015-10-28 21:09:58.113 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:09:58.196 - [Player|2]: Moved to position 990.40015
+2015-10-28 21:09:58.230 - [Player|3]: Shot regular laser from position 990.40015
+2015-10-28 21:09:58.730 - [weapon|2]: Circle shot
+2015-10-28 21:09:58.731 - [BouncingCircles|3]: Circle with radius 45.0 shot, two circles with radius 30.0 entered the game
+2015-10-28 21:09:58.731 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:09:58.763 - [Player|3]: Shot regular laser from position 1077.2003
+2015-10-28 21:09:58.813 - [Player|2]: Moved to position 1097.2004
+2015-10-28 21:09:59.246 - [Player|1]: Moving left from position 1090.8004
+2015-10-28 21:09:59.280 - [weapon|2]: Circle shot
+2015-10-28 21:09:59.281 - [BouncingCircles|3]: Circle with radius 30.0 shot, two circles with radius 20.0 entered the game
+2015-10-28 21:09:59.281 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:09:59.930 - [Player|2]: Moved to position 824.00006
+2015-10-28 21:09:59.997 - [Player|3]: Shot regular laser from position 824.00006
+2015-10-28 21:10:00.463 - [weapon|2]: Circle shot
+2015-10-28 21:10:00.464 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:10:00.464 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:10:00.814 - [Player|3]: Shot regular laser from position 650.4
+2015-10-28 21:10:00.814 - [Player|2]: Moved to position 650.4
+2015-10-28 21:10:01.314 - [weapon|2]: Circle shot
+2015-10-28 21:10:01.314 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:10:02.030 - [Player|2]: Moved to position 397.20013
+2015-10-28 21:10:02.063 - [Player|1]: Moving right from position 397.20013
+2015-10-28 21:10:02.097 - [Player|3]: Shot regular laser from position 410.40012
+2015-10-28 21:10:02.364 - [Player|2]: Moved to position 517.19995
+2015-10-28 21:10:02.563 - [weapon|2]: Circle shot
+2015-10-28 21:10:02.563 - [BouncingCircles|3]: Circle with radius 45.0 shot, two circles with radius 30.0 entered the game
+2015-10-28 21:10:02.564 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:10:02.746 - [Player|3]: Shot regular laser from position 517.19995
+2015-10-28 21:10:03.163 - [weapon|2]: Circle shot
+2015-10-28 21:10:03.163 - [BouncingCircles|3]: Circle with radius 30.0 shot, two circles with radius 20.0 entered the game
+2015-10-28 21:10:03.164 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:10:03.330 - [Player|3]: Shot regular laser from position 636.7999
+2015-10-28 21:10:03.347 - [Player|2]: Moved to position 643.5999
+2015-10-28 21:10:03.813 - [weapon|2]: Circle shot
+2015-10-28 21:10:03.814 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:10:03.814 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:10:04.097 - [powerups|3]: Picked up coin
+2015-10-28 21:10:04.130 - [Player|3]: Shot regular laser from position 796.8
+2015-10-28 21:10:04.147 - [Player|2]: Moved to position 803.6
+2015-10-28 21:10:04.414 - [weapon|2]: Circle shot
+2015-10-28 21:10:04.414 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:10:04.414 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:10:04.797 - [Player|2]: Moved to position 990.0
+2015-10-28 21:10:04.813 - [Player|3]: Shot regular laser from position 990.0
+2015-10-28 21:10:04.964 - [Player|1]: Moving left from position 983.2
+2015-10-28 21:10:05.214 - [Player|2]: Moved to position 889.5999
+2015-10-28 21:10:05.230 - [weapon|2]: Circle shot
+2015-10-28 21:10:05.230 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:10:05.814 - [Player|2]: Moved to position 703.59955
+2015-10-28 21:10:05.864 - [Player|1]: Moving right from position 703.59955
+2015-10-28 21:10:05.914 - [Player|2]: Moved to position 723.59955
+2015-10-28 21:10:05.964 - [Player|1]: Moving left from position 716.79956
+2015-10-28 21:10:06.363 - [Player|2]: Moved to position 563.59955
+2015-10-28 21:10:06.714 - [Player|1]: Moving right from position 563.59955
+2015-10-28 21:10:06.798 - [Player|2]: Moved to position 597.1995
+2015-10-28 21:10:07.063 - [Player|2]: Moved to position 617.1995
+2015-10-28 21:10:07.331 - [Player|2]: Moved to position 630.39954
+2015-10-28 21:10:07.447 - [Player|1]: Moving left from position 623.9995
+2015-10-28 21:10:07.480 - [Player|3]: Shot regular laser from position 617.1995
+2015-10-28 21:10:07.831 - [weapon|2]: Circle shot
+2015-10-28 21:10:07.831 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:10:07.847 - [Player|2]: Moved to position 470.39957
+2015-10-28 21:10:07.914 - [Player|1]: Moving right from position 470.39957
+2015-10-28 21:10:08.014 - [Player|2]: Moved to position 509.9995
+2015-10-28 21:10:08.181 - [Player|3]: Shot regular laser from position 509.9995
+2015-10-28 21:10:08.281 - [weapon|2]: Circle shot
+2015-10-28 21:10:08.281 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:10:08.615 - [Player|2]: Moved to position 669.99963
+2015-10-28 21:10:08.648 - [Player|1]: Moving left from position 663.19965
+2015-10-28 21:10:09.231 - [Player|3]: Shot regular laser from position 436.7997
+2015-10-28 21:10:09.281 - [Player|2]: Moved to position 416.39975
+2015-10-28 21:10:09.381 - [Player|1]: Moving right from position 416.39975
+2015-10-28 21:10:09.497 - [weapon|2]: Circle shot
+2015-10-28 21:10:09.497 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:10:10.531 - [Player|3]: Shot regular laser from position 876.39984
+2015-10-28 21:10:10.715 - [Player|2]: Moved to position 949.5999
+2015-10-28 21:10:10.731 - [Player|1]: Moving left from position 942.7999
+2015-10-28 21:10:10.931 - [Player|2]: Moved to position 869.19995
+2015-10-28 21:10:10.931 - [weapon|2]: Circle shot
+2015-10-28 21:10:10.932 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:10:10.964 - [Player|1]: Moving right from position 869.19995
+2015-10-28 21:10:11.098 - [Player|2]: Moved to position 922.39996
+2015-10-28 21:10:11.198 - [Player|1]: Moving left from position 915.99994
+2015-10-28 21:10:11.464 - [Player|2]: Moved to position 815.99994
+2015-10-28 21:10:11.515 - [Player|1]: Moving right from position 815.99994
+2015-10-28 21:10:11.782 - [Player|3]: Shot regular laser from position 922.7999
+2015-10-28 21:10:11.782 - [Player|2]: Moved to position 922.7999
+2015-10-28 21:10:11.965 - [Player|1]: Moving left from position 915.99994
+2015-10-28 21:10:12.016 - [weapon|2]: Circle shot
+2015-10-28 21:10:12.016 - [BouncingCircles|3]: Circle with radius 30.0 shot, two circles with radius 20.0 entered the game
+2015-10-28 21:10:12.016 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:10:12.315 - [Player|2]: Moved to position 782.79987
+2015-10-28 21:10:12.399 - [Player|3]: Shot regular laser from position 782.79987
+2015-10-28 21:10:12.716 - [weapon|2]: Circle shot
+2015-10-28 21:10:12.716 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:10:12.716 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:10:13.048 - [Player|2]: Moved to position 615.59985
+2015-10-28 21:10:13.082 - [Player|3]: Shot regular laser from position 615.59985
+2015-10-28 21:10:13.449 - [weapon|2]: Circle shot
+2015-10-28 21:10:13.449 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:10:13.566 - [Player|1]: Moving right from position 615.59985
+2015-10-28 21:10:13.849 - [powerups|3]: Adding powerup SLOW
+2015-10-28 21:10:13.932 - [Player|1]: Moving left from position 755.59985
+2015-10-28 21:10:14.432 - [Player|2]: Moved to position 561.9998
+2015-10-28 21:10:14.498 - [Player|3]: Shot regular laser from position 561.9998
+2015-10-28 21:10:15.216 - [Player|3]: Shot regular laser from position 561.9998
+2015-10-28 21:10:15.466 - [weapon|2]: Circle shot
+2015-10-28 21:10:15.466 - [BouncingCircles|3]: Circle with radius 30.0 shot, two circles with radius 20.0 entered the game
+2015-10-28 21:10:15.466 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:10:15.799 - [Player|2]: Moved to position 421.99994
+2015-10-28 21:10:15.915 - [Player|3]: Shot regular laser from position 421.99994
+2015-10-28 21:10:16.682 - [Player|3]: Shot regular laser from position 421.99994
+2015-10-28 21:10:16.999 - [weapon|2]: Circle shot
+2015-10-28 21:10:16.999 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:10:16.999 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:10:17.299 - [Player|2]: Moved to position 268.80005
+2015-10-28 21:10:17.782 - [Player|3]: Shot regular laser from position 268.80005
+2015-10-28 21:10:18.199 - [Player|1]: Moving right from position 268.80005
+2015-10-28 21:10:18.348 - [weapon|2]: Circle shot
+2015-10-28 21:10:18.349 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:10:18.483 - [powerups|3]: Adding powerup SHIELD
+2015-10-28 21:10:18.532 - [Player|2]: Moved to position 402.0
+2015-10-28 21:10:18.565 - [Player|1]: Moving left from position 396.0
+2015-10-28 21:10:18.800 - [Player|2]: Moved to position 308.80008
+2015-10-28 21:10:19.133 - [Player|1]: Moving right from position 308.80008
+2015-10-28 21:10:19.216 - [Player|2]: Moved to position 342.80005
+2015-10-28 21:10:19.333 - [Player|3]: Shot regular laser from position 342.80005
+2015-10-28 21:10:19.583 - [weapon|2]: Circle shot
+2015-10-28 21:10:19.583 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:10:19.583 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:10:20.250 - [Player|2]: Moved to position 569.19995
+2015-10-28 21:10:20.266 - [Player|3]: Shot regular laser from position 569.19995
+2015-10-28 21:10:20.316 - [Player|1]: Moving left from position 562.39996
+2015-10-28 21:10:20.567 - [weapon|2]: Circle shot
+2015-10-28 21:10:20.567 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:10:20.700 - [powerups|3]: Picked up coin
+2015-10-28 21:10:21.082 - [Player|2]: Moved to position 262.4002
+2015-10-28 21:10:21.116 - [Player|3]: Shot regular laser from position 262.4002
+2015-10-28 21:10:21.150 - [Player|1]: Moving right from position 262.4002
+2015-10-28 21:10:21.516 - [Player|2]: Moved to position 409.60013
+2015-10-28 21:10:21.533 - [weapon|2]: Circle shot
+2015-10-28 21:10:21.533 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:10:21.834 - [Player|2]: Moved to position 443.20013
+2015-10-28 21:10:21.850 - [Player|3]: Shot regular laser from position 443.20013
+2015-10-28 21:10:21.850 - [Player|1]: Moving left from position 436.40015
+2015-10-28 21:10:22.167 - [Player|2]: Moved to position 316.80023
+2015-10-28 21:10:22.200 - [weapon|2]: Circle shot
+2015-10-28 21:10:22.200 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:10:22.200 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:10:22.533 - [Player|3]: Shot regular laser from position 316.80023
+2015-10-28 21:10:22.884 - [weapon|2]: Circle shot
+2015-10-28 21:10:22.884 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:10:22.917 - [Player|1]: Moving right from position 316.80023
+2015-10-28 21:10:23.200 - [powerups|3]: Picked up coin
+2015-10-28 21:10:23.316 - [Player|3]: Shot regular laser from position 476.80014
+2015-10-28 21:10:23.567 - [weapon|2]: Circle shot
+2015-10-28 21:10:23.567 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:10:24.550 - [Player|3]: Shot regular laser from position 970.0004
+2015-10-28 21:10:24.583 - [Player|2]: Moved to position 983.20044
+2015-10-28 21:10:24.683 - [weapon|2]: Circle shot
+2015-10-28 21:10:24.683 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:10:24.884 - [Player|1]: Moving left from position 976.0004
+2015-10-28 21:10:24.966 - [Player|2]: Moved to position 949.6004
+2015-10-28 21:10:25.183 - [Player|2]: Moved to position 896.4004
+2015-10-28 21:10:25.233 - [Player|1]: Moving right from position 896.4004
+2015-10-28 21:10:25.383 - [Player|2]: Moved to position 956.40045
+2015-10-28 21:10:25.417 - [Player|1]: Moving left from position 949.20044
+2015-10-28 21:10:25.484 - [Player|2]: Moved to position 929.20044
+2015-10-28 21:10:25.867 - [Player|2]: Moved to position 822.4004
+2015-10-28 21:10:25.933 - [Player|3]: Shot regular laser from position 822.4004
+2015-10-28 21:10:26.317 - [weapon|2]: Circle shot
+2015-10-28 21:10:26.317 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:10:27.600 - [Player|3]: Shot regular laser from position 222.80048
+2015-10-28 21:10:27.601 - [Player|2]: Moved to position 222.80048
+2015-10-28 21:10:27.717 - [Player|1]: Moving right from position 222.80048
+2015-10-28 21:10:27.784 - [weapon|2]: Circle shot
+2015-10-28 21:10:27.784 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:10:27.784 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:10:28.067 - [Player|2]: Moved to position 363.2004
+2015-10-28 21:10:28.134 - [Player|3]: Shot regular laser from position 363.2004
+2015-10-28 21:10:28.417 - [Player|1]: Moving left from position 356.8004
+2015-10-28 21:10:28.484 - [weapon|2]: Circle shot
+2015-10-28 21:10:28.484 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:10:28.750 - [Player|1]: Moving right from position 229.6005
+2015-10-28 21:10:28.767 - [Player|3]: Shot regular laser from position 236.00049
+2015-10-28 21:10:28.918 - [weapon|2]: Circle shot
+2015-10-28 21:10:28.918 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:10:29.117 - [Player|2]: Moved to position 376.4004
+2015-10-28 21:10:30.018 - [GUI|1]: Showing UI-transition to GameState
+2015-10-28 21:10:30.217 - [States|2]: Exiting GameState
+2015-10-28 21:10:30.217 - [color|3]: Color changed to Color (0.15,0.5,0.8,1.0)
+2015-10-28 21:10:30.234 - [States|2]: Entering GameState
+2015-10-28 21:10:30.235 - [LevelContainer|4]: Levels are initialized
+2015-10-28 21:10:33.256 - [levels|3]: Starting level
+2015-10-28 21:10:33.273 - [Player|2]: Moved to position 750.0
+2015-10-28 21:10:33.884 - [Player|1]: Moving left from position 743.6
+2015-10-28 21:10:34.434 - [Player|3]: Shot regular laser from position 529.9999
+2015-10-28 21:10:34.435 - [Player|1]: Moving right from position 529.9999
+2015-10-28 21:10:34.685 - [weapon|2]: Circle shot
+2015-10-28 21:10:34.685 - [BouncingCircles|3]: Circle with radius 45.0 shot, two circles with radius 30.0 entered the game
+2015-10-28 21:10:34.685 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:10:34.751 - [Player|2]: Moved to position 656.79987
+2015-10-28 21:10:34.868 - [Player|3]: Shot regular laser from position 656.79987
+2015-10-28 21:10:35.368 - [Player|2]: Moved to position 777.1998
+2015-10-28 21:10:35.385 - [weapon|2]: Circle shot
+2015-10-28 21:10:35.385 - [BouncingCircles|3]: Circle with radius 30.0 shot, two circles with radius 20.0 entered the game
+2015-10-28 21:10:35.385 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:10:35.869 - [Player|3]: Shot regular laser from position 777.1998
+2015-10-28 21:10:35.951 - [Player|1]: Moving left from position 770.7998
+2015-10-28 21:10:36.101 - [weapon|2]: Circle shot
+2015-10-28 21:10:36.101 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:10:36.102 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:10:36.552 - [powerups|3]: Picked up coin
+2015-10-28 21:10:36.601 - [Player|2]: Moved to position 517.1998
+2015-10-28 21:10:36.652 - [Player|3]: Shot regular laser from position 517.1998
+2015-10-28 21:10:37.468 - [Player|2]: Moved to position 397.19998
+2015-10-28 21:10:37.918 - [Player|2]: Moved to position 243.60008
+2015-10-28 21:10:38.135 - [Player|1]: Moving right from position 243.60008
+2015-10-28 21:10:38.252 - [Player|3]: Shot regular laser from position 290.00006
+2015-10-28 21:10:38.252 - [Player|2]: Moved to position 290.00006
+2015-10-28 21:10:38.418 - [Player|1]: Moving left from position 283.60007
+2015-10-28 21:10:38.452 - [weapon|2]: Circle shot
+2015-10-28 21:10:38.453 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:10:38.603 - [Player|2]: Moved to position 216.80006
+2015-10-28 21:10:38.618 - [Player|1]: Moving right from position 216.80006
+2015-10-28 21:10:38.619 - [players|3]: Player died, reducing lives
+2015-10-28 21:10:38.619 - [GUI|1]: Showing UI-transition to GameState
+2015-10-28 21:10:38.835 - [States|2]: Exiting GameState
+2015-10-28 21:10:38.836 - [color|3]: Color changed to Color (0.15,0.5,0.8,1.0)
+2015-10-28 21:10:38.852 - [States|2]: Entering GameState
+2015-10-28 21:10:38.853 - [LevelContainer|4]: Levels are initialized
+2015-10-28 21:10:41.853 - [levels|3]: Starting level
+2015-10-28 21:10:41.869 - [Player|2]: Moved to position 750.0
+2015-10-28 21:10:42.002 - [Player|1]: Moving left from position 743.6
+2015-10-28 21:10:42.703 - [Player|2]: Moved to position 470.0
+2015-10-28 21:10:42.769 - [Player|3]: Shot regular laser from position 470.0
+2015-10-28 21:10:42.836 - [Player|1]: Moving right from position 470.0
+2015-10-28 21:10:43.036 - [weapon|2]: Circle shot
+2015-10-28 21:10:43.036 - [BouncingCircles|3]: Circle with radius 45.0 shot, two circles with radius 30.0 entered the game
+2015-10-28 21:10:43.036 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:10:43.103 - [Player|2]: Moved to position 576.8
+2015-10-28 21:10:43.153 - [Player|3]: Shot regular laser from position 576.8
+2015-10-28 21:10:43.586 - [weapon|2]: Circle shot
+2015-10-28 21:10:43.586 - [BouncingCircles|3]: Circle with radius 30.0 shot, two circles with radius 20.0 entered the game
+2015-10-28 21:10:43.586 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:10:43.653 - [Player|3]: Shot regular laser from position 676.8
+2015-10-28 21:10:43.686 - [Player|2]: Moved to position 690.39996
+2015-10-28 21:10:44.137 - [weapon|2]: Circle shot
+2015-10-28 21:10:44.137 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:10:44.137 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:10:44.553 - [Player|2]: Moved to position 824.0
+2015-10-28 21:10:44.637 - [Player|3]: Shot regular laser from position 824.0
+2015-10-28 21:10:44.971 - [Player|1]: Moving left from position 816.8
+2015-10-28 21:10:45.089 - [weapon|2]: Circle shot
+2015-10-28 21:10:45.089 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:10:45.338 - [Player|2]: Moved to position 677.1998
+2015-10-28 21:10:45.688 - [powerups|3]: Adding powerup HEALTH
+2015-10-28 21:10:46.171 - [Player|2]: Moved to position 543.9998
+2015-10-28 21:10:46.287 - [Player|1]: Moving right from position 543.9998
+2015-10-28 21:10:46.304 - [Player|3]: Shot regular laser from position 550.39984
+2015-10-28 21:10:46.488 - [weapon|2]: Circle shot
+2015-10-28 21:10:46.488 - [BouncingCircles|3]: Circle with radius 30.0 shot, two circles with radius 20.0 entered the game
+2015-10-28 21:10:46.488 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:10:46.604 - [Player|2]: Moved to position 670.7999
+2015-10-28 21:10:46.721 - [Player|3]: Shot regular laser from position 670.7999
+2015-10-28 21:10:47.138 - [weapon|2]: Circle shot
+2015-10-28 21:10:47.138 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:10:47.138 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:10:47.238 - [Player|2]: Moved to position 763.99994
+2015-10-28 21:10:47.305 - [Player|3]: Shot regular laser from position 763.99994
+2015-10-28 21:10:47.655 - [weapon|2]: Circle shot
+2015-10-28 21:10:47.655 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:10:47.738 - [Player|1]: Moving left from position 756.7999
+2015-10-28 21:10:47.838 - [powerups|3]: Adding powerup FAST
+2015-10-28 21:10:48.138 - [Player|2]: Moved to position 603.9998
+2015-10-28 21:11:00.390 - [levels|3]: Starting level
+2015-10-28 21:11:00.756 - [Player|1]: Moving right from position 603.9998
+2015-10-28 21:11:00.824 - [Player|2]: Moved to position 630.39984
+2015-10-28 21:11:01.173 - [Player|2]: Moved to position 730.39984
+2015-10-28 21:11:01.256 - [Player|1]: Moving left from position 723.9998
+2015-10-28 21:11:01.573 - [Player|2]: Moved to position 603.9997
+2015-10-28 21:11:02.589 - [Player|2]: Moved to position 237.19994
+2015-10-28 21:11:02.872 - [Player|2]: Moved to position 217.19994
+2015-10-28 21:11:02.923 - [Player|1]: Moving right from position 217.19994
+2015-10-28 21:11:03.139 - [Player|3]: Shot regular laser from position 304.3999
+2015-10-28 21:11:03.422 - [Player|2]: Moved to position 417.5998
+2015-10-28 21:11:03.539 - [weapon|2]: Circle shot
+2015-10-28 21:11:03.539 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:11:03.723 - [Player|1]: Moving left from position 410.39978
+2015-10-28 21:11:03.972 - [Player|3]: Shot regular laser from position 317.19986
+2015-10-28 21:11:04.273 - [Player|2]: Moved to position 197.5999
+2015-10-28 21:11:04.373 - [Player|1]: Moving right from position 197.5999
+2015-10-28 21:11:04.472 - [weapon|2]: Circle shot
+2015-10-28 21:11:04.473 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:11:04.473 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:11:04.756 - [Player|2]: Moved to position 350.7998
+2015-10-28 21:11:04.857 - [Player|1]: Moving left from position 343.5998
+2015-10-28 21:11:05.022 - [Player|2]: Moved to position 283.59985
+2015-10-28 21:11:05.439 - [Player|2]: Moved to position 230.39987
+2015-10-28 21:11:05.672 - [players|3]: Player died, reducing lives
+2015-10-28 21:11:05.672 - [GUI|1]: Showing UI-transition to GameState
+2015-10-28 21:11:05.890 - [States|2]: Exiting GameState
+2015-10-28 21:11:05.890 - [color|3]: Color changed to Color (0.15,0.5,0.8,1.0)
+2015-10-28 21:11:05.906 - [States|2]: Entering GameState
+2015-10-28 21:11:05.907 - [LevelContainer|4]: Levels are initialized
+2015-10-28 21:11:08.923 - [levels|3]: Starting level
+2015-10-28 21:11:09.724 - [Player|2]: Moved to position 436.79996
+2015-10-28 21:11:09.823 - [Player|3]: Shot regular laser from position 436.79996
+2015-10-28 21:11:09.907 - [Player|1]: Moving right from position 436.79996
+2015-10-28 21:11:10.090 - [weapon|2]: Circle shot
+2015-10-28 21:11:10.090 - [BouncingCircles|3]: Circle with radius 45.0 shot, two circles with radius 30.0 entered the game
+2015-10-28 21:11:10.091 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:11:10.290 - [Player|3]: Shot regular laser from position 590.39984
+2015-10-28 21:11:10.290 - [Player|2]: Moved to position 590.39984
+2015-10-28 21:11:10.723 - [weapon|2]: Circle shot
+2015-10-28 21:11:10.723 - [BouncingCircles|3]: Circle with radius 30.0 shot, two circles with radius 20.0 entered the game
+2015-10-28 21:11:10.724 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:11:10.757 - [Player|3]: Shot regular laser from position 690.3999
+2015-10-28 21:11:10.857 - [Player|2]: Moved to position 730.3999
+2015-10-28 21:11:11.274 - [weapon|2]: Circle shot
+2015-10-28 21:11:11.275 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:11:11.275 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:11:11.474 - [Player|2]: Moved to position 823.9999
+2015-10-28 21:11:11.524 - [Player|3]: Shot regular laser from position 823.9999
+2015-10-28 21:11:11.974 - [Player|1]: Moving left from position 817.1999
+2015-10-28 21:11:12.007 - [weapon|2]: Circle shot
+2015-10-28 21:11:12.008 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:11:12.340 - [Player|2]: Moved to position 677.1998
+2015-10-28 21:11:12.940 - [powerups|3]: Picked up coin
+2015-10-28 21:11:13.207 - [Player|1]: Moving right from position 557.5998
+2015-10-28 21:11:13.757 - [Player|2]: Moved to position 778.3999
+2015-10-28 21:11:14.291 - [Player|1]: Moving left from position 771.1999
+2015-10-28 21:11:14.691 - [Player|3]: Shot regular laser from position 617.59985
+2015-10-28 21:11:14.875 - [Player|2]: Moved to position 544.39984
+2015-10-28 21:11:15.274 - [weapon|2]: Circle shot
+2015-10-28 21:11:15.275 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:11:15.275 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:11:15.407 - [Player|2]: Moved to position 464.39996
+2015-10-28 21:11:15.441 - [Player|3]: Shot regular laser from position 464.39996
+2015-10-28 21:11:15.640 - [Player|2]: Moved to position 424.40002
+2015-10-28 21:11:15.675 - [Player|1]: Moving right from position 424.40002
+2015-10-28 21:11:15.758 - [weapon|2]: Circle shot
+2015-10-28 21:11:15.758 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:11:16.008 - [players|3]: Player died, reducing lives
+2015-10-28 21:11:16.008 - [GUI|1]: Showing UI-transition to GameState
+2015-10-28 21:11:16.224 - [States|2]: Exiting GameState
+2015-10-28 21:11:16.225 - [color|3]: Color changed to Color (0.15,0.5,0.8,1.0)
+2015-10-28 21:11:16.241 - [States|2]: Entering GameState
+2015-10-28 21:11:16.242 - [LevelContainer|4]: Levels are initialized
+2015-10-28 21:11:19.242 - [levels|3]: Starting level
+2015-10-28 21:11:19.259 - [Player|2]: Moved to position 750.0
+2015-10-28 21:11:19.292 - [Player|1]: Moving left from position 743.2
+2015-10-28 21:11:19.958 - [Player|2]: Moved to position 483.60007
+2015-10-28 21:11:20.058 - [Player|3]: Shot regular laser from position 483.60007
+2015-10-28 21:11:20.175 - [Player|1]: Moving right from position 483.60007
+2015-10-28 21:11:20.392 - [Player|2]: Moved to position 570.39996
+2015-10-28 21:11:20.442 - [weapon|2]: Circle shot
+2015-10-28 21:11:20.442 - [BouncingCircles|3]: Circle with radius 45.0 shot, two circles with radius 30.0 entered the game
+2015-10-28 21:11:20.442 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:11:20.525 - [Player|3]: Shot regular laser from position 570.39996
+2015-10-28 21:11:20.942 - [weapon|2]: Circle shot
+2015-10-28 21:11:20.942 - [BouncingCircles|3]: Circle with radius 30.0 shot, two circles with radius 20.0 entered the game
+2015-10-28 21:11:20.942 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:11:20.992 - [Player|3]: Shot regular laser from position 670.39996
+2015-10-28 21:11:21.058 - [Player|2]: Moved to position 697.19995
+2015-10-28 21:11:21.492 - [weapon|2]: Circle shot
+2015-10-28 21:11:21.492 - [BouncingCircles|3]: Circle with radius 20.0 shot, two circles with radius 10.0 entered the game
+2015-10-28 21:11:21.492 - [BouncingCircles|1]: New balls aquired bonus speed
+2015-10-28 21:11:21.775 - [Player|3]: Shot regular laser from position 803.99994
+2015-10-28 21:11:21.808 - [Player|2]: Moved to position 817.19995
+2015-10-28 21:11:22.243 - [weapon|2]: Circle shot
+2015-10-28 21:11:22.243 - [BouncingCircles|3]: Circle with radius 10 shot, no new balls entered the game
+2015-10-28 21:11:22.425 - [Player|1]: Moving left from position 810.7999
+2015-10-28 21:11:22.575 - [Player|2]: Moved to position 757.19995
+2015-10-28 21:11:22.992 - [powerups|3]: Adding powerup INSTANT
+2015-10-28 21:11:23.308 - [powerups|3]: Picked up coin
+2015-10-28 21:11:23.326 - [Player|2]: Moved to position 584.3998
+2015-10-28 21:11:23.392 - [Player|1]: Moving right from position 584.3998
+2015-10-28 21:11:23.958 - [Player|2]: Moved to position 810.79987
+2015-10-28 21:11:24.476 - [Player|1]: Moving left from position 804.39984
+2015-10-28 21:11:25.175 - [Player|2]: Moved to position 531.1999
+2015-10-28 21:11:25.427 - [powerups|3]: Picked up coin
+2015-10-28 21:11:25.560 - [Player|2]: Moved to position 438.00003
+2015-10-28 21:11:25.576 - [Player|4]: Shot instant laser from position 438.00003
+2015-10-28 21:11:25.710 - [Player|1]: Moving right from position 438.00003
+2015-10-28 21:11:25.992 - [Player|2]: Moved to position 551.1999
+2015-10-28 21:11:26.042 - [Player|1]: Moving left from position 544.3999
+2015-10-28 21:11:26.076 - [players|3]: Player died, reducing lives
+2015-10-28 21:11:26.076 - [GUI|1]: Showing UI-transition to GameOverState
+2015-10-28 21:11:26.076 - [players|4]: Player lives reached 0, game over
+2015-10-28 21:11:26.276 - [States|2]: Exiting GameState
+2015-10-28 21:11:26.276 - [color|3]: Color changed to Color (0.15,0.5,0.8,1.0)
+2015-10-28 21:11:26.293 - [States|2]: Entering MenuGameoverState
+2015-10-28 21:11:26.296 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.309 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.326 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.343 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.359 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.376 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.393 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.410 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.426 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.443 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.460 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.476 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.493 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.510 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.526 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.543 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.560 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.576 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.593 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.610 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.627 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.643 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.660 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.677 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.693 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.710 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.726 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.743 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.760 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.776 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.793 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.809 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.825 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.843 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.859 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.876 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.892 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.910 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.926 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.943 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.960 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.977 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:26.992 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.010 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.026 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.042 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.059 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.077 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.092 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.109 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.126 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.143 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.160 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.176 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.193 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.210 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.226 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.243 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.259 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.276 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.292 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.310 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.326 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.343 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.360 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.376 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.393 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.409 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.426 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.443 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.460 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.476 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.493 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.510 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.527 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.543 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.559 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.576 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.593 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.610 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.626 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.643 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.660 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.676 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.693 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.709 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.726 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.742 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.759 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.776 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.792 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.809 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.826 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.843 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.860 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.877 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.893 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.910 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.926 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.943 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.959 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.976 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:27.993 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.010 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.026 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.043 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.059 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.076 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.093 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.110 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.126 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.143 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.159 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.176 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.193 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.210 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.226 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.243 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.260 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.276 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.293 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.310 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.326 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.343 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.360 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.376 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.394 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.410 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.426 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.443 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.459 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.476 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.492 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.509 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.527 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.543 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.560 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.576 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.592 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.609 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.626 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.643 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.659 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.676 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.693 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.710 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.726 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.742 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.759 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.777 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.792 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.810 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.826 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.843 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.860 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.876 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.893 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.910 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.927 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.943 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.960 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.976 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:28.993 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.011 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.027 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.043 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.060 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.077 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.093 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.110 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.126 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.143 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.160 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.176 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.193 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.210 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.227 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.244 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.260 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.277 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.293 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.310 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.327 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.344 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.359 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.376 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.394 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.410 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.427 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.444 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.460 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.477 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.493 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.510 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.527 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.544 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.560 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.577 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.593 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.610 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.627 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.643 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.661 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.677 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.693 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.711 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.727 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.743 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.760 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.777 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.793 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.811 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.827 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.843 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.860 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.876 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.893 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.910 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.927 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.944 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.960 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.977 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:29.994 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.010 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.027 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.043 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.060 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.077 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.093 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.110 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.127 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.143 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.160 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.177 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.193 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.210 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.227 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.243 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.260 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.277 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.293 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.310 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.327 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.344 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.360 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.377 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.393 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.410 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.426 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.443 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.460 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.477 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.493 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.510 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.527 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.543 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.560 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.577 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.594 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.610 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.627 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.644 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.661 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.677 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.694 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.710 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.727 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.747 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.760 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.777 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.793 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.810 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.826 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.844 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.860 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.876 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.894 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.909 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.927 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.944 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.960 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.977 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:30.994 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.011 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.027 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.044 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.060 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.077 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.094 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.110 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.126 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.144 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.161 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.177 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.194 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.210 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.227 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.244 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.260 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.277 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.294 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.310 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.327 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.344 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.359 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.376 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.394 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.410 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.427 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.444 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.459 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.477 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.494 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.510 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.526 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.543 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.560 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.576 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.594 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.610 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.627 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.643 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.660 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.677 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.694 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.710 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.727 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.744 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.760 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.776 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.794 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.810 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.827 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.843 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.860 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.877 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.893 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.910 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.926 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.944 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.960 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.977 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:31.993 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.011 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.027 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.044 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.060 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.077 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.093 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.111 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.127 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.143 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.160 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.177 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.194 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.210 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.226 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.244 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.260 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.277 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.293 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.310 - [user-input|3]: save button clicked
+2015-10-28 21:11:32.311 - [Highscores|3]: Highscore added, name=Mark, score=15447
+2015-10-28 21:11:32.311 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.311 - [Highscores|2]: Higscores written to file, filename=resources/highscores.txt
+2015-10-28 21:11:32.312 - [highscores|3]: Score saved
+2015-10-28 21:11:32.312 - [user-input|3]: save button clicked
+2015-10-28 21:11:32.313 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.326 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.344 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.360 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.377 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.393 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.410 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.427 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.443 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.460 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.476 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.493 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.510 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.527 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.544 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.560 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.578 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.593 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.610 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.627 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.643 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.661 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.678 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.693 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.710 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.727 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.744 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.760 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.777 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.793 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.810 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.827 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.844 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.860 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.876 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.894 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.910 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.926 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.943 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.960 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.977 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:32.998 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.011 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.026 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.044 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.061 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.077 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.094 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.110 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.126 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.144 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.160 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.177 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.194 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.210 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.227 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.244 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.261 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.276 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.293 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.310 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.326 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.343 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.361 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.377 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.394 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.414 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.426 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.443 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.460 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.477 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.493 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.511 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.532 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.543 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.560 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.576 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.593 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.610 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.627 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.644 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.660 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.678 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.694 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.710 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.727 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.743 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.760 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.776 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.794 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.811 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.827 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.844 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.860 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.877 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.894 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.910 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.927 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.943 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.960 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.977 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:33.994 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.010 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.027 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.043 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.061 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.077 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.102 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.110 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.146 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.164 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.181 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.196 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.214 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.230 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.247 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.282 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.315 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.332 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.348 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.365 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.381 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.395 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.411 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.428 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.444 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.464 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.499 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.531 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.548 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.564 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.580 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.597 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.614 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.631 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.664 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.698 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.713 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.727 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.744 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.760 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.777 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.793 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.811 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.827 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.843 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.860 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.878 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.893 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.910 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.927 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.944 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.960 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.977 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:34.994 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.012 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.027 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.044 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.061 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.077 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.094 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.110 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.127 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.143 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.160 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.177 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.194 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.211 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.227 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.244 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.260 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.278 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.293 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.311 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.328 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.344 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.361 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.377 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.394 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.411 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.428 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.444 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.461 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.478 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.494 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.511 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.528 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.544 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.561 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.578 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.594 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.611 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.628 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.643 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.660 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.677 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.694 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.711 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.727 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.744 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.761 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.777 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.794 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.810 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.828 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.846 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.861 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.877 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.894 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.911 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.927 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.944 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.961 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.977 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:35.994 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.011 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.028 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.044 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.061 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.077 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.095 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.111 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.127 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.144 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.161 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.178 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.194 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.211 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.227 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.244 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.262 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.277 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.294 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.310 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.328 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.345 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.361 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.378 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.395 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.411 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.428 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.444 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.461 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.478 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.494 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.511 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.527 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.544 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.561 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.577 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.594 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.611 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.627 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.644 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.662 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.678 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.695 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.711 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.727 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.744 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.760 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.778 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.794 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.811 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.828 - [GUI|1]: Showing UI-transition to exit application.
+2015-10-28 21:11:36.828 - [user-input|3]: exit button clicked
+2015-10-28 21:11:36.829 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.844 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.860 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.878 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.894 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.911 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.927 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.945 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.960 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.978 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:36.994 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.011 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.028 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.045 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.061 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.078 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.094 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.111 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.128 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.145 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.161 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.178 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.194 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.211 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.228 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.245 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.261 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.278 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.295 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.311 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.328 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.344 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.360 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.378 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.394 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.411 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.428 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.444 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.461 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.478 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.494 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.512 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.528 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.545 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.561 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.578 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.595 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.611 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.628 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.645 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.661 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.678 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.694 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.711 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.728 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.744 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.761 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.778 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.794 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.810 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.827 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.844 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.861 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.878 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.894 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.911 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.927 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.944 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.961 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.977 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:37.994 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.012 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.028 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.044 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.061 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.078 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.094 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.111 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.127 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.144 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.161 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.178 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.194 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.210 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.227 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.245 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.261 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.278 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.295 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.312 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.327 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.345 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.362 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.378 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.395 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.412 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.428 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.445 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.461 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.477 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.494 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.512 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.528 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.545 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.561 - [Highscores|1]: Highscore list sorted
+2015-10-28 21:11:38.578 - [States|2]: Exiting MenuGameoverState
+2015-10-28 21:11:38.579 - [shutdown|4]: Shutdown requested

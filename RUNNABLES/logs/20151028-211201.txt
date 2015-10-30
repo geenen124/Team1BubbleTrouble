@@ -1,0 +1,21 @@
+2015-10-28 21:11:51.763 - [Highscores|2]: Highscores read from file, filename=resources/highscores.txt
+2015-10-28 21:11:57.660 - [shutdown|3]: Shutdown hook attacked
+2015-10-28 21:11:58.448 - [States|2]: GameState initialized
+2015-10-28 21:11:58.451 - [States|2]: MenuSettingsState initialized
+2015-10-28 21:11:58.451 - [States|2]: MenuMainState initialized
+2015-10-28 21:11:58.452 - [States|2]: MenuGameoverState initialized
+2015-10-28 21:11:58.453 - [States|2]: MenuMultiplayerState initialized
+2015-10-28 21:11:58.454 - [States|2]: MenuMainstate added
+2015-10-28 21:11:58.454 - [States|2]: GameState added
+2015-10-28 21:11:58.454 - [States|2]: MenuGameoverState added
+2015-10-28 21:11:58.454 - [States|2]: MenuSettingsstate added
+2015-10-28 21:11:58.454 - [States|2]: MenuMultiplayerState added
+2015-10-28 21:11:58.454 - [States|2]: MenuSplashState added
+2015-10-28 21:11:58.698 - [players|3]: player added
+2015-10-28 21:11:59.059 - [States|2]: Entering MenuMainState
+2015-10-28 21:11:59.069 - [States|2]: Entering MenuSettingsState
+2015-10-28 21:11:59.640 - [GUI|1]: Showing UI-transition to MainState
+2015-10-28 21:11:59.852 - [States|2]: Exiting MenuSettingsState
+2015-10-28 21:11:59.854 - [color|3]: Color changed to Color (0.15,0.5,0.8,1.0)
+2015-10-28 21:11:59.869 - [States|2]: Entering MenuMainState
+2015-10-28 21:12:01.581 - [shutdown|4]: Shutdown requested
